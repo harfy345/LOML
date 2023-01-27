@@ -30,14 +30,14 @@
           <!-- Email input -->
           <div class="form-outline mb-4">
             <input type="email" id="form3Example3" class="form-control form-control-lg"
-              placeholder="Enter a valid email address" />
+              placeholder="Entrez un adresse courriel valide" />
             <label class="form-label" for="form3Example3">Adresse courriel</label>
           </div>
 
           <!-- Password input -->
           <div class="form-outline mb-3">
             <input type="password" id="form3Example4" class="form-control form-control-lg"
-              placeholder="Enter password" />
+              placeholder="Entrer le mot de passe" />
             <label class="form-label" for="form3Example4">Mot de passe</label>
           </div>
 
@@ -54,9 +54,9 @@
 
           <div class="text-center text-lg-start mt-4 pt-2">
             <button type="button" class="btn btn-primary btn-lg"
-              style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+              style="padding-left: 2.5rem; padding-right: 2.5rem;">Conexion</button>
             <p class="small fw-bold mt-2 pt-1 mb-0">Pas de Compte? 
-                <a href="location.href = 'sinscrire.php';"class="link-danger">S'innscrire</a></p>
+                <a href="./sinscrire.php"class="link-danger">S'inscrire</a></p>
           </div>
 
         </form>
