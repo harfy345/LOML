@@ -15,8 +15,8 @@
 <body>
     <!-- Image and text -->
     <nav class="navbar navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">
-            <img src="public/images/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+        <a class="navbar-brand" href="./sinscrire.php">
+            <img src="public/images/logo.jpg" width="60" height="60" class="d-inline-block align-top" alt="">
             LOML
         </a>
     </nav>
