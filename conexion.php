@@ -16,6 +16,13 @@
 </head>
 <body>
 
+<nav class="navbar navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">
+            <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+            LOML
+        </a>
+</nav>
+
 <section class="vh-100">
   <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center h-100">
