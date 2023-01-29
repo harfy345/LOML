@@ -15,6 +15,7 @@
   
   <title>Conexion</title>
 
+  <script src="public\util\bootstrap-5.3.0-alpha1-dist\js\bootstrap.min.js"></script>
   <script src="public\util\js\jquery-3.6.0.min.js"></script>
   <script src="public\js\app.js"></script>
   <link rel="stylesheet" href="public\util\bootstrap-5.3.0-alpha1-dist\css\bootstrap.min.css">
