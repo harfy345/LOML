@@ -35,11 +35,11 @@
     $id=$connexion->insert_id;
 
     //enregistre infos de connexion 
-    $requete = "INSERT INTO connection values(0,?,?)";
+    $requete = "INSERT INTO connection values($id,?,?)";
     $stmt = $connexion->prepare($requete);
     $stmt->bind_param("ss", $courriel, $pass);
     $stmt->execute();
-    $id=$connexion->insert_id;
+ 
 
     
     $msg = "Le membre ".$id." a été bien enregistré.";
