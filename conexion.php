@@ -46,7 +46,7 @@
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
 
         <!-- Compléter l'action --- le lier au serveur -->
-        <form action="serveur/actions/connexion.php" method="POST">
+        <form action="server/actions/connexion.php" method="POST">
           <!-- Email input -->
           <div class="form-outline mb-4">
             <input type="email" id="courrielc" name="courrielc"  class="form-control form-control-lg"

@@ -142,9 +142,6 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`idUser`, `firstName`, `lastName`, `admin`) VALUES
-(1, 'Hakam', 'Almotlak', 1);
-
 --
 -- Indexes for dumped tables
 --

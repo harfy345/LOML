@@ -47,7 +47,7 @@
                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">S'inscrire</p>
 
                 <!-- Compléter l'action --- le lier au serveur -->
-                <form class="mx-1 mx-md-4" action="serveur/actions/enregistrerMembre.php" method="POST">
+                <form class="mx-1 mx-md-4" action="server/actions/enregistrerMembre.php" method="POST">
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
