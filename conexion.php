@@ -1,6 +1,7 @@
 <?php
 if (isset($_GET['msg'])) {
   $msg = $_GET['msg'];
+ 
 } else {
   $msg = "";
 }
@@ -37,7 +38,7 @@ require_once("./public/util/header.php");
           <div class="d-flex justify-content-between align-items-center">
             <!-- Checkbox -->
             <div class="form-check mb-0">
-              <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" required />
+              <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
               <label class="form-check-label" for="form2Example3">
                 Se souvenir de moi
               </label>
@@ -61,7 +62,7 @@ require_once("./public/util/header.php");
 
 
 <!-- Afficher le toast de la connection-->
-<div class="toast-container posToast">
+<div class="toast-container posToast" style="margin:0 0 0 20px !important; top:20px;">
   <div id="toast" class="toast  align-items-center text-white bg-danger border-0" data-bs-autohide="false" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
       <img src="public/images/message.png" width=24 height=24 class="rounded me-2" alt="message">
