@@ -37,7 +37,7 @@
 	$result = $stmt->get_result();
     $ligne=mysqli_fetch_object($result);
 
-    if($ligne->types == 'M'){
+    if($ligne->admin == '0'){
         header("Location: ../../pages/membres.php");
     } else{
         header("Location: ../../pages/admin.php");

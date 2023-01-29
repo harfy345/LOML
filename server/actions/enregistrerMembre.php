@@ -1,6 +1,7 @@
 <?php
     require_once("../DB/databaseRequests.php");
-    $prenom = $_POST['prenom'];
+    $prenom = $_POST['firstName'];
+    $nom = $_POST['lastName'];
     $courriel = $_POST['email'];   
     $pass = $_POST['pass'];
 
@@ -27,14 +28,14 @@
 		exit;
 	}
     //enregistrer infos du membre
-    $requete = "INSERT INTO profil values(0,?,\"0\",\"0\",\"0\",\"0\",\"\",\"\")";
+    $requete = "INSERT INTO users values(0,$prenom ,$nom,\"0\" )";
     $stmt = $connexion->prepare($requete);
-    $stmt->bind_param("s",$prenom );
+    $stmt->bind_param("ss",$prenom,$nom );
     $stmt->execute();
     $id=$connexion->insert_id;
 
     //enregistre infos de connexion 
-    $requete = "INSERT INTO connection values(0,?,?,\"M\")";
+    $requete = "INSERT INTO connection values(0,?,?)";
     $stmt = $connexion->prepare($requete);
     $stmt->bind_param("ss", $courriel, $pass);
     $stmt->execute();

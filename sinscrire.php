@@ -52,7 +52,16 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="prenom" name="prenom"  class="form-control" required/>
+                      <input type="text" id="firstName" name="firstName"  class="form-control" required/>
+                      <label class="form-label" for="form3Example1c">Votre Nom</label>
+                    </div>
+                  </div>
+
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" id="lastName" name="lastName"  class="form-control" required/>
                       <label class="form-label" for="form3Example1c">Votre Nom</label>
                     </div>
                   </div>
