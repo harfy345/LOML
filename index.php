@@ -1,5 +1,5 @@
 <?php
-
+$pagetitre = "index";
 require_once("./public/util/header.php");
 
 ?>
