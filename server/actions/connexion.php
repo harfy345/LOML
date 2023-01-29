@@ -5,13 +5,13 @@
     $pass = $_POST['passc'];
 	$id=0;
 
-	$requete="SELECT * FROM connection WHERE email=?";
+	$requete="SELECT * FROM connection WHERE email=? and pass=?";
 	$stmt = $connexion->prepare($requete);
-	$stmt->bind_param("s", $courriel);
+	$stmt->bind_param("ss", $courriel,$pass);
 	$stmt->execute();
 	$result = $stmt->get_result();
 	if(!$ligne = $result->fetch_object()){
-        $msg = "Le courriel ".$courriel." est incorrect.";
+        $msg = "Le courriel ou le mdp est incorrect";
         header("location:".$_SERVER['HTTP_REFERER']."?msg=$msg");
 		mysqli_close($connexion);
 		exit;
@@ -19,19 +19,6 @@
 		$id = $ligne->idUser;
 	}
 
-    $requete="SELECT * FROM connection WHERE pass=?";
-	$stmt = $connexion->prepare($requete);
-	$stmt->bind_param("s", $pass);
-	$stmt->execute();
-	$result = $stmt->get_result();
-	if(!$ligne = $result->fetch_object()){
-        $msg = "Le mot de passe est incorrect.";
-        header("location:".$_SERVER['HTTP_REFERER']."?msg=$msg");
-		mysqli_close($connexion);
-		exit;
-	}
-
-	
     $requete="SELECT * FROM users WHERE idUser=?";
 	$stmt = $connexion->prepare($requete);
 	$stmt->bind_param("i", $id);
@@ -47,6 +34,5 @@
 	}
 	
     mysqli_close($connexion);
-	
    
 ?>
