@@ -1,6 +1,10 @@
 <?php
-
-
+   if (isset($_GET['msg'])){
+    $msg=$_GET['msg'];
+     }
+     else {
+       $msg="";
+     }
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -11,9 +15,14 @@
   
   <title>Conexion</title>
 
+  <script src="public\util\js\jquery-3.6.0.min.js"></script>
+  <script src="public\js\app.js"></script>
   <link rel="stylesheet" href="public\util\bootstrap-5.3.0-alpha1-dist\css\bootstrap.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
+
+
+<body onLoad="initialiser(<?php echo "'".$msg."'" ?>);">
 <body>
 
 <nav class="navbar navbar-dark bg-primary">
@@ -33,25 +42,25 @@
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
 
         <!-- Compléter l'action --- le lier au serveur -->
-        <form>
+        <form action="serveur/actions/connexion.php" method="POST">
           <!-- Email input -->
           <div class="form-outline mb-4">
-            <input type="email" id="form3Example3" class="form-control form-control-lg"
-              placeholder="Entrez un adresse courriel valide" />
+            <input type="email" id="courrielc" name="courrielc"  class="form-control form-control-lg"
+              placeholder="Entrez un adresse courriel valide" required/>
             <label class="form-label" for="form3Example3">Adresse courriel</label>
           </div>
 
           <!-- Password input -->
           <div class="form-outline mb-3">
-            <input type="password" id="form3Example4" class="form-control form-control-lg"
-              placeholder="Entrer le mot de passe" />
+            <input type="password" id="passc" name="passc" class="form-control form-control-lg"
+              placeholder="Entrer le mot de passe" required/>
             <label class="form-label" for="form3Example4">Mot de passe</label>
           </div>
 
           <div class="d-flex justify-content-between align-items-center">
             <!-- Checkbox -->
             <div class="form-check mb-0">
-              <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+              <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" required/>
               <label class="form-check-label" for="form2Example3">
                 Se souvenir de moi
               </label>
@@ -72,6 +81,23 @@
   </div>
   
 </section>
+
+
+<!-- Afficher le toast de la connection-->
+<div class="toast-container posToast">
+		<div id="toast" class="toast  align-items-center text-white bg-danger border-0" data-bs-autohide="false" role="alert" aria-live="assertive" aria-atomic="true">
+			<div class="toast-header">
+			<img src="public/images/message.png" width=24 height=24 class="rounded me-2" alt="message">
+			<strong class="me-auto">Messages</strong>
+			<small class="text-muted"></small>
+			<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+			<div id="textToast" class="toast-body">
+			</div>
+		</div>
+	</div>
+</div>
+
 
 </body>
 </html>

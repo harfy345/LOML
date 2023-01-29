@@ -34,7 +34,8 @@ DROP TABLE IF EXISTS `connection`;
 CREATE TABLE `connection` (
   `idUser` int(11) NOT NULL,
   `email` varchar(255) COLLATE utf16_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf16_unicode_ci NOT NULL
+  `pass` varchar(255) COLLATE utf16_unicode_ci NOT NULL,
+  `types` varchar(1) COLLATE utf16_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci;
 
 -- --------------------------------------------------------
@@ -102,6 +103,7 @@ CREATE TABLE `messages` (
 DROP TABLE IF EXISTS `profile`;
 CREATE TABLE `profile` (
   `idUser` int(11) NOT NULL,
+  `prenom` varchar(255) COLLATE utf16_unicode_ci NOT NULL,
   `rank` int(11) NOT NULL,
   `age` int(11) NOT NULL,
   `height` int(11) NOT NULL,
