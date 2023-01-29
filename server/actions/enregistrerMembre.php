@@ -27,7 +27,7 @@
 		exit;
 	}
     //enregistrer infos du membre
-    $requete = "INSERT INTO profil values(0,?,\"\",\"\",\"\",\"\",\"\",\"\")";
+    $requete = "INSERT INTO profil values(0,?,\"0\",\"0\",\"0\",\"0\",\"\",\"\")";
     $stmt = $connexion->prepare($requete);
     $stmt->bind_param("s",$prenom );
     $stmt->execute();
