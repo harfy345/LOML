@@ -39,6 +39,9 @@
     $stmt = $connexion->prepare($requete);
     $stmt->bind_param("ss", $courriel, $pass);
     $stmt->execute();
+    $id=$connexion->insert_id;
+
+    
     $msg = "Le membre ".$id." a été bien enregistré.";
     header("location:".$_SERVER['HTTP_REFERER']."?msg=$msg");
 
