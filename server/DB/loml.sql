@@ -97,11 +97,11 @@ CREATE TABLE `messages` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `profile`
+-- Table structure for table `profil`
 --
 
 DROP TABLE IF EXISTS `profil`;
-CREATE TABLE `profile` (
+CREATE TABLE `profil` (
   `idUser` int(11) NOT NULL,
   `prenom` varchar(255) COLLATE utf16_unicode_ci NOT NULL,
   `rank` int(11) NOT NULL,
@@ -184,9 +184,9 @@ ALTER TABLE `messages`
   ADD KEY `idSender` (`idSender`);
 
 --
--- Indexes for table `profile`
+-- Indexes for table `profil`
 --
-ALTER TABLE `profile`
+ALTER TABLE `profil`
   ADD KEY `idUser` (`idUser`);
 
 --
@@ -260,10 +260,10 @@ ALTER TABLE `messages`
   ADD CONSTRAINT `messages_ibfk_3` FOREIGN KEY (`idSender`) REFERENCES `users` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `profile`
+-- Constraints for table `profil`
 --
-ALTER TABLE `profile`
-  ADD CONSTRAINT `profile_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `profil`
+  ADD CONSTRAINT `profil_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `session`
