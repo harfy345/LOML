@@ -1,6 +1,6 @@
 <?php
 
-    require_once("../bd/databaseRequests.php");
+    require_once("../DB/databaseRequests.php");
     $courriel = $_POST['courrielc'];   
     $pass = $_POST['passc'];
     $membre = "A";

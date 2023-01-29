@@ -1,5 +1,5 @@
 <?php
-    require_once("../bd/databaseRequests.php");
+    require_once("../DB/databaseRequests.php");
     $prenom = $_POST['prenom'];
     $courriel = $_POST['courriel'];   
     $pass = $_POST['pass'];
