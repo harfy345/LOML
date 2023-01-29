@@ -28,9 +28,9 @@
 		exit;
 	}
     //enregistrer infos du membre
-    $requete = "INSERT INTO users values(0,$prenom ,$nom,\"0\" )";
+    $requete = "INSERT INTO users values(0,?,?,\"0\")";
     $stmt = $connexion->prepare($requete);
-    $stmt->bind_param("ss",$prenom,$nom );
+    $stmt->bind_param("ss", $prenom, $nom );
     $stmt->execute();
     $id=$connexion->insert_id;
 
