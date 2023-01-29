@@ -100,7 +100,7 @@ CREATE TABLE `messages` (
 -- Table structure for table `profile`
 --
 
-DROP TABLE IF EXISTS `profile`;
+DROP TABLE IF EXISTS `profil`;
 CREATE TABLE `profile` (
   `idUser` int(11) NOT NULL,
   `prenom` varchar(255) COLLATE utf16_unicode_ci NOT NULL,
