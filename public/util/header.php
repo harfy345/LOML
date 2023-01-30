@@ -1,3 +1,17 @@
+
+<?php
+
+$curPageName = substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1);  
+
+
+if (session_id() ) {
+    header("location:./index.php");
+    
+} else if ($curPageName != 'conexion.php') header("location:./conexion.php");
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 

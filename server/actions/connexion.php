@@ -16,6 +16,7 @@
 		mysqli_close($connexion);
 		exit;
 	}else{
+		session_start();
 		$id = $ligne->idUser;
 	}
 
@@ -30,6 +31,7 @@
 		$msg = "le id est"."$id";
 		header("Location: ../../pages/membres.php?msg=$msg");
 	} else{
+		session_start();
 		header("Location: ../../pages/admin.php");
 	}
 	

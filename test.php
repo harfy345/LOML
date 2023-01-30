@@ -1,5 +1,11 @@
 <?php
 session_start();
-echo "Session_id=".session_id();
+
+if (session_id()) {
+    header("location:./index.php");
+    
+} else header("location:./conexion.php");
+
+
 
 ?>
