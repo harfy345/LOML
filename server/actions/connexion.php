@@ -5,9 +5,9 @@
     $pass = $_POST['passc'];
 	$id=0;
 
-	$requete="SELECT * FROM connection WHERE email=? and pass=?";
+	$requete="SELECT * FROM connection WHERE email=? and password=?";
 	$stmt = $connexion->prepare($requete);
-	$stmt->bind_param("ss", $courriel,$pass);
+	$stmt->bind_param("ss", $courriel , $pass);
 	$stmt->execute();
 	$result = $stmt->get_result();
 	if(!$ligne = $result->fetch_object()){
@@ -29,10 +29,10 @@
 
 	if($ligne->admin == 0){
 		$msg = "le id est"."$id";
-		header("Location: ../../pages/membres.php?msg=$msg");
+		header("Location: ../../membres.php?msg=$msg");
 	} else{
 		session_start();
-		header("Location: ../../pages/admin.php");
+		header("Location: ../../admin.php");
 	}
 	
     mysqli_close($connexion);
