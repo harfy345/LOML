@@ -6,7 +6,7 @@ if (isset($_GET['msg'])) {
   $msg = "";
 }
 
-
+$pagetitre = "conexion";
 require_once("./public/util/header.php");
 
 

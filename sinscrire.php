@@ -5,6 +5,7 @@
      else {
        $msg="";
      }
+     $pagetitre = "s'inscrire";
      require_once("./public/util/header.php");
 
 ?>
@@ -98,7 +99,7 @@
 </section>
 
  <!-- Afficher le toast de la connection-->
-<div class="toast-container posToast">
+<div class="toast-container posToast" style="margin:0 0 0 20px !important; top:20px;">
 		<div id="toast" class="toast  align-items-center text-white bg-danger border-0" data-bs-autohide="false" role="alert" aria-live="assertive" aria-atomic="true">
 			<div class="toast-header">
 			<img src="public/images/message.png" width=24 height=24 class="rounded me-2" alt="message">

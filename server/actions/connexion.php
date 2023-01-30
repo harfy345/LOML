@@ -12,7 +12,7 @@
 	$result = $stmt->get_result();
 	if(!$ligne = $result->fetch_object()){
         $msg = "Le courriel ou le mdp est incorrect";
-        header("location:".$_SERVER['HTTP_REFERER']."?msg=$msg");
+        header("Location: ../../conexion.php?msg=$msg");
 		mysqli_close($connexion);
 		exit;
 	}else{
