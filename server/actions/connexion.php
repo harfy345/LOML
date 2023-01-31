@@ -23,13 +23,13 @@
 		$msg = "le id est"."$id";
 		//si admin 
 		if($ligne->admin == 0){
-			$_SESSION['isAdmin'] =true ;
-			header("Location: ../../admin.php?msg=$msg");
+			$_SESSION['isAdmin'] =false ;
+			header("Location: ../../membre.php?msg=$msg");
 		}
 		// si membre
 		if(!$ligne->admin == 0){
-			$_SESSION['isAdmin'] =false ;
-			header("Location: ../../membres.php?msg=$msg");
+			$_SESSION['isAdmin'] =true ;
+			header("Location: ../../admin.php?msg=$msg");
 		}
 	}
 	
