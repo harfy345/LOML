@@ -1,4 +1,5 @@
 <?php
+require_once("../DB/databaseRequests.php");
 
 $requete="SELECT  users.idUser, connection.email, connection.pass, users.admin FROM users INNER JOIN connection ON users.idUser =connection.idUser WHERE connection.email =? and connection.pass =?"
 $stmt = $connexion->prepare($requete);
