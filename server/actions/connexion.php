@@ -29,17 +29,16 @@
 	$result = $stmt->get_result();
     $ligne=mysqli_fetch_object($result);
 
-	if($ligne->admin == 0){
 		session_start();
 		$_SESSION['username'] =$courriel ;
 		$_SESSION['isAdmin'] =false ;
+	if($ligne->admin == 0){
+		
 		$msg = "le id est"."$id";
 
 		header("Location: ../../membres.php?msg=$msg");
 	} else{
-		session_start();
-		$_SESSION['username'] =$courriel ;
-		$_SESSION['isAdmin'] =true ;
+		
 		header("Location: ../../admin.php");
 	}
 	
