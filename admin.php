@@ -4,7 +4,8 @@ require_once("./public/util/header.php");
 
 // vous mettez ca dans une page que vous voulez pas que l'utilisateur ait acces sans connexion 
 
-if (!session_id()) {
+
+if (!isset($_COOKIE["PHPSESSID"])) {
     header("location:./conexion.php");
 }
 
