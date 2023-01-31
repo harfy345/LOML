@@ -1,14 +1,14 @@
 <?php
-$pagetitre = "index";
-require_once("./public/util/header.php");
+
+session_start();
 
 // vous mettez ca dans une page que vous voulez pas que l'utilisateur ait acces sans connexion 
-
-if (!session_id()) {
+if (!isset($_SESSION['username'])) {
     header("location:./conexion.php");
 }
 
-
+$pagetitre = "index";
+require_once("./public/util/header.php");
 ?>
 <div>hello membre</div>
 <?php
