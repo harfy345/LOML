@@ -10,7 +10,7 @@ if (!session_id()) {
 
 
 ?>
-<div>hello admin</div>
+<div>hello membre</div>
 <?php
 
 require_once("./public/util/footer.php");
