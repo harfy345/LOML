@@ -8,7 +8,7 @@ if (!isset($_SESSION['username'])) {
 }
 
 $pagetitre = "index";
-require_once("./public/util/header.php");
+require_once("./public/util/headerAdminetMembre.php");
 ?>
 <div>hello membre</div>
 <?php
