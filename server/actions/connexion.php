@@ -19,6 +19,7 @@
 	}else{
 		// si on le trouve
 		session_start();
+		$id=$ligne->idUser;
 		$_SESSION['username'] =$courriel ;
 		$msg = "le id est"."$id";
 		//si admin 
