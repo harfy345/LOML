@@ -20,9 +20,10 @@
 		// si on le trouve
 		session_start();
 
-		$id=$ligne->idUser;
+		$id=$membre->idUser;
 		$_SESSION['username'] =$courriel ;
-		
+		$_SESSION['id'] =$membre->idUser ;
+
 		$msg = "le id est"."$id";
 		
 		//si admin 
