@@ -5,22 +5,21 @@ require_once("./public/util/header.php");
 ?>
 <link rel="stylesheet" href="./public/css/style.css">
 
-<div class="btn btn-primary col-6"  id="aaaaac">   
-
-    <div>
-        <h1 style = "color:blue;">Bienvenue sur notre de site de rencontre</h1>
-    </div>
-
-    <div class="row">
-        <h2> Love of my life </h2>
-        <div class="">   
+<div class="d-flex justify-content-center my-auto w-100 h-100 "> 
+    
+    <section class="jumbotron text-center " id="aaaaac">
+        <div class="container">
+          <h1 class="jumbotron-heading">Bienvenue sur notre de site de rencontre</h1>
+          <h2 class="lead text-muted">Love of my life</h2>
+          <p>
             <button class="btn btn-primary col-3" onClick="location.href = 'sinscrire.php';">S'inscrire</button>
             <button class="btn btn-primary col-3" onClick="location.href = 'conexion.php';">Se connecter</button>
+          </p>
         </div>
-    </div>
-
- 
+      </section>
 </div>
+   
+
 
 
 <?php

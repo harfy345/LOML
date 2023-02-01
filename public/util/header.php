@@ -20,10 +20,7 @@
         <div id="navCont" class="container maxWidth">
             <img src = "public/images/Logo.PNG" width ="60px" height ="60px" href="index.php">
             <a class="dr-title navbar-brand text-nav display-3" href="index.php">LOML</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <!-- <span class="navbar-toggler-icon"></span> -->
-                <i class="fas fa-bars"></i>
-            </button>
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="navbar-nav me-auto">
                    
@@ -45,4 +42,4 @@
 
         </div>
     </nav>
-    <main class="mb-auto">
+    <main class="mb-auto w-100 h-100">
