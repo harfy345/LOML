@@ -14,7 +14,9 @@ $pagetitre = "index";
 require_once("./public/util/headeradmin.php");
 ?>
 
+<div class = "container" id = "contenu">
 
+</div>
 
 <?php
 

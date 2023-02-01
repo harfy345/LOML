@@ -32,7 +32,7 @@
 					<a class="nav-link active" aria-current="page" href="#">Accueil</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="javascript:rendreVisible('divEnreg');">Enregistrer</a>
+					<a class="nav-link" href="javascript:montrerFormEnreg();">Enregistrer</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="javascript:lister('','');">Lister</a>
