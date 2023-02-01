@@ -5,6 +5,19 @@
     $courriel = $_POST['email'];   
     $pass = $_POST['pass'];
 
+/*    if(EmailExist()){
+        //insertMEmbre();
+    } else {
+        // afficher un message pour dire que le email est deja utilise 
+        // redirect to sign in 
+    }
+
+ */
+
+ //******************************************************/
+
+ // mettre le code dans des methodes server/api/membre
+
     //vérifier si le courriel existe
 	$requete="SELECT * FROM connection WHERE email=?";
 	$stmt = $connexion->prepare($requete);
