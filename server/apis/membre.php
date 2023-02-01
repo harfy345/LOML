@@ -15,4 +15,65 @@ function getMembreParEmailMDP($courriel, $pass){
     return $result->fetch_object();
     
 }
+function getAllLikesPourMembre($id){
+    require_once("./../DB/databaseRequests.php");
+
+	$requete="SELECT * 
+	FROM likes WHERE idUser =? ";
+  
+	$stmt = $connexion->prepare($requete);
+	$stmt->bind_param("i", $id);
+	$stmt->execute();
+	$result = $stmt->get_result();
+    
+    mysqli_close($connexion);
+    return $result->fetch_all();
+    
+}
+function getAllMatchesPourUser($id){
+    require_once("./../DB/databaseRequests.php");
+
+	$requete="SELECT * 
+	FROM matchs WHERE idUser =? ";
+  
+	$stmt = $connexion->prepare($requete);
+	$stmt->bind_param("i", $id);
+	$stmt->execute();
+	$result = $stmt->get_result();
+    
+    mysqli_close($connexion);
+    return $result->fetch_all();
+    
+}
+
+function membreIsAdmin($id){
+    require_once("./../DB/databaseRequests.php");
+
+	$requete="SELECT admin
+	FROM users WHERE idUser =?";
+  
+	$stmt = $connexion->prepare($requete);
+	$stmt->bind_param("i", $id);
+	$stmt->execute();
+	$result = $stmt->get_result();
+    
+    mysqli_close($connexion);
+    return $result->fetch_object();
+}
+
+function getAllMembres(){
+    require_once("./../DB/databaseRequests.php");
+
+	$requete="SELECT *
+	FROM users";
+  
+	$stmt = $connexion->prepare($requete);
+	
+	$stmt->execute();
+	$result = $stmt->get_result();
+    
+    mysqli_close($connexion);
+
+    return $result->fetch_all();
+}
 ?>
