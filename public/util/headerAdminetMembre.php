@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="navbar-nav ms-auto">
-                    <a href="./conexion.php" class="nav-item nav-link text-nav"> Se Déconnecter<i class="ms-1 fa-solid fa-user"></i></a>
+                    <a href="./deconnexion.php" class="nav-item nav-link text-nav"> Se Déconnecter<i class="ms-1 fa-solid fa-user"></i></a>
                 </div>
 
                 
