@@ -62,16 +62,13 @@ function membreIsAdmin($id){
 }
 
 function getAllMembres(){
-    require_once("./../DB/databaseRequests.php");
+    require_once("server/DB/databaseRequests.php");
 
-	$requete="SELECT *
-	FROM users";
+	$requete="SELECT users.* , connection.email, connection.pass
+	FROM users INNER JOIN connection ON users.idUser =connection.idUser";
   
-	$stmt = $connexion->prepare($requete);
-	
-	$stmt->execute();
-	$result = $stmt->get_result();
-    
+  	$result = mysqli_query($connexion, $requete);
+
     mysqli_close($connexion);
 
     return $result->fetch_all();

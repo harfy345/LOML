@@ -28,6 +28,46 @@ require_once("./public/util/headeradmin.php");
 </div>
 
 
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>						
+            <th>NOM</th>
+            <th>PRENOM</th>
+            <th>ADMIN</th>
+            <th>EMAIL</th>
+            <th>PASS</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <?php
+            //require_once("server/apis/membre.php");
+            require_once("server/DB/databaseRequests.php");
+
+            $requete="SELECT users.* , connection.email, connection.pass
+            FROM users INNER JOIN connection ON users.idUser =connection.idUser";
+          
+            $result = mysqli_query($connexion, $requete);
+        
+
+            while($row = mysqli_fetch_array($result)) {
+        ?>
+              <tr id="<?php echo $row["id"]; ?>">
+                <td><?php echo $row["idUser"]; ?></td>
+                <td><?php echo $row["firstName"]; ?></td>
+                <td><?php echo $row["lastName"]; ?></td>
+                <td><?php echo $row["admin"]; ?></td>
+                <td><?php echo $row["email"]; ?></td>
+                <td><?php echo $row["pass"]; ?></td>
+
+        <?php
+            }
+        ?>
+    </tbody>
+
+</table>
+
 </body>
 </html>
 

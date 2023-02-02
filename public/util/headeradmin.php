@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -36,22 +35,22 @@
 
             <ul class="navbar-nav">
 				<li class="nav-item">
-					<div class="nav-link active" aria-current="page" href="#">Accueil</div>
+					<button  type="button" class="btn btn-primary" >Accueil</button >
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" onclick="montrerFormEnreg();">Enregistrer</a>
+					<button type="button" class="btn btn-primary" onclick="montrerFormEnreg();">Enregistrer</button>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="javascript:lister('','');">Lister</a>
+					<button type="button" class="btn btn-primary" onclick="listerMembre();">Lister</button>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="javascript:rendreVisible('divFiche');">Modifier</a>
+					<button type="button" class="btn btn-primary" href="javascript:rendreVisible('divFiche');">Modifier</button>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="javascript:rendreVisible('divEnlever');">Enlever</a>
+					<button type="button" class="btn btn-primary" href="javascript:rendreVisible('divEnlever');">Enlever</button>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="javascript:rendreVisible('divEnlever');">Enlever tous </a>
+					<button type="button" class="btn btn-primary" href="javascript:rendreVisible('divEnlever');">Enlever tous </button>
 				</li>
 			</ul>
     
