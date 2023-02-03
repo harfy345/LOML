@@ -13,7 +13,7 @@ if (!isset($_SESSION['username'])) {
 $pagetitre = "index";
 require_once("./public/util/headeradmin.php");
 ?>
-
+<link rel="stylesheet" href="./public/css/membre.css">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,17 +49,24 @@ require_once("./public/util/headeradmin.php");
             FROM users INNER JOIN connection ON users.idUser =connection.idUser";
           
             $result = mysqli_query($connexion, $requete);
-        
+
+
 
             while($row = mysqli_fetch_array($result)) {
         ?>
-              <tr id="<?php echo $row["id"]; ?>">
+              <tr id="<?php echo $row["idUser"]; ?>">
                 <td><?php echo $row["idUser"]; ?></td>
                 <td><?php echo $row["firstName"]; ?></td>
                 <td><?php echo $row["lastName"]; ?></td>
                 <td><?php echo $row["admin"]; ?></td>
                 <td><?php echo $row["email"]; ?></td>
                 <td><?php echo $row["pass"]; ?></td>
+                <td>
+                    <button type="button" id="btnEdit" class="btn btn-warning" onclick="editRow(<?php echo $row["idUser"]; ?>)">Edit</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger" onclick="deleteRow(<?php echo $row["idUser"]; ?>)">delete</button>
+                </td>
 
         <?php
             }
@@ -68,11 +75,16 @@ require_once("./public/util/headeradmin.php");
 
 </table>
 
+
+<div id="coverScreen"  class="LockOn">
+</div>
+
 </body>
+
 </html>
 
 <?php
 
-require_once("./public/util/footer.php");
+require_once("public/util/footer.php");
 
 ?>

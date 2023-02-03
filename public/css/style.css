@@ -1,3 +1,6 @@
+:root{
+    --main-background-color:rgb 
+}
 body{
     background-image: url("../images/background.jpg"); 
     background-repeat: no-repeat;
@@ -9,6 +12,8 @@ body{
 #aaaaac{
     background-color: aqua;
     border-style: dotted;
+    border-color: red;
+    margin-top: 300px;
 }
 
 

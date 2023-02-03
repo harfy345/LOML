@@ -7,8 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title><?php echo $pagetitre ?></title>
-  <script src="./public/js/app.js"></script>
-
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   
 
@@ -35,49 +33,29 @@
 
             <ul class="navbar-nav">
 				<li class="nav-item">
-					<button  type="button" class="btn btn-primary" >Accueil</button >
-				</li>
-				<li class="nav-item">
 					<button type="button" class="btn btn-primary" onclick="montrerFormEnreg();">Enregistrer</button>
 				</li>
 				<li class="nav-item">
-					<button type="button" class="btn btn-primary" onclick="listerMembre();">Lister</button>
-				</li>
-				<li class="nav-item">
-					<button type="button" class="btn btn-primary" href="javascript:rendreVisible('divFiche');">Modifier</button>
-				</li>
-				<li class="nav-item">
-					<button type="button" class="btn btn-primary" href="javascript:rendreVisible('divEnlever');">Enlever</button>
-				</li>
-				<li class="nav-item">
-					<button type="button" class="btn btn-primary" href="javascript:rendreVisible('divEnlever');">Enlever tous </button>
+					<button type="button" class="btn btn-primary" onclick="deleteAll();">Enlever tous </button>
 				</li>
 			</ul>
     
-            <div class="d-flex  nav-droite">
-                <select class="form-select" onChange="lister('categorie',this.options[this.selectedIndex].value)">
-                    <option value="dr">Choisir ...</option>
-                    <option value="dr">Prénom</option>
-                    <option value="co">Nom</option>
-                    <option value="su">Taille</option>
-                    <option value="ac">Sexe</option>
-                    <option value="ac">Age</option>
-                    <option value="ac">Type de relation</option>
-                </select>
-            </div>			
-			
-            <div class="d-flex nav-droite">
-                <div class="d-flex nav-droite">
-                    <input class="form-control me-2" type="search" id="rctitre" placeholder="Recherche" aria-label="Recherche">
-                    <button class="btn btn-info" onClick="lister('titre',document.getElementById('rctitre').value)">Recherche</button>
-                </div>
-            
-                </div>
-                    <div class="d-flex nav-droite">
-                        <a href="./deconnexion.php" class="btn btn-info"> Se Déconnecter<i class="ms-1 fa-solid fa-user"></i></a>
-                    </div>               
-                </div>
+            		
+			<div class="d-flex nav-droite">
+                <input class="form-control me-2" type="search" id="inputReche" placeholder="Recherche" aria-label="Recherche">
+                <button type="button" class="btn btn-primary" id="btnrecherche" onclick="recherche();">recherche</button>
             </div>
+
+           
+            <div class="d-flex nav-droite">
+                <a href="./membre.php" class="btn btn-info">Page Membre<i class="ms-1 fa-solid fa-user"></i></a>
+            </div>               
+    
+            <div class="d-flex nav-droite">
+                <a href="./deconnexion.php" class="btn btn-info"> Se Déconnecter<i class="ms-1 fa-solid fa-user"></i></a>
+            </div>               
+
+       
            
 
             
