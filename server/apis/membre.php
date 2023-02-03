@@ -1,5 +1,8 @@
 
 <?php
+
+
+
 function getMembreParEmailMDP($courriel, $pass){
     require_once("./../DB/databaseRequests.php");
 
@@ -15,6 +18,7 @@ function getMembreParEmailMDP($courriel, $pass){
     return $result->fetch_object();
     
 }
+
 function getAllLikesPourMembre($id){
     require_once("./../DB/databaseRequests.php");
 
@@ -30,9 +34,25 @@ function getAllLikesPourMembre($id){
     return $result->fetch_all();
     
 }
-function getAllMatchesPourUser($id){
-    require_once("./../DB/databaseRequests.php");
+function getAllProfilPourUser($id){
 
+    require("../../server/DB/databaseRequests.php");
+
+	//je n'avais pas accés a la variable connexion
+
+	$requete="SELECT * FROM profil WHERE idUser = ?";
+	$stmt = $connexion->prepare($requete);
+	$stmt->bind_param("i", $id);
+	$stmt->execute();
+	$result = $stmt->get_result();
+
+	mysqli_close($connexion);
+	return $result->fetch_all();
+}
+
+function getAllMatchesPourUser($id){
+    require_once("../../DB/databaseRequests.php");
+	
 	$requete="SELECT * 
 	FROM matchs WHERE idUser =? ";
   
@@ -45,7 +65,6 @@ function getAllMatchesPourUser($id){
     return $result->fetch_all();
     
 }
-
 function membreIsAdmin($id){
     require_once("./../DB/databaseRequests.php");
 

@@ -9,6 +9,8 @@
 	$id=0;
 
 	$membre = getMembreParEmailMDP($courriel , $pass);
+	
+	
 
 	if(!$membre){
 		// si on le trouve pas dans la bd
@@ -17,13 +19,16 @@
 		
 		exit;
 	} 
+
+		
+
 		// si on le trouve
 		session_start();
 
 		$id=$membre->idUser;
 		$_SESSION['username'] =$courriel ;
 		$_SESSION['id'] =$membre->idUser ;
-
+		
 		$msg = "le id est"."$id";
 		
 		//si admin 
