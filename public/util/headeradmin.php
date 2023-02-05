@@ -42,8 +42,8 @@
     
             		
 			<div class="d-flex nav-droite">
-                <input class="form-control me-2" type="search" id="inputReche" placeholder="Recherche" aria-label="Recherche">
-                <button type="button" class="btn btn-primary" id="btnrecherche" onclick="recherche();">recherche</button>
+                <input class="form-control me-2" type="search" name="email" id="inputReche" placeholder="Recherche" aria-label="Recherche">
+                <button type="button" class="btn btn-primary" name="search" id="btnrecherche">recherche</button>
             </div>
 
            

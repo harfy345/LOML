@@ -7,8 +7,8 @@ if (isset($_POST["action"]) && $_POST["action"] === "getRowData") {
 if (isset($_POST["action"]) && $_POST["action"] === "delete" ) {
 	deleteUser();
 }
-if (isset($_POST["action"]) && $_POST["action"] === "getMembreParEmail" ) {
-	getMembreParEmail();
+if(isset($_POST["search"])) {
+	getMembreParId();
 }
 
 
@@ -130,11 +130,37 @@ function deleteUser(){
 	
 }
 
-function getCurrentMembre($id){
+function getMembreParId(){
+	
+    require_once("./../DB/databaseRequests.php");
+
+	$id = intval($_POST["id"]);
+
+	$requete = "SELECT users.*, connection.email 
+	FROM users INNER JOIN connection ON users.idUser = connection.idUser WHERE users.idUser =$id";
+
+	if ($result = mysqli_query($connexion, $requete)) {
+		if (mysqli_num_rows($result) > 0) {
+		  $row = mysqli_fetch_assoc($result);
+		  $email = $row["email"];
+		  $first_name = $row["firstName"];
+		  $last_name = $row["lastName"];
+		  $response = array("email" => $email, "first_name" => $first_name, "last_name" => $last_name);
+		  echo json_encode($response);
+		} else {
+			echo json_encode(array("error" => "No results found"));
+		}
+	  } else {
+		$error = mysqli_error($connexion);
+		echo json_encode(array($error));
+	  }
+}
+
+function verifierUserProfil($id){
     require_once("server/DB/databaseRequests.php");
 
-    $requete="SELECT *
-    FROM users WHERE idUser =?";
+	$requete="SELECT profil.*, users.*  
+	FROM profil INNER JOIN users ON users.idUser =profil.idUser WHERE users.idUser =?";
 
     $stmt = $connexion->prepare($requete);
     $stmt->bind_param("i", $id);
@@ -147,25 +173,6 @@ function getCurrentMembre($id){
     return $result->fetch_object();
 }
 
-function getMembreParEmail(){
-    require_once("./../DB/databaseRequests.php");
 
-	$email = $_POST["valeur"];
 
-	$requete="SELECT users.firstName, users.lastName, connection.email
-	FROM users INNER JOIN connection ON users.idUser =connection.idUser WHERE connection.email =$email";
-
-  	$result = mysqli_query($connexion,$requete);
-
-	if ($result) {
-		$row = mysqli_fetch_assoc($result);
-
-		echo json_encode($row);
-		exit;
-	} else {
-		echo json_encode(array("error" => "Could not retrieve row data."));
-		exit;
-	}
-
-}
 ?>
