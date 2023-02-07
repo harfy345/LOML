@@ -159,8 +159,8 @@ function getMembreParId(){
 function verifierUserProfil($id){
     require_once("server/DB/databaseRequests.php");
 
-	$requete="SELECT profil.*, users.*  
-	FROM profil INNER JOIN users ON users.idUser =profil.idUser WHERE users.idUser =?";
+	$requete="SELECT profile.*, users.*  
+	FROM profile INNER JOIN users ON users.idUser =profile.idUser WHERE users.idUser =?";
 
     $stmt = $connexion->prepare($requete);
     $stmt->bind_param("i", $id);
