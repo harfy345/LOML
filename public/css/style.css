@@ -1,5 +1,7 @@
 :root{
-    --main-background-color:rgb 
+    ---form-background-color:#BFACAA;
+    ---main-background-color:#05204A;
+    ---header-background-color:#040a02;
 }
 body{
     background-image: url("../images/background.jpg"); 
@@ -7,6 +9,18 @@ body{
     background-attachment: fixed;
     background-position: center; 
     background-size: 1100px ;
+}
+
+.bg-main{
+    background-color: var(---main-background-color);
+}
+.bg-secon{
+    background-color: var(---form-background-color);
+
+}
+.bg-header{
+    background-color: var(---header-background-color);
+
 }
 
 #aaaaac{
