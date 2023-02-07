@@ -43,6 +43,21 @@ function getAllLikesPourMembre($id){
     return $result->fetch_all();
     
 }
+function getAllConvo($id){
+    require_once("./../DB/databaseRequests.php");
+
+	$requete="SELECT * 
+	FROM conversation WHERE idUser =? ";
+  
+	$stmt = $connexion->prepare($requete);
+	$stmt->bind_param("i", $id);
+	$stmt->execute();
+	$result = $stmt->get_result();
+    
+    mysqli_close($connexion);
+    return $result->fetch_all();
+    
+}
 function getAllMatchesPourUser($id){
     require_once("./../DB/databaseRequests.php");
 
