@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2023 at 10:55 PM
+-- Generation Time: Feb 07, 2023 at 08:56 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.1.3
 
@@ -37,6 +37,13 @@ CREATE TABLE `connection` (
   `pass` varchar(255) COLLATE utf16_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci;
 
+--
+-- Dumping data for table `connection`
+--
+
+INSERT INTO `connection` (`idUser`, `email`, `pass`) VALUES
+(1, 'hakam@gmail.com', '123');
+
 -- --------------------------------------------------------
 
 --
@@ -49,6 +56,13 @@ CREATE TABLE `conversation` (
   `idUser1` int(11) NOT NULL,
   `idUser2` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci;
+
+--
+-- Dumping data for table `conversation`
+--
+
+INSERT INTO `conversation` (`idConversation`, `idUser1`, `idUser2`) VALUES
+(1, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -74,8 +88,15 @@ CREATE TABLE `matchs` (
   `idMatch` int(11) NOT NULL,
   `idUser1` int(11) NOT NULL,
   `idUser2` int(11) NOT NULL,
-  `date` date NOT NULL
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `matchs`
+--
+
+INSERT INTO `matchs` (`idMatch`, `idUser1`, `idUser2`, `date`) VALUES
+(2, 1, 2, '2023-02-07 14:49:20');
 
 -- --------------------------------------------------------
 
@@ -90,17 +111,25 @@ CREATE TABLE `messages` (
   `idSender` int(11) NOT NULL,
   `idReceiver` int(11) NOT NULL,
   `content` varchar(255) COLLATE utf16_unicode_ci NOT NULL,
-  `date` date NOT NULL
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci;
+
+--
+-- Dumping data for table `messages`
+--
+
+INSERT INTO `messages` (`idMessages`, `idConversation`, `idSender`, `idReceiver`, `content`, `date`) VALUES
+(1, 1, 1, 2, 'hello', '2023-02-07 14:50:45'),
+(2, 1, 2, 1, 'hello back', '2023-02-07 14:50:57');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `profil`
+-- Table structure for table `profile`
 --
 
-DROP TABLE IF EXISTS `profil`;
-CREATE TABLE `profil` (
+DROP TABLE IF EXISTS `profile`;
+CREATE TABLE `profile` (
   `idUser` int(11) NOT NULL,
   `rank` int(11) NOT NULL,
   `age` int(11) NOT NULL,
@@ -110,6 +139,14 @@ CREATE TABLE `profil` (
   `bio` varchar(255) COLLATE utf16_unicode_ci NOT NULL,
   `picture` varchar(255) COLLATE utf16_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci;
+
+--
+-- Dumping data for table `profile`
+--
+
+INSERT INTO `profile` (`idUser`, `rank`, `age`, `height`, `gender`, `typeRelation`, `bio`,  `picture`) VALUES
+(1, 1, 23, 230, 1, 'single af', 'yo', ''),
+(2, 1, 35, 120, 2, 'single', 'nan', '');
 
 -- --------------------------------------------------------
 
@@ -134,12 +171,17 @@ CREATE TABLE `users` (
   `idUser` int(11) NOT NULL,
   `firstName` varchar(255) COLLATE utf16_unicode_ci NOT NULL,
   `lastName` varchar(255) COLLATE utf16_unicode_ci NOT NULL,
-  `admin` tinyint(4) NOT NULL
+  `admin` tinyint(4) NOT NULL,
+  `active` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
+
+INSERT INTO `users` (`idUser`, `firstName`, `lastName`, `admin`, `active`) VALUES
+(1, 'Hakam', 'Almotlak', 1, 1),
+(2, 'Ricardo', 'something', 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -170,6 +212,7 @@ ALTER TABLE `likes`
 -- Indexes for table `matchs`
 --
 ALTER TABLE `matchs`
+  ADD PRIMARY KEY (`idMatch`),
   ADD KEY `matchs_ibfk_1` (`idUser1`),
   ADD KEY `matchs_idfk_2` (`idUser2`) USING BTREE;
 
@@ -183,9 +226,9 @@ ALTER TABLE `messages`
   ADD KEY `idSender` (`idSender`);
 
 --
--- Indexes for table `profil`
+-- Indexes for table `profile`
 --
-ALTER TABLE `profil`
+ALTER TABLE `profile`
   ADD KEY `idUser` (`idUser`);
 
 --
@@ -208,17 +251,22 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `conversation`
 --
 ALTER TABLE `conversation`
-  MODIFY `idConversation` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idConversation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `matchs`
+--
+ALTER TABLE `matchs`
+  MODIFY `idMatch` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `idMessages` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idMessages` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --
@@ -259,10 +307,10 @@ ALTER TABLE `messages`
   ADD CONSTRAINT `messages_ibfk_3` FOREIGN KEY (`idSender`) REFERENCES `users` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `profil`
+-- Constraints for table `profile`
 --
-ALTER TABLE `profil`
-  ADD CONSTRAINT `profil_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `profile`
+  ADD CONSTRAINT `profile_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `session`
