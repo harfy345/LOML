@@ -31,7 +31,10 @@
                     <a href="./sinscrire.php" class="nav-item nav-link text-nav"> s'inscrire<i class="ms-1 fa-solid fa-user"></i></a>
                     <a href="./about.php" class="nav-item nav-link text-nav">à propos</a>
                     <a href="./contactUs.php" class="nav-item nav-link text-nav">contactez-nous</a>
-                  
+                      <?php if(false){?>
+                      <a href="./contactUs.php" class="nav-item nav-link text-nav">contactez-nous</a>
+
+                    <?php } ?>  
                 </div>
             </div>
         </div>
