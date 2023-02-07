@@ -1,0 +1,47 @@
+
+/*body css */
+body {
+    background-repeat: repeat;
+    background-size: 8.2%;
+    background-image: url('../public/images/Logo-partern.png');
+    font-weight: bolder;
+}
+
+/* Formulaire css */
+.form-design {
+    position: relative;
+    margin: 20px 230px 100px 50px; 
+    padding: 100px 50px 150px 50px; 
+    background-color: #e3b6c7;  
+    left: 100px;
+    border-bottom: 25px solid #eed4d4;
+    border-top: 50px solid #eed4d4;
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+    
+}
+
+/* design btn dans formulaire css */
+.btn-design {
+    background-color: #000000;
+    padding-left: 2.5rem; 
+    padding-right: 2.5rem; 
+    width: 100%; 
+    height:75px; 
+    left: 50px; 
+    right: 50px; 
+    color: #ffffff;
+    border-radius: 25px;
+}
+
+
+.password-forgot {
+    text-decoration: underline;
+    
+}
+
+h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 50px;
+    text-align: center;
+}

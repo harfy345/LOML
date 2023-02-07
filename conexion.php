@@ -8,55 +8,61 @@ if (isset($_GET['msg'])) {
 
 $pagetitre = "conexion";
 require_once("./public/util/header.php");
-
 ?>
-<section class="vh-100 ">
-      <div class="container-fluid h-custom form-connexion">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-          <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 text-light" style="position: relative; margin: 50px 200px 50px 10px; padding: 100px 50px 150px 50px; background-color: #e3b6c7;  left: 100px">
-              <!-- Compléter l'action --- le lier au serveur -->
-              <div class="form-outline mb-4">
-                  <img style="width:15%;"  src=".\public\images\Logo-partern-white.png" alt="">
-                  <img style="width:15%;"  src=".\public\images\Logo-partern-white.png" alt="">
-                  <img style="width:15%;"  src=".\public\images\Logo-partern-white.png" alt="">
-                  <img style="width:15%;"  src=".\public\images\Logo-partern-white.png" alt="">
-                  <img style="width:15%;"  src=".\public\images\Logo-partern-white.png" alt="">
-                  <img style="width:15%;"  src=".\public\images\Logo-partern-white.png" alt="">
-                </div>
-              <form action="server/actions/connexion.php" method="POST">
-                <!-- Email input -->
-                <div class="form-outline mb-4">
-                  <input type="email" id="courrielc" name="courrielc" class="form-control form-control-lg" placeholder="Entrez un adresse courriel valide" required />
-                  <label class="form-label" for="form3Example3">Adresse courriel</label>
-                </div>
-                <!-- Password input -->
-                <div class="form-outline mb-3">
-                  <input type="password" id="passc" name="passc" class="form-control form-control-lg" placeholder="Entrer le mot de passe" required />
-                  <label class="form-label" for="form3Example4">Mot de passe</label>
-                </div>
-                <div class="d-flex justify-content-between align-items-center">
-                  <!-- Checkbox -->
-                  <div class="form-check mb-0">
-                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-                    <label class="form-check-label" for="form2Example3">
-                      Se souvenir de moi
-                    </label>
-                  </div>
-                  <a href="#!" class="text-body">Mot de passe Oublier?</a>
-                </div>
-      
-                <div class="text-center text-lg-start mt-4 pt-2">
-                  <button type="submit" class="btn btn-primary btn-lg rd" style="padding-left: 2.5rem; padding-right: 2.5rem; width: 100%; height:75px; left: 50px; right: 50px; background-color: black;">Conexion</button>
-                  <p class="small fw-bold mt-2 pt-1 mb-0">Pas de Compte?
-                    <a href="./sinscrire.php" class="link-danger">S'inscrire</a>
-                  </p>
-              </div>
-            </form>
-          </div>
+
+
+<section class="vh-100 mainPage">
+  <div class="container-fluid h-custom form-connexion">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 text-light form-design">
+      <!-- Compléter l'action --- le lier au serveur -->
+        <div class="form-outline mb-4">
+          <h1>LOVE OF MY LIFE</h1>
         </div>
+        <div class="form-outline mb-4">
+          <img style="width:15%;"  src=".\public\images\Logo-partern-white.png" alt="">
+          <img style="width:15%;"  src=".\public\images\Logo-partern-white.png" alt="">
+          <img style="width:15%;"  src=".\public\images\Logo-partern-white.png" alt="">
+          <img style="width:15%;"  src=".\public\images\Logo-partern-white.png" alt="">
+          <img style="width:15%;"  src=".\public\images\Logo-partern-white.png" alt="">
+          <img style="width:15%;"  src=".\public\images\Logo-partern-white.png" alt="">
+        </div>
+        <form action="server/actions/connexion.php" method="POST">
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <input type="email" id="courrielc" name="courrielc" class="form-control form-control-lg" placeholder="Entrez un adresse courriel valide" required />
+            <label class="form-label" for="form3Example3">Adresse courriel</label>
+          </div>
+          <!-- Password input -->
+          <div class="form-outline mb-3">
+            <input type="password" id="passc" name="passc" class="form-control form-control-lg" placeholder="Entrer le mot de passe" required />
+            <label class="form-label" for="form3Example4">Mot de passe</label>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <!-- Checkbox -->
+            <div class="form-check mb-0">
+              <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+              <label class="form-check-label" for="form2Example3">
+              Se souvenir de moi
+              </label>
+            </div>
+            <a href="#!" class="text-body password-forgot link-dark">Mot de passe Oublier?</a>
+          </div>
+
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <button class='btn-design' type="submit" class="btn btn-primary btn-lg rd">Conexion</button>
+            <p class="small fw-bold mt-2 pt-1 mb-0">Pas de Compte?
+            <a href="./sinscrire.php" class="link-dark">S'inscrire</a>
+            </p>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 </section>
-      
+    
+
+
 
 <!-- Afficher le toast de la connection-->
 <div class="toast-container posToast" style="margin:0 0 0 20px !important; top:20px;">
@@ -78,3 +84,5 @@ require_once("./public/util/header.php");
 require_once("./public/util/footer.php");
 
 ?>
+
+<link rel="stylesheet" href="./public/css/conexion.css">
