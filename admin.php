@@ -10,6 +10,7 @@ if (!isset($_SESSION['username'])) {
     header("location:./conexion.php");
 }
 
+$_SESSION['active_page'] = 'admin';
 $pagetitre = "index";
 require_once("./public/util/headeradmin.php");
 ?>

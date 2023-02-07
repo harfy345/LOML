@@ -7,7 +7,7 @@ if (!isset($_SESSION['username'])) {
     header("location:./conexion.php");
 }
 
-
+$_SESSION['active_page'] = 'membre';
 $pagetitre = "index";
 require_once("./public/util/headerAdminetMembre.php");
 

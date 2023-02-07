@@ -5,7 +5,7 @@ if (isset($_GET['msg'])) {
 } else {
   $msg = "";
 }
-
+$_SESSION['active_page'] = 'home';
 $pagetitre = "conexion";
 require_once("./public/util/header.php");
 

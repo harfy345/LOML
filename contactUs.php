@@ -1,4 +1,5 @@
 <?php
+$_SESSION['active_page'] = 'home';
 $pagetitre = "Contact Us";
 require_once("./public/util/header.php");
 ?>

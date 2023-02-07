@@ -6,7 +6,7 @@
        $msg="";
      }
 
-
+     $_SESSION['active_page'] = 'home';
      $pagetitre = "s'inscrire";
      require_once("./public/util/header.php");
 
