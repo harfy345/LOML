@@ -4,6 +4,7 @@
     $nom = $_POST['lastName'];
     $courriel = $_POST['email'];   
     $pass = $_POST['pass'];
+    $pass2= $_POST['pass2'];
 
 /*    if(EmailExist()){
         //insertMEmbre();
@@ -18,6 +19,13 @@
 
  // mettre le code dans des methodes server/api/membre
 
+    if($pass != $pass2){
+        $msg = "les mots de passe sont différent";
+        header("Location: ../../sinscrire.php?msg=$msg");
+        mysqli_close($connexion);
+        exit;
+    }
+        
     //vérifier si le courriel existe
 	$requete="SELECT * FROM connection WHERE email=?";
 	$stmt = $connexion->prepare($requete);
@@ -26,7 +34,7 @@
 	$result = $stmt->get_result();
 	if($ligne = $result->fetch_object()){
         $msg = "Courriel ".$courriel." existe deja";
-        header("location:".$_SERVER['HTTP_REFERER']."?msg=$msg");
+        header("Location: ../../sinscrire.php?msg=$msg");
 		mysqli_close($connexion);
 		exit;
 	}

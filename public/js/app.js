@@ -52,6 +52,10 @@ let montrerFormEnreg = () => {
                             <label for="adresse" class="form-label">Mot de Passe</label>
                             <input type="text" class="form-control is-valid" id="pass" name="pass"required>
                         </div>
+                        <div class="col-md-12">
+                            <label for="adresse" class="form-label">retaper Mot de Passe</label>
+                            <input type="text" class="form-control is-valid" id="pass" name="pass2"required>
+                        </div>
                         </br>
                         <div class="col-12">
                             <button class="btn btn-primary" type="submit" >Enresgister</button>
