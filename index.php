@@ -5,7 +5,7 @@ require_once("./public/util/header.php");
 ?>
 <link rel="stylesheet" href="./public/css/style.css">
 
-<div class="d-flex justify-content-center my-auto w-100 h-100 "> 
+<div class="d-flex justify-content-center my-auto w-100 h-100"> 
     
     <section class="jumbotron text-center " id="aaaaac">
         <div class="container">
