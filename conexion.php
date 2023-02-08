@@ -50,7 +50,7 @@ require_once("./public/util/header.php");
           </div>
 
           <div class="text-center text-lg-start mt-4 pt-2">
-            <button class='btn-design' type="submit" class="btn btn-primary btn-lg rd">Conexion</button>
+            <button class='btn-design' type="submit" class="btn btn-dark btn-lg rd">Conexion</button>
             <p class="small fw-bold mt-2 pt-1 mb-0">Pas de Compte?
             <a href="./sinscrire.php" class="link-dark">S'inscrire</a>
             </p>

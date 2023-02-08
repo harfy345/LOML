@@ -1,6 +1,6 @@
 :root{
     ---form-background-color:#BFACAA;
-    ---main-background-color:#05204A;
+    ---main-background-color:#677d9e;
     ---header-background-color:#e3b6c7;
 }
 
@@ -83,4 +83,33 @@
     padding-top: 0.5rem;
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  }
+
+  /*s'inscrire page css*/
+
+  .div-inside-inscrire {
+    background-color: #e3b6c7;
+    font-weight: bolder;
+    font-size: larger;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-bottom-right-radius: 1000px;
+  }
+
+  .logo-inscrire {
+    width: 50%;
+  }
+
+  .btn-design {
+    background-color: #000000;
+    padding-left: 2.5rem; 
+    padding-right: 2.5rem; 
+    width: 100%; 
+    height:75px; 
+    left: 50px; 
+    right: 50px; 
+    color: #ffffff;
+    border-radius: 25px;
+  }
+  .check-box {
+    background-color: #000000;
   }
