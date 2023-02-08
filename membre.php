@@ -9,7 +9,7 @@ if (!isset($_SESSION['username'])) {
 
 $_SESSION['active_page'] = 'membre';
 $pagetitre = "index";
-require_once("./public/util/headerAdminetMembre.php");
+require_once("./public/util/header.php");
 
 require_once("./server/apis/membre.php");
 

@@ -42,7 +42,8 @@ CREATE TABLE `connection` (
 --
 
 INSERT INTO `connection` (`idUser`, `email`, `pass`) VALUES
-(1, 'hakam@gmail.com', '123');
+(1, 'loml@hotmail.com', '123'),
+(2, 'ricardo@hotmail.com', '123');
 
 -- --------------------------------------------------------
 
@@ -125,25 +126,26 @@ INSERT INTO `messages` (`idMessages`, `idConversation`, `idSender`, `idReceiver`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `profile`
+-- Table structure for table `profil`
 --
 
-DROP TABLE IF EXISTS `profile`;
-CREATE TABLE `profile` (
+DROP TABLE IF EXISTS `profil`;
+CREATE TABLE `profil` (
   `idUser` int(11) NOT NULL,
   `rank` int(11) NOT NULL,
   `age` int(11) NOT NULL,
   `height` int(11) NOT NULL,
   `gender` int(11) NOT NULL,
   `typeRelation` varchar(255) COLLATE utf16_unicode_ci NOT NULL,
+  `bio` varchar(255) COLLATE utf16_unicode_ci NOT NULL,
   `picture` varchar(255) COLLATE utf16_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci;
 
 --
--- Dumping data for table `profile`
+-- Dumping data for table `profil`
 --
 
-INSERT INTO `profile` (`idUser`, `rank`, `age`, `height`, `gender`, `typeRelation`, `picture`) VALUES
+INSERT INTO `profil` (`idUser`, `rank`, `age`, `height`, `gender`, `typeRelation`, `picture`) VALUES
 (1, 1, 23, 230, 1, 'single af', ''),
 (2, 1, 35, 120, 2, 'single', '');
 
@@ -179,8 +181,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`idUser`, `firstName`, `lastName`, `admin`, `active`) VALUES
-(1, 'Hakam', 'Almotlak', 1, 1),
-(2, 'Ricardo', 'something', 1, 1);
+(1, 'Christopher', 'Gazemar', 1, 1),
+(2, 'Ricardo', 'Jean', 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -225,9 +227,9 @@ ALTER TABLE `messages`
   ADD KEY `idSender` (`idSender`);
 
 --
--- Indexes for table `profile`
+-- Indexes for table `profil`
 --
-ALTER TABLE `profile`
+ALTER TABLE `profil`
   ADD KEY `idUser` (`idUser`);
 
 --
@@ -306,10 +308,10 @@ ALTER TABLE `messages`
   ADD CONSTRAINT `messages_ibfk_3` FOREIGN KEY (`idSender`) REFERENCES `users` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `profile`
+-- Constraints for table `profil`
 --
-ALTER TABLE `profile`
-  ADD CONSTRAINT `profile_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `profil`
+  ADD CONSTRAINT `profil_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `session`
