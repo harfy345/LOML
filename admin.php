@@ -12,9 +12,8 @@ if (!isset($_SESSION['username'])) {
 
 $_SESSION['active_page'] = 'admin';
 $pagetitre = "index";
-require_once("./public/util/headeradmin.php");
+require_once("./public/util/header.php");
 ?>
-<link rel="stylesheet" href="./public/css/membre.css">
 <!DOCTYPE html>
 <html lang="en">
 <head>
