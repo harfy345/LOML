@@ -1,7 +1,6 @@
 <?php
 require_once("./server/apis/membre.php");
 $active_page = $_SESSION['active_page'];
-
 ?>
 
 <!DOCTYPE html>
@@ -35,24 +34,13 @@ $active_page = $_SESSION['active_page'];
       </div>	
 
 
-      <ul class="navbar-nav">
-				<li class="nav-item">
-					<button type="button" class="btn btn-primary" onclick="montrerFormEnreg();">Enregistrer</button>
-				</li>
-			</ul>
+
     		
       <div class="d-flex nav-droite">
           <input class="form-control me-2" type="search" name="email" id="inputReche" placeholder="Recherche" aria-label="Recherche">
           <button type="button" class="btn btn-primary" name="search" id="btnrecherche">recherche</button>
       </div>
-
-      <div class="d-flex nav-droite">
-          <a href="./membre.php" class="btn btn-info">Page Membre<i class="ms-1 fa-solid fa-user"></i></a>
-      </div>   
-
-      <div class="d-flex nav-droite">
-          <a href="./deconnexion.php" class="btn btn-info"> Se Déconnecter<i class="ms-1 fa-solid fa-user"></i></a>
-      </div>              
+            
     </div>
   </nav>
 

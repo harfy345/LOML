@@ -39,7 +39,7 @@
 		exit;
 	}
     //enregistrer infos du membre
-    $requete = "INSERT INTO users values(0,?,?,\"0\")";
+    $requete = "INSERT INTO users values(0,?,?,\"0\",\"1\")";
     $stmt = $connexion->prepare($requete);
     $stmt->bind_param("ss", $prenom, $nom );
     $stmt->execute();

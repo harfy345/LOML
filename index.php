@@ -4,9 +4,19 @@ $pagetitre = "index";
 require_once("./public/util/header.php");
 
 ?>
-<link rel="stylesheet" href="./public/css/style.css">
 
-<div class="d-flex justify-content-center my-auto w-100 h-100 bg-secon"> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body class="gb-index">
+
+
+<div class="d-flex justify-content-center my-auto w-100 h-100"> 
     
     <section class="jumbotron text-center " id="aaaaac">
         <div class="container">
@@ -20,6 +30,10 @@ require_once("./public/util/header.php");
       </section>
 </div>
    
+  
+</body>
+</html>
+
 
 
 

@@ -50,11 +50,11 @@ let montrerFormEnreg = () => {
                         </div>
                         <div class="col-md-12">
                             <label for="adresse" class="form-label">Mot de Passe</label>
-                            <input type="text" class="form-control is-valid" id="pass" name="pass"required>
+                            <input type="password" class="form-control is-valid" id="pass" name="pass"required>
                         </div>
                         <div class="col-md-12">
-                            <label for="adresse" class="form-label">retaper Mot de Passe</label>
-                            <input type="text" class="form-control is-valid" id="pass" name="pass2"required>
+                            <label for="adresse" class="form-label">confirmer Mot de Passe</label>
+                            <input type="password" class="form-control is-valid" id="pass" name="pass2"required>
                         </div>
                         </br>
                         <div class="col-12">
@@ -380,4 +380,168 @@ function popupProfileMembre() {
     `;
     document.getElementById('contenuModalProfil').innerHTML = card;
     $('#modalProfil').modal('show');
+}
+
+
+
+let montrerProfil = () => {
+
+    let card = `
+   
+           
+<div class="accordion" id="accordionExample">
+
+<div class="accordion-item">
+  <h2 class="accordion-header" id="headingPhoto">
+    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePhoto" aria-expanded="true" aria-controls="collapsePhoto">
+    Mes photos
+    </button>
+  </h2>
+  <div id="collapsePhoto" class="accordion-collapse collapse show" aria-labelledby="headingPhoto" data-bs-parent="#accordionExample">
+    <div class="accordion-body">
+
+        <img src="public/images/logo.jpg" style="width:400px; heigth:400px;" class="rounded mx-auto d-block" alt="...">
+
+
+      </div>
+  </div>
+</div>
+<div class="accordion-item">
+  <h2 class="accordion-header" id="headingOne">
+    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+    Mes Informations de base
+    </button>
+  </h2>
+  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+    <div class="accordion-body">
+
+                  <label for="height" class="form-label">Quelle est votre taille ? (cm)</label> 
+                  <input type="height" class="form-control" id="height" name="height" required> 
+
+                  <div class="mySlides">
+                      <span class="msgFormEnreg">Ton sexe ?</span><br><br>
+                      <div class="form-check mb-3">
+                          <input type="radio" class="form-check-input" id="feminin" value="1" name="gender">
+                          <label class="form-check-label" for="feminin">Féminin</label>
+                      </div>
+                      <div class="form-check mb-3">
+                          <input type="radio" class="form-check-input" id="masculin" value="2" name="gender">
+                          <label class="form-check-label" for="masculin">Masculin</label>
+                      </div>
+                      <div class="form-check mb-3">
+                          <input type="radio" class="form-check-input" id="nonBinaire" value="3" name="gender">
+                          <label class="form-check-label" for="nonBinaire">Non Binaire</label>
+                      </div>
+                  </div>
+
+
+
+      </div>
+  </div>
+</div>
+<div class="accordion-item">
+  <h2 class="accordion-header" id="headingTwo">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+    A propos de moi
+    </button>
+  </h2>
+  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+    <div class="accordion-body">
+
+
+              <div class="col-md-12 mySlides">
+                  <label for="bio" class="form-label">Parlez-nous de vous</label> <br>
+                  <textarea id="bio" name="bio" rows="5" cols="50"></textarea>
+              </div>
+
+
+      </div>
+  </div>
+</div>
+<div class="accordion-item">
+  <h2 class="accordion-header" id="headingThree">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+    type de relation
+    </button>
+  </h2>
+  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+    <div class="accordion-body">
+
+
+
+
+    <div class="mySlides">
+        <span class="msgFormEnreg">Quelle type de relation recherche-tu ?</span> <br><br>
+        <div class="form-check mb-3">
+            <input type="radio" class="form-check-input" id="serieux" value="serieux" name="relation">
+            <label class="form-check-label" for="serieux">Relation sérieuse</label>
+        </div>
+        <div class="form-check mb-3">
+            <input type="radio" class="form-check-input" id="rien" value="rien" name="relation">
+            <label class="form-check-label" for="rien">Rien de sérieux</label>
+        </div>
+        <div class="form-check mb-3">
+            <input type="radio" class="form-check-input" id="sex" value="friend" name="relation">
+            <label class="form-check-label" for="sex">Sex friend</label>
+        </div>
+        <div class="form-check mb-3">
+            <input type="radio" class="form-check-input" id="coup" value="coup" name="relation">
+            <label class="form-check-label" for="coup">Coup d'un soir</label>
+        </div>
+    </div>
+
+
+
+    </div>
+  </div>
+</div>
+</div>
+     `;
+
+    document.getElementById('contenuDeDroite').innerHTML = card;
+}
+
+
+let montrerCarte = () => {
+
+    let card = `
+   
+            <div id="profil" class="container accordion-body d-flex justify-content-center" style=" padding-bottom: 5%;" id="contenu" >
+                <div class="msg" id="msg">
+                    <div class="card" style="max-width: 400px; min-height: 700px;">
+                        <div class="card-body" style="background-size: cover; background-position: center; background-repeat: no-repeat; background-image: url('https://static1.purepeople.com/articles/5/43/24/55/@/6216245-annily-chatelain-la-fille-d-alizee-et-j-950x0-2.jpg');">
+                            <div class="align-items-end">
+                                <div class="row" style="margin-right: 0px;">
+                                    <div class="col">
+                                    <!-- Prenom -->
+                                    <h3 class="card-title col-3" style="color: white; width: max-content; height: fit-content; margin-right: 115px; margin-top: 500px">Emma</h3> 
+                                    </div>
+                                    <div class="col">
+                                    <!-- Age -->
+                                    <h3 class="card-title col-3" style="color: rgba(255, 255, 255, 0.7); width: max-content; height: fit-content; margin-left: -125px; margin-top: 500px">21</h3>
+                                    </div>
+                                    <div class="col">
+                                    <!-- Icon recherche quelle type de relation -->
+                                    <img style="width: 40%; margin-left: -165px;" src="https://cdn-icons-png.flaticon.com/512/1029/1029183.png" alt="">
+                                    </div>
+                                    <!-- position -->
+                                    <h6 class="card-title align-items-end" style="color: rgb(255, 255, 255); ">1 km</h6>
+                                    <!-- extrait de la bio -->
+                                    <p class="card-title align-items-end" style="color: rgb(255, 255, 255, 0.7);">Are you a parking ticket? ‘Cause you’ve got ‘fine’ written all over you...</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-center" style="background-color: rgb(0, 0, 0); height: 25%;">
+                        <!-- Bouton -->
+                        <a href="#" class="btn btn-primary rounded-circle" style="height: 40px; width: 40px; border-color: rgb(157, 17, 17); border-radius: 5em; background-color: rgba(255, 255, 255, 0); color: rgb(157, 17, 17);">X</a>
+                        <a onClick="afficherProfil();" class="btn btn-secondary rounded-6" style="border-color: rgb(255, 255, 255, 0.5); background-color: rgba(255, 255, 255, 0); color: rgb(250, 252, 250, 0.5);" >see more</a>
+                        <a href="#" class="btn btn-primary rounded-circle" style="height: 40px; width: 40px;  border-color: rgb(11, 144, 22); border-radius: 5em; background-color: rgba(255, 255, 255, 0); color: rgb(11, 144, 22);">O</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+ 
+     `;
+
+    document.getElementById('contenuDeDroite').innerHTML = card;
 }
