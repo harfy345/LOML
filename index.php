@@ -1,4 +1,5 @@
 <?php
+$_SESSION['active_page'] = 'home';
 $pagetitre = "index";
 require_once("./public/util/header.php");
 

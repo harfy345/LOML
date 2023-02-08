@@ -158,38 +158,6 @@ function deleteRow(id) {
     });
 }
 
-
-function deleteAll() {
-    let form = `
-    <!-- Modal pour enregistrer patient -->
-        <div class="modal fade" id="enregModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Supprimer tout les membres</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                    <form id="formEnreg" action="server/actions/deleteMembre.php" method="POST">
-                        <h3>voulez-vous tout suprimer?</h3>
-                        
-                        <div class="col-12">
-                            <button class="btn btn-danger" type="submit" >Supprimer</button>
-                        </div>
-                    </form>
-                    </div>
-                    <div class="modal-footer">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Fin du modal pour enregistrer film -->
-    `;
-    document.getElementById('contenu').innerHTML = form;
-    $('#enregModal').modal('show');
-}
-
-
 $(document).ready(function() {
     $("button[name='search']").click(function(e) {
       e.preventDefault();
