@@ -10,7 +10,8 @@ if (!isset($_SESSION['username'])) {
 $_SESSION['active_page'] = 'membre';
 $pagetitre = "index";
 
-include "./server/apis/membre.php";
+require_once ("./server/apis/membre.php");
+
 include "./public/util/header.php";
 
 $membreapi = new MembreAPI();
@@ -80,7 +81,8 @@ if (!$profil) {
                             </button>
                         </h2>
                         <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                            <?php
+                        <div class="accordion-body">
+                           <?php
 
                             $membreapi->connect();
 
@@ -89,12 +91,13 @@ if (!$profil) {
                             $membreapi->disconnect();
 
                             while ($row = mysqli_fetch_array($convos)) { ?>
-                                <div class="accordion-body"> <?php echo $row['idConversation']; ?></div>
+                                <div > <?php echo $row['idConversation']; ?></div>
                             <?php
 
 
                             }
                             ?>
+                             </div>
                         </div>
                     </div>
                     <div class="accordion-item">
@@ -104,7 +107,7 @@ if (!$profil) {
                             </button>
                         </h2>
                         <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">Allo</div>
+                            <div class="accordion-body">
 
                             <?php
 
@@ -115,12 +118,13 @@ if (!$profil) {
                             $membreapi->disconnect();
 
                             while ($row = mysqli_fetch_array($matches)) { ?>
-                                <div class="accordion-body"> <?php echo $row['idMatch']; ?></div>
+                                <div > <?php echo $row['idMatch']; ?></div>
                             <?php
 
 
                             }
                             ?>
+                            </div>
                         </div>
                     </div>
                     <?php
