@@ -113,3 +113,36 @@
   .check-box {
     background-color: #000000;
   }
+
+  @keyframes swipeR {
+    0% {
+      transform: rotateZ(0deg);
+    }
+
+    100% {
+      transform: rotateZ(5deg);
+      opacity: 0.3;
+    }
+  }
+
+
+  @keyframes swipeL {
+    0% {
+      transform: rotateZ(0deg);
+    }
+
+    100% {
+      transform: rotateZ(-5deg);
+      opacity: 0.3;
+    }
+  }
+
+  .swipe-right {
+    animation-duration: 0.5s;
+    animation-name: swipeR;
+  }
+
+  .swipe-left {
+    animation-duration: 0.5s;
+    animation-name: swipeL;
+  }
