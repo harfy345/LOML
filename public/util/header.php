@@ -1,5 +1,6 @@
 <?php
-require_once("./server/apis/membre.php");
+
+
 $active_page = $_SESSION['active_page'];
 ?>
 
