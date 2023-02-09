@@ -48,7 +48,7 @@ require_once("./public/util/header.php");
                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="https://github.com/mdo.png" alt="hugenerd" width="40" height="40" class="rounded-circle">
                        
-                        <span class="d-none d-sm-inline mx-1">#TO DO</span>
+                        <span class="d-none d-sm-inline mx-1">#TODO</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
                         <li><a class="dropdown-item" href="#">Profile</a></li>
