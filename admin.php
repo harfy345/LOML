@@ -9,9 +9,16 @@ if(!isset($_SESSION['isAdmin']) || empty($_SESSION['isAdmin']) )  header("locati
 if (!isset($_SESSION['username'])) {
     header("location:./conexion.php");
 }
+require_once ("./server/apis/membre.php");
+
 $_SESSION['active_page'] = 'admin';
 $pagetitre = "index";
 require_once("./public/util/header.php");
+
+$membreapi = new MembreAPI();
+$membreapi->connect();
+$profil = $membreapi->verifierUserProfil($_SESSION['id']);
+$membreapi->disconnect();
 ?>
 
 
@@ -48,13 +55,10 @@ require_once("./public/util/header.php");
                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="https://github.com/mdo.png" alt="hugenerd" width="40" height="40" class="rounded-circle">
                        
-                        <span class="d-none d-sm-inline mx-1">#TODO</span>
+                        <span class="d-none d-sm-inline mx-1"> <?php echo($profil -> firstName) ?></span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
+                        
                         <li><a class="dropdown-item" href="./deconnexion.php">Se déconnecter</a></li>
                     </ul>
                 </div>
@@ -80,17 +84,12 @@ require_once("./public/util/header.php");
 
         <tbody>
         <?php
-            //require_once("server/apis/membre.php");
-            require_once("server/DB/databaseRequests.php");
 
-            $requete="SELECT users.* , connection.email, connection.pass
-            FROM users INNER JOIN connection ON users.idUser =connection.idUser";
-          
-            $result = mysqli_query($connexion, $requete);
-
-
-
-            while($row = mysqli_fetch_array($result)) {
+            $membreapi->connect();
+            $profil = $membreapi->listerMembre();
+            $membreapi->disconnect();
+                    
+            while($row = mysqli_fetch_array($profil)) {
         ?>
               <tr id="<?php echo $row["idUser"]; ?>">
                 <td><?php echo $row["idUser"]; ?></td>

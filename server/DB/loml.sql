@@ -146,8 +146,8 @@ CREATE TABLE `profil` (
 --
 
 INSERT INTO `profil` (`idUser`, `rank`, `age`, `height`, `gender`, `typeRelation`, `picture`) VALUES
-(1, 1, 23, 230, 1, 'single af', ''),
-(2, 1, 35, 120, 2, 'single', '');
+(1, 1, 23, 230, 1, 'rien', ''),
+(2, 1, 35, 120, 2, 'rien', '');
 
 -- --------------------------------------------------------
 

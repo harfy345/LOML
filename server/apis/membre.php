@@ -3,6 +3,8 @@
 class MembreAPI
 {
 
+
+	
 	private $connexion;
 
 	public function __construct()
@@ -11,8 +13,6 @@ class MembreAPI
 		define("USAGER", "root");
 		define("PASSE", "");
 		define("BD", "loml");
-
-
 
 		$this->connexion = new mysqli(SERVEUR, USAGER, PASSE, BD);
 
@@ -63,25 +63,31 @@ class MembreAPI
 
 		return $result->fetch_all();
 	}
+
+	// SELECT m.* , u1.firstName as user1Name , u2.firstName as user2Name
+    //     FROM matchs m INNER JOIN users u1 on m.idUser1 = u1.idUser join users u2 on m.idUser2 = u2.idUser
+
 	public function getAllMatchesPourUser($id)
 	{
-		$requete = "SELECT * 
-	FROM matchs WHERE idUser1 =? ";
+		$requete = "SELECT m.* , u1.firstName as firstName1 , u2.firstName as firstName2
+        FROM matchs m INNER JOIN users u1 on m.idUser1 = u1.idUser join users u2 on m.idUser2 = u2.idUser where u1.idUser = ? or u2.idUser = ?" ;
+
 
 		$stmt = $this->connexion->prepare($requete);
-		$stmt->bind_param("i", $id);
+		$stmt->bind_param("ii", $id,$id);
 		$stmt->execute();
 		$result = $stmt->get_result();
 
 		return $result;
-	}
+	}	
+
 	public function getAllConvosPourUser($id)
 	{
-		$requete = "SELECT * 
-	FROM conversation WHERE idUser1 =? ";
+		$requete = "SELECT m.* , u1.firstName as firstName1 , u2.firstName as firstName2
+        FROM conversation m INNER JOIN users u1 on m.idUser1 = u1.idUser join users u2 on m.idUser2 = u2.idUser where u1.idUser = ? or u2.idUser = ?" ;
 
 		$stmt = $this->connexion->prepare($requete);
-		$stmt->bind_param("i", $id);
+		$stmt->bind_param("ii", $id,$id);
 		$stmt->execute();
 		$result = $stmt->get_result();
 
@@ -117,10 +123,37 @@ class MembreAPI
 		$id = intval($_POST["id"]);
 
 		$query = "SELECT users.* , connection.email, connection.pass
-	FROM users
-	INNER JOIN connection
-	ON users.idUser = connection.idUser
-	WHERE users.idUser = $id
+		FROM users
+		INNER JOIN connection
+		ON users.idUser = connection.idUser
+		WHERE users.idUser = $id
+	";
+
+		$result = mysqli_query($this->connexion, $query);
+
+		if ($result) {
+			$row = mysqli_fetch_assoc($result);
+
+			echo json_encode($row);
+			exit;
+		} else {
+			echo json_encode(array("error" => "Could not retrieve row data."));
+			exit;
+		}
+	}
+
+	function getRowDataProfil()
+	{
+		$id = intval($_POST["id"]);
+
+		$query = "SELECT users.*, connection.email, connection.pass, profil.*
+		FROM users
+		INNER JOIN connection
+		ON users.idUser = connection.idUser
+		INNER JOIN profil
+		ON users.idUser = profil.idUser
+		WHERE users.idUser = $id;
+		
 	";
 
 		$result = mysqli_query($this->connexion, $query);
@@ -177,8 +210,8 @@ class MembreAPI
 
 	function verifierUserProfil($id)
 	{
-		$requete = "SELECT profile.*, users.*  
-	FROM profile INNER JOIN users ON users.idUser =profile.idUser WHERE users.idUser =?";
+		$requete = "SELECT profil.*, users.*  
+		FROM profil INNER JOIN users ON users.idUser =profil.idUser WHERE users.idUser =?";
 
 		$stmt = $this->connexion->prepare($requete);
 		$stmt->bind_param("i", $id);
@@ -188,5 +221,36 @@ class MembreAPI
 
 
 		return $result->fetch_object();
+	}
+
+	function listerMembre(){
+		$requete="SELECT users.* , connection.email, connection.pass
+		FROM users INNER JOIN connection ON users.idUser =connection.idUser";
+		
+		$result = mysqli_query($this->connexion, $requete);
+
+		return $result;
+	}
+
+	function updateProfilUser($idUser,$prenom,$nom,$height,$gender,$typeRelation,$bio){
+	
+
+		$bio2 = $bio;
+		$bio2 = mysqli_real_escape_string($this->connexion, $bio2);
+
+
+		$requette = "UPDATE users, profil SET users.firstName = '$prenom', 
+		users.lastName = '$nom',
+		profil.height = $height, 
+		profil.gender = $gender ,
+		profil.typeRelation = '$typeRelation' ,
+		profil.bio = '$bio2' 
+		
+		WHERE users.idUser = profil.idUser AND users.idUser = $idUser";
+
+		$stmt = $this->connexion->prepare($requette);
+	
+		$stmt -> execute();
+		
 	}
 }
