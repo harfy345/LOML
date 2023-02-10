@@ -646,3 +646,25 @@ let montrerMessage = () => {
 
     document.getElementById('contenuDeDroite').innerHTML = card;
 }
+
+function swipeRight(isOpen) {
+    document.getElementById('profil-card').className = 'card swipe-right';
+    setTimeout(function() {
+        if (isOpen) {
+            //close see more if open
+            montrerCarte();
+        }
+        document.getElementById('profil-card').className = 'card';
+    }, 500); 
+}
+  
+  function swipeLeft(isOpen) {
+    document.getElementById('profil-card').className = 'card swipe-left';
+    setTimeout(function() {
+        if (isOpen) {
+            //close see more if open
+            montrerCarte();
+        }
+        document.getElementById('profil-card').className = 'card';
+    }, 500); 
+}
