@@ -48,6 +48,11 @@ $active_page = $_SESSION['active_page'];
   <nav class="navbar navbar-dark navbar-expand-lg text-center sticky-top bg-header" >
           <div id="navCont" class="container maxWidth">
             <div class="d-flex nav-gauche">
+              <!--Le mettre beau -->
+              <img src='public/images/menuLogo.png' width='60pt' height='60pt' class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <!-- <span class="navbar-toggler-icon"></span> -->
+                <i class="fas fa-bars"></i>
+</img>
               <img src = "public/images/Logo.PNG" width ="60px" height ="60px" href="index.php">
               <a class="dr-title navbar-brand text-nav display-3" href="index.php">LOML</a>
             </div>	
