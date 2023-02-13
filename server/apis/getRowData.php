@@ -13,6 +13,9 @@ if (isset($_POST["action"])) {
         case "getRowData":
             $myClass->getRowData();
             break;
+        case "change":
+            $myClass->memberStatus();
+            break;
         case "getRowDataProfil":
             $myClass->getRowDataProfil();
             break;

@@ -1,6 +1,12 @@
 $(window).on('load', function () {
     $("#coverScreen").hide();
+   
 });
+const checkbox = document.querySelector('#switchked');
+checkbox.addEventListener('click', function() {
+    checkbox.checked = !checkbox.checked;
+});
+ 
 
 $("#btnrecherche, #btnEdit").click(function () {
     $("#coverScreen").show();
@@ -158,6 +164,25 @@ function deleteRow(id) {
         }
     });
 }
+function memberStatus(id) {
+    
+    $.ajax({
+        url: 'server/apis/getRowData.php',
+        type: 'post',
+        data: {
+            active: id,
+            action: 'change',
+        },
+        success: function(response) {
+            alert(response);
+            alert("L'état du membre a été bien modifié.");
+          
+        }
+  
+    });
+    
+}
+
 
 $(document).ready(function() {
     $("button[name='search']").click(function(e) {

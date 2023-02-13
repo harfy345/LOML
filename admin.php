@@ -77,6 +77,9 @@ $membreapi->disconnect();
             <th>ADMIN</th>
             <th>EMAIL</th>
             <th>PASS</th>
+            <th>État</th>
+            <th>Modifier</th>
+            <th>Activer/Désactiver</th>
         </tr>
      </thead>
 
@@ -97,14 +100,18 @@ $membreapi->disconnect();
                 <td><?php echo $row["lastName"]; ?></td>
                 <td><?php echo $row["admin"]; ?></td>
                 <td><?php echo $row["email"]; ?></td>
-                <td><?php echo $row["pass"]; ?></td>
+                <td style="-webkit-text-security: disc" ><?php echo $row["pass"]; ?></td>
+                <td><?php   echo $row["active"]; ?></td>
                 <td>
                     <button type="button" id="btnEdit" class="btn btn-warning" onclick="editRow(<?php echo $row["idUser"]; ?>)">Edit</button>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-danger" onclick="deleteRow(<?php echo $row["idUser"]; ?>)">delete</button>
+                    <label class="switch">
+                        <input type="checkbox" id="switchked" checked>
+                        <span class="slider round" name="change"  onclick="memberStatus(<?php echo $row["idUser"]; ?>)" ></span>
+                    </label>        
                 </td>
-
+              
         <?php
             }
         ?>
