@@ -6,22 +6,25 @@ session_start();
 if (!isset($_SESSION['username'])) {
     header("location:./conexion.php");
 }
-
 $_SESSION['active_page'] = 'membre';
 $pagetitre = "index";
 
 require_once ("./server/apis/membre.php");
-
 include "./public/util/header.php";
 
 $membreapi = new MembreAPI();
-
-
-
-
 $membreapi->connect();
 $profil = $membreapi->verifierUserProfil($_SESSION['id']);
+$profilActive = $membreapi->verifierUserActive($_SESSION['id']);
 $membreapi->disconnect();
+
+if ($profilActive -> active == 0) {
+    $msg="Vous avez été bani";
+    header("location:./conexion.php?msg=$msg");
+}
+
+
+
 
 if (!$profil) {
 ?>

@@ -238,6 +238,15 @@ class MembreAPI
 		return $result->fetch_object();
 	}
 
+	function verifierUserActive($id)
+	{
+		$requete = "SELECT active FROM users WHERE idUser = $id";
+		$result = mysqli_query($this->connexion, $requete);
+
+		return $result->fetch_object();
+	}
+
+
 	function listerMembre(){
 		$requete="SELECT users.* , connection.email, connection.pass
 		FROM users INNER JOIN connection ON users.idUser =connection.idUser";

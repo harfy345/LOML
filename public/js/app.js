@@ -1,12 +1,6 @@
 $(window).on('load', function () {
     $("#coverScreen").hide();
-   
 });
-const checkbox = document.querySelector('#switchked');
-checkbox.addEventListener('click', function() {
-    checkbox.checked = !checkbox.checked;
-});
- 
 
 $("#btnrecherche, #btnEdit").click(function () {
     $("#coverScreen").show();
@@ -174,13 +168,12 @@ function memberStatus(id) {
             action: 'change',
         },
         success: function(response) {
-            alert(response);
+           
             alert("L'état du membre a été bien modifié.");
-          
         }
   
     });
-    
+
 }
 
 
@@ -564,7 +557,7 @@ function montrerProfil(id) {
 }
 
 
-let montrerCarte = () => {
+function montrerCarte() {
 
     let card = `
    
@@ -608,7 +601,7 @@ let montrerCarte = () => {
     document.getElementById('contenuDeDroite').innerHTML = card;
 }
 
-let montrerMessage = () => {
+function montrerMessage() {
 
     let card = `
    

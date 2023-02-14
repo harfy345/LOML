@@ -105,11 +105,11 @@ $membreapi->disconnect();
                 <td>
                     <button type="button" id="btnEdit" class="btn btn-warning" onclick="editRow(<?php echo $row["idUser"]; ?>)">Edit</button>
                 </td>
-                <td>
-                    <label class="switch">
-                        <input type="checkbox" id="switchked" checked>
-                        <span class="slider round" name="change"  onclick="memberStatus(<?php echo $row["idUser"]; ?>)" ></span>
-                    </label>        
+                <td>  
+                    <input id = "checkbox" type="checkbox" checked data-toggle="toggle" data-on="Activer" data-off="Désactiver" data-onstyle="success" data-offstyle="danger" onchange="this.checked = !this.checked; memberStatus(<?php echo $row["idUser"]; ?>)">
+                
+
+
                 </td>
               
         <?php
