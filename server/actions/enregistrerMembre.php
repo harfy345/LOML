@@ -52,7 +52,13 @@
     $stmt->execute();
  
     $msg = "vous avez bien été bien enregistré.";
-    header("Location: ../../sinscrire.php?msg=$msg");
+    
+    if(isset($_SESSION['username'])){
+        header("Location: ../../admin.php");
+    }
+    else{
+        header("Location: ../../conexion.php?msg=$msg");
+    }
 
     mysqli_close($connexion);
 ?>

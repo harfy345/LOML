@@ -169,22 +169,24 @@ class MembreAPI
 		}
 	}
 
-	public function getAllMessage()
-	{
+	public function getAllMessage() {
 		$id = intval($_POST["id"]);
-		$requete = "SELECT *
-        FROM messages WHERE idConversation = $id" ;
+		$requete = "SELECT * FROM messages WHERE idConversation = $id";
 		$result = mysqli_query($this->connexion, $requete);
+	
+		$messages = array();
+		while ($row = mysqli_fetch_assoc($result)) {
+			$messages[] = $row;
+		}
+	
 		if ($result) {
-			$row = mysqli_fetch_assoc($result);
-
-			echo json_encode($row);
-			exit;
+			echo json_encode($messages);
 		} else {
 			echo json_encode(array("error" => "Could not retrieve row data."));
-			exit;
 		}
+		exit;
 	}
+	
 
 	function getRowDataProfil()
 	{
