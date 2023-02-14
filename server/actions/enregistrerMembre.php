@@ -52,7 +52,7 @@
     $stmt->execute();
  
     $msg = "vous avez bien été bien enregistré.";
-    header("location:".$_SERVER['HTTP_REFERER']."?msg=$msg");
+    header("Location: ../../sinscrire.php?msg=$msg");
 
     mysqli_close($connexion);
 ?>
