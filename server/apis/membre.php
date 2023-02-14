@@ -88,6 +88,20 @@ class MembreAPI
 
 	}
 
+	//Passer le id de convo
+	public function getAllMessage($idConvo)
+	{
+		$requete = "SELECT *
+        FROM messages WHERE idConversation = ?" ;
+
+		$stmt = $this->connexion->prepare($requete);
+		$stmt->bind_param("i", $idConvo);
+		$stmt->execute();
+		$result = $stmt->get_result();
+
+		return $result;
+	}	
+
 	// SELECT m.* , u1.firstName as user1Name , u2.firstName as user2Name
     //     FROM matchs m INNER JOIN users u1 on m.idUser1 = u1.idUser join users u2 on m.idUser2 = u2.idUser
 
@@ -217,7 +231,7 @@ class MembreAPI
 		$stmt->bind_param("i", $id);
 		$stmt->execute();
 
-
+		
 		header("location:" . $_SERVER['HTTP_REFERER']);
 	}
 
