@@ -54,7 +54,7 @@ class MembreAPI
 	function getAllLikesPourMembre($id)
 	{
 		$requete = "SELECT * 
-	FROM likes WHERE idUser =? ";
+		FROM likes WHERE idUser =? ";
 
 		$stmt = $this->connexion->prepare($requete);
 		$stmt->bind_param("i", $id);
@@ -63,6 +63,44 @@ class MembreAPI
 
 		return $result->fetch_all();
 	}
+
+	function getProfilesToShow($id)
+	{
+		$requete = "SELECT * from users u WHERE idUser not IN (SELECT idUserSeen FROM seenprofile sp where sp.idUserSeen=u.idUser and sp.idUser=?)";
+
+		$stmt = $this->connexion->prepare($requete);
+		$stmt->bind_param("i", $id);
+		$stmt->execute();
+		$result = $stmt->get_result();
+
+		return $result->fetch_all();
+	}
+
+	function sendMessage($idUserSender,$idConvo, $idUserReciver, $contenu)
+	{
+		$requete = "INSERT INTO `messages`
+		 (`idMessages`, `idConversation`, `idSender`, `idReceiver`, `content`, `date`)
+		  VALUES (NULL, ?, ?, ?, ?, CURRENT_TIMESTAMP);";
+
+		$stmt = $this->connexion->prepare($requete);
+		$stmt->bind_param("iiis", $idConvo,$idUserSender , $idUserReciver,$contenu);
+		$stmt->execute();
+
+	}
+
+	//Passer le id de convo
+	public function getAllMessage($idConvo)
+	{
+		$requete = "SELECT *
+        FROM messages WHERE idConversation = ?" ;
+
+		$stmt = $this->connexion->prepare($requete);
+		$stmt->bind_param("i", $idConvo);
+		$stmt->execute();
+		$result = $stmt->get_result();
+
+		return $result;
+	}	
 
 	// SELECT m.* , u1.firstName as user1Name , u2.firstName as user2Name
     //     FROM matchs m INNER JOIN users u1 on m.idUser1 = u1.idUser join users u2 on m.idUser2 = u2.idUser
@@ -192,7 +230,7 @@ class MembreAPI
 		$stmt->bind_param("i", $id);
 		$stmt->execute();
 
-
+		
 		header("location:" . $_SERVER['HTTP_REFERER']);
 	}
 	function memberStatusDesactive(){
