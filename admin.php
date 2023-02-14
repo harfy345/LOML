@@ -79,7 +79,8 @@ $membreapi->disconnect();
             <th>PASS</th>
             <th>État</th>
             <th>Modifier</th>
-            <th>Activer/Désactiver</th>
+            <th>Activer</th>
+            <th>Désactiver</th>
         </tr>
      </thead>
 
@@ -106,11 +107,12 @@ $membreapi->disconnect();
                     <button type="button" id="btnEdit" class="btn btn-warning" onclick="editRow(<?php echo $row["idUser"]; ?>)">Edit</button>
                 </td>
                 <td>  
-                    <input id = "checkbox" type="checkbox" checked data-toggle="toggle" data-on="Activer" data-off="Désactiver" data-onstyle="success" data-offstyle="danger" onchange="this.checked = !this.checked; memberStatus(<?php echo $row["idUser"]; ?>)">
-                
-
-
+                    <button id = "btnActive" type="button" <?php if( $row['active'] == 1) { ?> disabled  <?php } ?> class="btn btn-success"  onclick ="memberStatus(<?php echo $row["idUser"]; ?>)">Activer </button>
                 </td>
+                <td>  
+                    <button id ="btnDesactive" type="button" <?php if( $row['active'] == 0) { ?> disabled  <?php } ?> class="btn btn-danger" onclick="memberStatusDesactive(<?php echo $row["idUser"]; ?>)"> Désactiver </button>
+                </td>
+              
               
         <?php
             }

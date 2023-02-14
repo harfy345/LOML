@@ -165,11 +165,30 @@ function memberStatus(id) {
         type: 'post',
         data: {
             active: id,
-            action: 'change',
+            action: 'changeActive',
         },
         success: function(response) {
            
-            alert("L'état du membre a été bien modifié.");
+            alert("L'état du membre a été bien activé.");
+            location.reload();
+        }
+  
+    });
+
+}
+function memberStatusDesactive(id) {
+    
+    $.ajax({
+        url: 'server/apis/getRowData.php',
+        type: 'post',
+        data: {
+            active: id,
+            action: 'changeDeactive',
+        },
+        success: function(response) {
+           
+            alert("L'état du membre a été bien désactivé.");
+            location.reload();
         }
   
     });
