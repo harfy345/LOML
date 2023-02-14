@@ -289,6 +289,13 @@
     padding: 20px
 }
 
+#listConvo{
+    height: 600px;
+    overflow: hidden;
+    overflow-y: scroll;
+  
+}
+
 .online,
 .offline,
 .me {
