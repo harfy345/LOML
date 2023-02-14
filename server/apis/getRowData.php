@@ -19,6 +19,9 @@ if (isset($_POST["action"])) {
         case "getRowDataProfil":
             $myClass->getRowDataProfil();
             break;
+        case "getAllMessage":
+            $myClass->getAllMessage();
+            break;
             
         default:
             break;
