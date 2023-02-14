@@ -54,7 +54,19 @@ class MembreAPI
 	function getAllLikesPourMembre($id)
 	{
 		$requete = "SELECT * 
-	FROM likes WHERE idUser =? ";
+		FROM likes WHERE idUser =? ";
+
+		$stmt = $this->connexion->prepare($requete);
+		$stmt->bind_param("i", $id);
+		$stmt->execute();
+		$result = $stmt->get_result();
+
+		return $result->fetch_all();
+	}
+
+	function getProfilesToShow($id)
+	{
+		$requete = "SELECT * from users u WHERE idUser not IN (SELECT idUserSeen FROM seenprofile sp where sp.idUserSeen=u.idUser and sp.idUser=?)";
 
 		$stmt = $this->connexion->prepare($requete);
 		$stmt->bind_param("i", $id);
