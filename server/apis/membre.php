@@ -76,6 +76,18 @@ class MembreAPI
 		return $result->fetch_all();
 	}
 
+	function sendMessage($idUserSender,$idConvo, $idUserReciver, $contenu)
+	{
+		$requete = "INSERT INTO `messages`
+		 (`idMessages`, `idConversation`, `idSender`, `idReceiver`, `content`, `date`)
+		  VALUES (NULL, ?, ?, ?, ?, CURRENT_TIMESTAMP);";
+
+		$stmt = $this->connexion->prepare($requete);
+		$stmt->bind_param("iiis", $idConvo,$idUserSender , $idUserReciver,$contenu);
+		$stmt->execute();
+
+	}
+
 	// SELECT m.* , u1.firstName as user1Name , u2.firstName as user2Name
     //     FROM matchs m INNER JOIN users u1 on m.idUser1 = u1.idUser join users u2 on m.idUser2 = u2.idUser
 
