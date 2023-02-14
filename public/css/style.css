@@ -258,7 +258,7 @@
 }
 
 .chat .chat-history .my-message {
-    background: #efefef
+    background: #fe7d7d
 }
 
 .chat .chat-history .my-message:after {
@@ -276,7 +276,7 @@
 }
 
 .chat .chat-history .other-message {
-    background: #e8f1f3;
+    background: #63d9f3;
     text-align: right
 }
 
