@@ -231,14 +231,21 @@ class MembreAPI
 		$id = intval($_POST["active"]);
 		
 		$query = "UPDATE users
-		SET active = CASE WHEN active = 1 THEN 0 ELSE 1 END
-		WHERE idUser = ?;";
+		SET active = 1 WHERE idUser = ?;";
 		$stmt = $this->connexion->prepare($query);
 		$stmt->bind_param("i", $id);
 		$stmt->execute();
 
 		
 		header("location:" . $_SERVER['HTTP_REFERER']);
+	}
+	function memberStatusDesactive(){
+		$id = intval($_POST["active"]);
+		$query = "UPDATE users
+		SET active = 0 WHERE idUser = ?;";
+		$stmt = $this->connexion->prepare($query);
+		$stmt->bind_param("i", $id);
+		$stmt->execute();
 	}
 
 

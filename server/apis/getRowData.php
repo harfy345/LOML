@@ -13,8 +13,11 @@ if (isset($_POST["action"])) {
         case "getRowData":
             $myClass->getRowData();
             break;
-        case "change":
+        case "changeActive":
             $myClass->memberStatus();
+            break;
+        case "changeDeactive":
+            $myClass->memberStatusDesactive();
             break;
         case "getRowDataProfil":
             $myClass->getRowDataProfil();
