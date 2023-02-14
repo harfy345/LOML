@@ -601,7 +601,25 @@ function montrerCarte() {
     document.getElementById('contenuDeDroite').innerHTML = card;
 }
 
-function montrerMessage() {
+function montrerMessage(id) {
+
+    $.ajax({
+        url: 'server/apis/getRowData.php',
+        type: 'post',
+        data: {
+            id: id,
+            action: 'getAllMessage',
+        },
+        success: function(response) {
+            // parse the JSON response
+            var data = JSON.parse(response);
+            alert(response);
+            $('#idSender').val(data.idSender);
+            $('#idReceiver').val(data.idReceiver);
+            $('#content').val(data.content);
+            $('#date').val(data.date);
+        }
+    });
 
     let card = `
     <div class="">
