@@ -329,4 +329,52 @@ class MembreAPI
 		$stmt -> execute();
 		
 	}
+
+
+	function getAllProfil() {
+
+		$id = intval($_POST["id"]);
+
+		$requete = "SELECT profil.*, users.*  
+		FROM profil INNER JOIN users ON users.idUser = profil.idUser 
+        WHERE profil.idUser NOT IN (SELECT seenprofile.idSeenProfile FROM seenprofile)
+        ORDER BY rand()
+		LIMIT 1";
+
+		$result = mysqli_query($this->connexion, $requete);
+
+			
+		if ($result) {
+			echo json_encode($result);
+		} else {
+			echo json_encode(array("error" => "Could not retrieve row data."));
+		}
+		exit;
+	}
+
+
+	function addLike() {
+		$id = intval($_POST["id"]);
+		$idLike = intval($_POST["idSeen"]);
+		$requete = "INSERT INTO likes (idUser, idLikeUser, pos)
+		VALUES ($id, $idLike, 0);";
+
+		$stmt = $this->connexion->prepare($requette);
+			
+		$stmt -> execute();
+
+		addSeen();
+	} 
+
+	function addSeen() {
+		$id = intval($_POST["id"]);
+		$idLike = intval($_POST["idSeen"]);
+
+		$requete = "INSERT INTO seenprofile (idSeenProfile, idUser, idUserSeen)
+		VALUES ($id, $id, $idSeen);";
+
+		$stmt = $this->connexion->prepare($requette);
+			
+		$stmt -> execute();
+	}
 }
