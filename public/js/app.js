@@ -12,9 +12,9 @@ $("#contenu").click(function () {
 let initialiser = (message) =>{
 
     let textToast = document.getElementById("textToast");
-    let toastElList = [].slice.call(document.querySelectorAll('.toast'));
+    let toastElList = [].slice.call(document.querySelectorAll('.toast'))
     let toastList = toastElList.map(function (toastEl) {
-        return new bootstrap.Toast(toastEl);
+        return new bootstrap.Toast(toastEl)
     })
     if(message.length > 0){
         textToast.innerHTML = message;
@@ -158,7 +158,6 @@ function deleteRow(id) {
         }
     });
 }
-
 function memberStatus(id) {
     
     $.ajax({
@@ -255,6 +254,92 @@ $(document).ready(function() {
     $('#enregModal').modal('show');
     });
   });
+  
+
+
+function afficherProfil() {
+    let card = `
+        <div class="msg" id="msg" style="width: fit-content; height: auto; padding-top: 0%;">
+        <div class="card" style="max-width: 400px; min-height: 600px;">
+            <div class="card-body" style=" background-size: cover; background-position: center; background-repeat: no-repeat; background-image: url('https://static1.purepeople.com/articles/5/43/24/55/@/6216245-annily-chatelain-la-fille-d-alizee-et-j-950x0-2.jpg');">
+                <div class="align-items-end" style="background: linear-gradient(rgb(255,255,255, 0), rgb(0,0,0, 1)); padding-left: 10px; position: absolute; left: 0px; right: 0px; bottom: 0%;">
+                <div class="row" style="margin-right: 0px;">
+                    <div class="col">
+                    <h3 class="card-title col-3" style="color: white; width: max-content; height: fit-content; margin-right: 115px;">Emma</h3> 
+                    </div>
+                    <div class="col">
+                    <h3 class="card-title col-3" style="color: rgba(255, 255, 255, 0.7); width: max-content; height: fit-content; margin-left: -125px;">21</h3>
+                    </div>
+                    <h6 class="card-title align-items-end" style="color: rgb(255, 255, 255);">1 km</h6>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="color: white; top: 5%; position: sticky; background-color: black; margin-top: -9px; max-width: 400px;  height: auto;">
+        <div class="card-body">
+            <h6>Bio</h6>
+            <p class="card-title align-items-end" style="color: rgb(255, 255, 255, 0.7);">Are you a parking ticket? ‘Cause you’ve got ‘fine’ written all over you <br><br> I am funny, kind, gorgeous, grateful, and humble. Okay, maybe not the last one! These are just a few of the adjectives that represent who I aim to be.</p>
+        </div>
+        <div class="card-body">
+            <h6>Genre <img style="width: 8%;" src="https://cdn-icons-png.flaticon.com/512/3673/3673582.png" alt=""></h6>
+            <p style="color: rgb(255, 255, 255, 0.7);">Je suis une femme</p>
+        </div>
+        <div class="card-body">
+            <h6>Relations <img style="width: 8%;" src="https://cdn-icons-png.flaticon.com/512/1029/1029183.png" alt=""> </h6>
+            <p style="color: rgb(255, 255, 255, 0.7);">Je recherche l'amour</p>
+        </div>
+        <div class="card-body">
+            <h6>Taille <img style="width: 8%;" src="https://cdn-icons-png.flaticon.com/512/5478/5478995.png" alt=""></h6>
+            <p style="color: rgb(255, 255, 255, 0.7);">Je mesure 5'3</p>
+        </div>
+        <div class="card-footer  text-center" style="position: relative; background-color: rgb(0, 0, 0); height: 25%;">
+            <a href="#" class="btn btn-primary rounded-circle" style="height: 40px; width: 40px; border-color: rgb(157, 17, 17); border-radius: 5em; background-color: rgba(255, 255, 255, 0); color: rgb(157, 17, 17);">X</a>
+            <a onClick="normalProfil()" class="btn btn-secondary rounded-6" style="border-color: rgb(255, 255, 255, 0.5); background-color: rgba(255, 255, 255, 0); color: rgb(250, 252, 250, 0.5);" >see less</a>
+            <a href="#" class="btn btn-primary rounded-circle" style="height: 40px; width: 40px; border-color: rgb(11, 144, 22); border-radius: 5em; background-color: rgba(255, 255, 255, 0); color: rgb(11, 144, 22);">O</a>
+        </div>
+    </div>
+    `;
+    document.getElementById('profil').innerHTML = card;
+}
+
+function normalProfil() {
+    let card = `
+    <div class="msg" id="msg">
+            <div class="card" style="max-width: 400px; min-height: 700px;">
+                <div class="card-body" style="background-size: cover; background-position: center; background-repeat: no-repeat; background-image: url('https://static1.purepeople.com/articles/5/43/24/55/@/6216245-annily-chatelain-la-fille-d-alizee-et-j-950x0-2.jpg');">
+                    <div class="align-items-end" >
+                        <div class="row" style="margin-right: 0px;">
+                            <div class="col">
+                            <!-- Prenom -->
+                            <h3 class="card-title col-3" style="color: white; width: max-content; height: fit-content; margin-right: 115px;  margin-top: 500px">Emma</h3> 
+                            </div>
+                            <div class="col">
+                            <!-- Age -->
+                            <h3 class="card-title col-3" style="color: rgba(255, 255, 255, 0.7); width: max-content; height: fit-content; margin-left: -125px; margin-top: 500px">21</h3>
+                            </div>
+                            <div class="col">
+                            <!-- Icon recherche quelle type de relation -->
+                            <img style="width: 40%; margin-left: -165px;" src="https://cdn-icons-png.flaticon.com/512/1029/1029183.png" alt="">
+                            </div>
+                            <!-- position -->
+                            <h6 class="card-title align-items-end" style="color: rgb(255, 255, 255);">1 km</h6>
+                            <!-- extrait de la bio -->
+                            <p class="card-title align-items-end" style="color: rgb(255, 255, 255, 0.7);">Are you a parking ticket? ‘Cause you’ve got ‘fine’ written all over you...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-center" style="background-color: rgb(0, 0, 0); height: 25%;">
+                <!-- Bouton -->
+                <a href="#" class="btn btn-primary rounded-circle" style="height: 40px; width: 40px; border-color: rgb(157, 17, 17); border-radius: 5em; background-color: rgba(255, 255, 255, 0); color: rgb(157, 17, 17);">X</a>
+                <a onClick="afficherProfil();" class="btn btn-secondary rounded-6" style="border-color: rgb(255, 255, 255, 0.5); background-color: rgba(255, 255, 255, 0); color: rgb(250, 252, 250, 0.5);" >see more</a>
+                <a href="#" class="btn btn-primary rounded-circle" style="height: 40px; width: 40px;  border-color: rgb(11, 144, 22); border-radius: 5em; background-color: rgba(255, 255, 255, 0); color: rgb(11, 144, 22);">O</a>
+                </div>
+            </div>
+        </div>
+    `;
+    document.getElementById('profil').innerHTML = card;
+}
+
 
 function popupProfileMembre() {
     let card = `
@@ -490,6 +575,51 @@ function montrerProfil(id) {
     document.getElementById('contenuDeDroite').innerHTML = card;
 }
 
+
+function montrerCarte() {
+
+    let card = `
+   
+            <div id="profil" class="container accordion-body d-flex justify-content-center" style=" padding-bottom: 5%;" id="contenu" >
+                <div class="msg" id="msg">
+                    <div class="card" style="max-width: 400px; min-height: 700px;">
+                        <div class="card-body" style="background-size: cover; background-position: center; background-repeat: no-repeat; background-image: url('https://static1.purepeople.com/articles/5/43/24/55/@/6216245-annily-chatelain-la-fille-d-alizee-et-j-950x0-2.jpg');">
+                            <div class="align-items-end">
+                                <div class="row" style="margin-right: 0px;">
+                                    <div class="col">
+                                    <!-- Prenom -->
+                                    <h3 class="card-title col-3" style="color: white; width: max-content; height: fit-content; margin-right: 115px; margin-top: 500px">Emma</h3> 
+                                    </div>
+                                    <div class="col">
+                                    <!-- Age -->
+                                    <h3 class="card-title col-3" style="color: rgba(255, 255, 255, 0.7); width: max-content; height: fit-content; margin-left: -125px; margin-top: 500px">21</h3>
+                                    </div>
+                                    <div class="col">
+                                    <!-- Icon recherche quelle type de relation -->
+                                    <img style="width: 40%; margin-left: -165px;" src="https://cdn-icons-png.flaticon.com/512/1029/1029183.png" alt="">
+                                    </div>
+                                    <!-- position -->
+                                    <h6 class="card-title align-items-end" style="color: rgb(255, 255, 255); ">1 km</h6>
+                                    <!-- extrait de la bio -->
+                                    <p class="card-title align-items-end" style="color: rgb(255, 255, 255, 0.7);">Are you a parking ticket? ‘Cause you’ve got ‘fine’ written all over you...</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-center" style="background-color: rgb(0, 0, 0); height: 25%;">
+                        <!-- Bouton -->
+                        <a href="#" class="btn btn-primary rounded-circle" style="height: 40px; width: 40px; border-color: rgb(157, 17, 17); border-radius: 5em; background-color: rgba(255, 255, 255, 0); color: rgb(157, 17, 17);">X</a>
+                        <a onClick="afficherProfil();" class="btn btn-secondary rounded-6" style="border-color: rgb(255, 255, 255, 0.5); background-color: rgba(255, 255, 255, 0); color: rgb(250, 252, 250, 0.5);" >see more</a>
+                        <a href="#" class="btn btn-primary rounded-circle" style="height: 40px; width: 40px;  border-color: rgb(11, 144, 22); border-radius: 5em; background-color: rgba(255, 255, 255, 0); color: rgb(11, 144, 22);">O</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+ 
+     `;
+
+    document.getElementById('contenuDeDroite').innerHTML = card;
+}
+
 function montrerMessage(id) {
     $.ajax({
         url: 'server/apis/getRowData.php',
@@ -504,7 +634,9 @@ function montrerMessage(id) {
             var messages = data.content;
            
             var currentUser = data.idSender;
-                    
+           
+
+          
             var card = `
                 <div class="chat">
                     <div class="chat-header clearfix">
@@ -562,602 +694,24 @@ function montrerMessage(id) {
 }
 
 
-
-
-function swipeRight(isOpen, id, idSwipe) {
-    let idName;
-    if (isOpen) {
-        idName = "profil-card-open";
-    } else {
-        idName = "profil-card-close";
-    }
-    
-    document.getElementById(idName).className = 'card swipe-right';
+function swipeRight(isOpen) {
+    document.getElementById('profil-card').className = 'card swipe-right';
     setTimeout(function() {
         if (isOpen) {
             //close see more if open
             montrerCarte();
         }
-
-        $.ajax({
-            url: 'server/apis/getRowData.php',
-            type: 'post',
-            data: {
-                id: id,
-                $idLike: idSwipe,
-                action: 'addLike',
-            },
-            success: function(response) {
-                console.log(id + ' like '+ idSwipe);
-                //window.location.reload();
-            }
-        });
-        document.getElementById(idName).className = 'card';
+        document.getElementById('profil-card').className = 'card';
     }, 500); 
 }
   
-  function swipeLeft(isOpen, id, idSwipe) {
-    let idName;
-    if (isOpen) {
-        idName = "profil-card-open";
-    } else {
-        idName = "profil-card-close";
-    }
-
-    document.getElementById(idName).className = 'card swipe-left';
+  function swipeLeft(isOpen) {
+    document.getElementById('profil-card').className = 'card swipe-left';
     setTimeout(function() {
         if (isOpen) {
             //close see more if open
             montrerCarte();
         }
-
-        $.ajax({
-            url: 'server/apis/getRowData.php',
-            type: 'post',
-            data: {
-                id: id,
-                $idSeen: idSwipe,
-                action: 'addSeen',
-            },
-            success: function(response) {
-                console.log(id + ' dislike '+ idSwipe);
-                //window.location.reload();
-            }
-        });
-        document.getElementById(idName).className = 'card';
+        document.getElementById('profil-card').className = 'card';
     }, 500); 
 }
-
-function closeAllProfil() {
-    let open = document.getElementById('profil-open');
-    let close = document.getElementById('profil-close');
-
-    open.style.display = 'none';
-    close.style.display = 'block';
-    
-}
-
-
-
-
-function montrerProfil(id) {
-
-    $.ajax({
-        url: 'server/apis/getRowData.php',
-        type: 'post',
-        data: {
-            id: id,
-            action: 'getAllProfil',
-        },
-        success: function(response) {
-
-            var data = JSON.parse(response)[0];
-
-            
-
-            alert(response);
-
-            
-
-            var idUser = data.idUser;
-            var name = data.firstName;
-            var age = data.age;
-            var height = data.height;
-            var gender = data.gender;
-            var type = data.typeRelation;
-            var picture = data.picture;
-            var bio = '';
-
-            console.log('reussi'+id+idUser+name+age+height+gender+type+picture+bio+' yes');
-                    
-            var card = `
-            <div id="profil-close">
-            <div
-            class="container accordion-body d-flex justify-content-center"
-            style="padding-bottom: 5%"
-            id="contenu">
-            <div
-            id="profil-card-close"
-            class="card"
-            style="max-width: 400px; min-height: 700px">
-            <div
-            class="card-body"
-            style="
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-image:
-            url('https://static1.purepeople.com/articles/5/43/24/55/@/6216245-annily-chatelain-la-fille-d-alizee-et-j-950x0-2.jpg');
-            ">
-            <div class="align-items-end" style="width: 400px">
-            <div
-            style="
-            position: absolute;
-            background: linear-gradient(
-            rgb(255, 255, 255, 0),
-            rgba(0, 0, 0, 0.725)
-            );
-            left: 0px;
-            right: 0px;
-            bottom: 10%;
-            width: fit-content;
-            ">
-            <div class="row" style="margin-right: 0px; margin-left: 10px">
-            <div class="col">
-            <!-- Prenom -->
-            <h3
-            class="card-title col-3"
-            style="
-            color: white;
-            width: max-content;
-            height: fit-content;
-            margin-right: 115px;
-            margin-top: 500px;
-            ">
-            ${name}
-            </h3>
-            </div>
-            <div class="col">
-            <!-- Age -->
-            <h3
-            class="card-title col-3"
-            style="
-            color: rgba(255, 255, 255, 0.7);
-            width: max-content;
-            height: fit-content;
-            margin-left: -125px;
-            margin-top: 500px;
-            ">
-            ${age}
-            </h3>
-            </div>
-            <div class="col">
-            <!-- Icon recherche quelle type de relation -->
-            <img
-            class="card-title col-3"
-            style="width: 40%; margin-left: -125px; margin-top: 500px"
-            src="https://cdn-icons-png.flaticon.com/512/1029/1029183.png"
-            alt=""
-            />
-            </div>
-            <!-- position -->
-            <h6
-            class="card-title align-items-end"
-            style="color: rgb(255, 255, 255)">
-            1 km
-            </h6>
-            <!-- extrait de la bio -->
-            <p
-            class="card-title align-items-end"
-            style="color: rgb(255, 255, 255, 0.7)">
-            ${bio}
-            </p>
-            </div>
-            </div>
-            </div>
-            </div>
-            <div
-            class="card-footer text-center"
-            style="
-            background-color: rgb(0, 0, 0);
-            height: 25%;
-            bottom: 0px;
-            left: 0px;
-            width: 100%;
-            height: 10%;
-            right: 0px;
-            top: 100%;
-            ">
-            <!-- Bouton -->
-            <a
-            onClick="swipeLeft(false,  ${id}), ${idUser});"
-            class="btn btn-primary rounded-circle"
-            style="
-            bottom: 0px;
-            height: 40px;
-            width: 40px;
-            border-color: rgb(157, 17, 17);
-            border-radius: 5em;
-            background-color: rgba(255, 255, 255, 0);
-            color: rgb(157, 17, 17);
-            ">X</a>
-            <a
-            onClick="montrerProfilOpen(${id}, ${idUser}, ${name}, ${age}, ${height}, ${gender}, ${type}, ${picture}, ${bio});"
-            class="btn btn-secondary rounded-6"
-            style="
-            bottom: 0px;
-            border-color: rgb(255, 255, 255, 0.5);
-            background-color: rgba(255, 255, 255, 0);
-            color: rgb(250, 252, 250, 0.5);
-            ">voir plus</a>
-            <a
-            onClick="swipeRight(false, ${id}), ${idUser});"
-            class="btn btn-primary rounded-circle"
-            style="
-            bottom: 0px;
-            height: 40px;
-            width: 40px;
-            border-color: rgb(11, 144, 22);
-            border-radius: 5em;
-            background-color: rgba(255, 255, 255, 0);
-            color: rgb(11, 144, 22);
-            ">O</a>
-            </div>
-            </div>
-            </div>
-            </div>
-            `;
-            $('#contenuDeDroite').html(card);
-        },
-        error: function(xhr, status, error) {
-            console.log(error);
-        }
-    });
-}
-
-function montrerProfilClose(id, idUser, name, age, height, gender, type, picture, bio) {
-            
-    var card =`
-    <div id="profil-close">
-    <div
-    class="container accordion-body d-flex justify-content-center"
-    style="padding-bottom: 5%"
-    id="contenu">
-    <div
-    id="profil-card-close"
-    class="card"
-    style="max-width: 400px; min-height: 700px">
-    <div
-    class="card-body"
-    style="
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-image:
-    url('https://static1.purepeople.com/articles/5/43/24/55/@/6216245-annily-chatelain-la-fille-d-alizee-et-j-950x0-2.jpg');
-    ">
-    <div class="align-items-end" style="width: 400px">
-    <div
-    style="
-    position: absolute;
-    background: linear-gradient(
-    rgb(255, 255, 255, 0),
-    rgba(0, 0, 0, 0.725)
-    );
-    left: 0px;
-    right: 0px;
-    bottom: 10%;
-    width: fit-content;
-    ">
-    <div class="row" style="margin-right: 0px; margin-left: 10px">
-    <div class="col">
-    <!-- Prenom -->
-    <h3
-    class="card-title col-3"
-    style="
-    color: white;
-    width: max-content;
-    height: fit-content;
-    margin-right: 115px;
-    margin-top: 500px;
-    ">
-    ${name}
-    </h3>
-    </div>
-    <div class="col">
-    <!-- Age -->
-    <h3
-    class="card-title col-3"
-    style="
-    color: rgba(255, 255, 255, 0.7);
-    width: max-content;
-    height: fit-content;
-    margin-left: -125px;
-    margin-top: 500px;
-    ">
-    ${age}
-    </h3>
-    </div>
-    <div class="col">
-    <!-- Icon recherche quelle type de relation -->
-    <img
-    class="card-title col-3"
-    style="width: 40%; margin-left: -125px; margin-top: 500px"
-    src="https://cdn-icons-png.flaticon.com/512/1029/1029183.png"
-    alt=""
-    />
-    </div>
-    <!-- position -->
-    <h6
-    class="card-title align-items-end"
-    style="color: rgb(255, 255, 255)">
-    1 km
-    </h6>
-    <!-- extrait de la bio -->
-    <p
-    class="card-title align-items-end"
-    style="color: rgb(255, 255, 255, 0.7)">
-    ${bio}
-    </p>
-    </div>
-    </div>
-    </div>
-    </div>
-    <div
-    class="card-footer text-center"
-    style="
-    background-color: rgb(0, 0, 0);
-    height: 25%;
-    bottom: 0px;
-    left: 0px;
-    width: 100%;
-    height: 10%;
-    right: 0px;
-    top: 100%;
-    ">
-    <!-- Bouton -->
-    <a
-    onClick="swipeLeft(false,  ${id}), ${idUser});"
-    class="btn btn-primary rounded-circle"
-    style="
-    bottom: 0px;
-    height: 40px;
-    width: 40px;
-    border-color: rgb(157, 17, 17);
-    border-radius: 5em;
-    background-color: rgba(255, 255, 255, 0);
-    color: rgb(157, 17, 17);
-    ">X</a>
-    <a
-    onClick="montrerProfilOpen(${id}, ${idUser}, ${name}, ${age}, ${height}, ${gender}, ${type}, ${picture}, ${bio});"
-    class="btn btn-secondary rounded-6"
-    style="
-    bottom: 0px;
-    border-color: rgb(255, 255, 255, 0.5);
-    background-color: rgba(255, 255, 255, 0);
-    color: rgb(250, 252, 250, 0.5);
-    ">voir plus</a>
-    <a
-    onClick="swipeRight(false, ${id}), ${idUser});"
-    class="btn btn-primary rounded-circle"
-    style="
-    bottom: 0px;
-    height: 40px;
-    width: 40px;
-    border-color: rgb(11, 144, 22);
-    border-radius: 5em;
-    background-color: rgba(255, 255, 255, 0);
-    color: rgb(11, 144, 22);
-    ">O</a>
-    </div>
-    </div>
-    </div>
-    </div>
-    `;
-    $('#contenuDeDroite').html(card);
-
-}
-
-
-
-function montrerProfilOpen(id, idUser, name, age, height, gender, type, picture, bio) {
-            
-    var card = `
-    <div id="profil-open">
-    <div
-    class="container accordion-body d-flex justify-content-center"
-    style="padding-bottom: 5%"
-    id="contenu">
-    <div
-    id="profil-card-open"
-    class="card"
-    style="max-width: 400px; min-height: 700px">
-    <div
-    class="card-body"
-    style="
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-image:
-    url('https://static1.purepeople.com/articles/5/43/24/55/@/6216245-annily-chatelain-la-fille-d-alizee-et-j-950x0-2.jpg');
-    ">
-    <div
-    class="align-items-end"
-    style="width: 400px;">
-    <div
-    style="
-    left: 0px;
-    right: 0px;
-    ">
-    <div class="row" style="margin-right: 0px">
-    <div class="col">
-    <!-- Prenom -->
-    <h3
-    class="card-title col-3"
-    style="
-    color: white;
-    width: max-content;
-    height: fit-content;
-    margin-right: 115px;
-    margin-top: 500px;
-    ">
-    ${name}
-    </h3>
-    </div>
-    <div class="col">
-    <!-- Age -->
-    <h3
-    class="card-title col-3"
-    style="
-    color: rgba(255, 255, 255, 0.7);
-    width: max-content;
-    height: fit-content;
-    margin-left: -125px;
-    margin-top: 500px;
-    ">
-    ${age}
-    </h3>
-    </div>
-    <div class="col">
-    <!-- Icon recherche quelle type de relation -->
-    <img
-    class="card-title col-3"
-    style="width: 40%; margin-left: -125px; margin-top: 500px"
-    src="https://cdn-icons-png.flaticon.com/512/1029/1029183.png"
-    alt=""
-    />
-    </div>
-    <!-- position -->
-    <h6
-    class="card-title align-items-end"
-    style="color: rgb(255, 255, 255)">
-    1 km
-    </h6>
-    </div>
-    </div>
-    </div>
-    </div>
-    <div
-    class="card"
-    style="
-    color: white;
-    top: 5%;
-    position: sticky;
-    background-color: black;
-    margin-top: -9px;
-    max-width: 400px;
-    height: auto;
-    ">
-    <div class="card-body">
-    <h6>Bio</h6>
-    <p
-    class="card-title align-items-end"
-    style="color: rgb(255, 255, 255, 0.7)">
-    ${bio}
-    </p>
-    </div>
-    <div class="card-body">
-    <h6>
-    Genre
-    <img
-    style="width: 8%"
-    src="https://cdn-icons-png.flaticon.com/512/3673/3673582.png"
-    alt=""
-    />
-    </h6>
-    <p style="color: rgb(255, 255, 255, 0.7)">
-    Je suis
-    ${sexe}
-    </p>
-    </div>
-    <div class="card-body">
-    <h6>
-    Relations
-    <img
-    style="width: 8%"
-    src="https://cdn-icons-png.flaticon.com/512/1029/1029183.png"
-    alt=""
-    />
-    </h6>
-    <p style="color: rgb(255, 255, 255, 0.7)">
-    Je recherche
-    ${type}
-    </p>
-    </div>
-    <div class="card-body">
-    <h6>
-    Taille
-    <img
-    style="width: 8%"
-    src="https://cdn-icons-png.flaticon.com/512/5478/5478995.png"
-    alt=""
-    />
-    </h6>
-    <p style="color: rgb(255, 255, 255, 0.7)">
-    Je mesure
-    ${height}
-    cm
-    </p>
-    </div>
-    <div
-    class="card-footer text-center"
-    style="
-    position: relative;
-    background-color: rgb(0, 0, 0);
-    height: 25%;
-    ">
-    <a
-    onClick="swipeLeft(true, ${id}, ${idUser});"
-    class="btn btn-primary rounded-circle"
-    style="
-    height: 40px;
-    width: 40px;
-    border-color: rgb(157, 17, 17);
-    border-radius: 5em;
-    background-color: rgba(255, 255, 255, 0);
-    color: rgb(157, 17, 17);
-    ">X</a>
-    <a
-    onClick="montrerProfilClose(${id}, ${idUser}, ${name}, ${age}, ${height}, ${gender}, ${type}, ${picture}, ${bio});"
-    class="btn btn-secondary rounded-6"
-    style="
-    border-color: rgb(255, 255, 255, 0.5);
-    background-color: rgba(255, 255, 255, 0);
-    color: rgb(250, 252, 250, 0.5);
-    ">voir moins</a>
-    <a
-    onClick="swipeRight(true, ${id}, ${idUser});"
-    class="btn btn-primary rounded-circle"
-    style="
-    height: 40px;
-    width: 40px;
-    border-color: rgb(11, 144, 22);
-    border-radius: 5em;
-    background-color: rgba(255, 255, 255, 0);
-    color: rgb(11, 144, 22);
-    ">O</a>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    
-    `;
-    $('#contenuDeDroite').html(card);
-
-}
-
-function closeProfil() {
-    let open = document.getElementById('profil-open');
-    let close = document.getElementById('profil-close');
-
-
-    if (close.style.display == 'none') {
-        open.style.display = 'none';
-        close.style.display = 'block';  
-    } else {
-        open.style.display = 'block';
-        close.style.display = 'none';
-    }
-}
-

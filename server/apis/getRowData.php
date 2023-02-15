@@ -25,15 +25,6 @@ if (isset($_POST["action"])) {
         case "getAllMessage":
             $myClass->getAllMessage();
             break;
-        case "addLike":
-            $myClass->addLike();
-            break;
-        case "addSeen":
-            $myClass->addSeen();
-            break;
-        case "getAllProfil":
-            $myClass->getAllProfil();
-            break;
             
         default:
             break;
