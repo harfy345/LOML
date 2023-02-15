@@ -63,30 +63,6 @@ class MembreAPI
 
 		return $result->fetch_all();
 	}
-	function getProfilesToShow()
-    {
-        $id= intval($_POST['id']);
-        $requete = "SELECT * from users u WHERE idUser not IN (SELECT idUserSeen FROM seenprofile sp 
-		where sp.idUserSeen=u.idUser and sp.idUser=$id)";
-
-
-        $result = mysqli_query($this->connexion, $requete);
-
-
-        $profiles = array();
-        while ($row = mysqli_fetch_assoc($result)) {
-            $profiles[] = $row;
-        }
-
-        if ($result) {
-            echo json_encode($profiles);
-        } else {
-            echo json_encode(array("error" => "Could not retrieve row data."));
-        }
-        exit;
-
-        return $result->fetch_all();
-    }
 
 	function sendMessage($idUserSender, $idConvo, $idUserReciver, $contenu)
 	{
@@ -341,4 +317,28 @@ class MembreAPI
 		$stmt -> execute();
 		
 	}
+
+	function getProfilesToShow()
+    {
+        $id= intval($_POST['id']);
+        $requete = "SELECT * from users u WHERE idUser not IN (SELECT idUserSeen FROM seenprofile sp where sp.idUserSeen=u.idUser and sp.idUser=$id)";
+
+
+        $result = mysqli_query($this->connexion, $requete);
+
+
+        $profiles = array();
+        while ($row = mysqli_fetch_assoc($result)) {
+            $profiles[] = $row;
+        }
+
+        if ($result) {
+            echo json_encode($profiles);
+        } else {
+            echo json_encode(array("error" => "Could not retrieve row data."));
+        }
+        exit;
+
+        return $result->fetch_all();
+    }
 }

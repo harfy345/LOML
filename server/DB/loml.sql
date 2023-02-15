@@ -42,10 +42,9 @@ CREATE TABLE `connection` (
 --
 
 INSERT INTO `connection` (`idUser`, `email`, `pass`) VALUES
-(1, 'hakam@gmail.com', '123');
-
+(1, 'loml@hotmail.com', '123');
 INSERT INTO `connection` (`idUser`, `email`, `pass`) VALUES
-(2, 'ricardo@hotmail.com', '123');
+(2, 'ricardo@gmail.com', '123');
 
 -- --------------------------------------------------------
 
@@ -202,8 +201,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`idUser`, `firstName`, `lastName`, `admin`, `active`) VALUES
-(1, 'Hakam', 'Almotlak', 1, 1),
-(2, 'Ricardo', 'something', 1, 1);
+(1, 'Christopher', 'Gazemar', 1, 1),
+(2, 'Ricardo', 'Jean', 1, 1);
 
 --
 -- Indexes for dumped tables

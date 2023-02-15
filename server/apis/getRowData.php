@@ -27,7 +27,8 @@ if (isset($_POST["action"])) {
             break;
         case "getAllProfilToShow":
             $myClass->getProfilesToShow();
-            break;   
+            break;
+            
         default:
             break;
     }
