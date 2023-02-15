@@ -21,6 +21,10 @@ body {
     
 }
 
+.text-info-connexion {
+    color: #4c4b4b74;
+}
+
 /* design btn dans formulaire css */
 .btn-design {
     background-color: #000000;
