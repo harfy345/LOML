@@ -138,7 +138,8 @@ CREATE TABLE `profil` (
   `height` int(11) NOT NULL,
   `gender` int(11) NOT NULL,
   `typeRelation` varchar(255) COLLATE utf16_unicode_ci NOT NULL,
-  `picture` varchar(255) COLLATE utf16_unicode_ci NOT NULL
+  `picture` varchar(255) COLLATE utf16_unicode_ci NOT NULL,
+  `bio` varchar(255) COLLATE utf16_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci ROW_FORMAT=COMPACT;
 
 --
