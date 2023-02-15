@@ -25,7 +25,9 @@ if (isset($_POST["action"])) {
         case "getAllMessage":
             $myClass->getAllMessage();
             break;
-            
+        case "getAllProfilToShow":
+            $myClass->getProfilesToShow();
+            break;   
         default:
             break;
     }

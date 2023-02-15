@@ -63,18 +63,30 @@ class MembreAPI
 
 		return $result->fetch_all();
 	}
+	function getProfilesToShow()
+    {
+        $id= intval($_POST['id']);
+        $requete = "SELECT * from users u WHERE idUser not IN (SELECT idUserSeen FROM seenprofile sp 
+		where sp.idUserSeen=u.idUser and sp.idUser=$id)";
 
-	function getProfilesToShow($id)
-	{
-		$requete = "SELECT * from users u WHERE idUser not IN (SELECT idUserSeen FROM seenprofile sp where sp.idUserSeen=u.idUser and sp.idUser=?)";
 
-		$stmt = $this->connexion->prepare($requete);
-		$stmt->bind_param("i", $id);
-		$stmt->execute();
-		$result = $stmt->get_result();
+        $result = mysqli_query($this->connexion, $requete);
 
-		return $result->fetch_all();
-	}
+
+        $profiles = array();
+        while ($row = mysqli_fetch_assoc($result)) {
+            $profiles[] = $row;
+        }
+
+        if ($result) {
+            echo json_encode($profiles);
+        } else {
+            echo json_encode(array("error" => "Could not retrieve row data."));
+        }
+        exit;
+
+        return $result->fetch_all();
+    }
 
 	function sendMessage($idUserSender, $idConvo, $idUserReciver, $contenu)
 	{

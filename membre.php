@@ -168,7 +168,7 @@ if (!$profil) {
                             ?>
 
 
-                            <button onclick="montrerCarte();" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-headingRencontre" aria-expanded="false" aria-controls="flush-headingRencontre">
+                            <button onClick="getAllProfileNotSeen(<?php echo($_SESSION['id']) ?>);" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-headingRencontre" aria-expanded="false" aria-controls="flush-headingRencontre">
                                 rencontres
                             </button>
 
