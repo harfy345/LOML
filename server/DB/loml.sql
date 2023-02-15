@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 14, 2023 at 09:08 PM
+-- Generation Time: Feb 07, 2023 at 08:56 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.1.3
 
@@ -42,7 +42,8 @@ CREATE TABLE `connection` (
 --
 
 INSERT INTO `connection` (`idUser`, `email`, `pass`) VALUES
-(1, 'hakam@gmail.com', '123');
+(1, 'loml@hotmail.com', '123'),
+(2, 'ricardo@hotmail.com', '123');
 
 -- --------------------------------------------------------
 
@@ -136,37 +137,17 @@ CREATE TABLE `profil` (
   `height` int(11) NOT NULL,
   `gender` int(11) NOT NULL,
   `typeRelation` varchar(255) COLLATE utf16_unicode_ci NOT NULL,
-  `bio` varchar(255) COLLATE utf16_unicode_ci,
+  `bio` varchar(255) COLLATE utf16_unicode_ci NOT NULL,
   `picture` varchar(255) COLLATE utf16_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci;
 
 --
 -- Dumping data for table `profil`
 --
 
-INSERT INTO `profil` (`idUser`, `rank`, `age`, `height`, `gender`, `typeRelation`,`bio`, `picture`) VALUES
-(1, 1, 23, 230, 1, 'amour', '', ''),
-(2, 1, 35, 120, 2, 'amour', '', '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `seenprofile`
---
-
-DROP TABLE IF EXISTS `seenprofile`;
-CREATE TABLE `seenprofile` (
-  `idSeenProfile` int(11) NOT NULL,
-  `idUser` int(11) NOT NULL,
-  `idUserSeen` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci;
-
---
--- Dumping data for table `seenprofile`
---
-
-INSERT INTO `seenprofile` (`idSeenProfile`, `idUser`, `idUserSeen`) VALUES
-(1, 1, 2);
+INSERT INTO `profil` (`idUser`, `rank`, `age`, `height`, `gender`, `typeRelation`, `picture`) VALUES
+(1, 1, 23, 230, 1, 'rien', ''),
+(2, 1, 35, 120, 2, 'rien', '');
 
 -- --------------------------------------------------------
 
@@ -200,8 +181,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`idUser`, `firstName`, `lastName`, `admin`, `active`) VALUES
-(1, 'Hakam', 'Almotlak', 1, 1),
-(2, 'Ricardo', 'something', 1, 1);
+(1, 'Christopher', 'Gazemar', 1, 1),
+(2, 'Ricardo', 'Jean', 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -252,14 +233,6 @@ ALTER TABLE `profil`
   ADD KEY `idUser` (`idUser`);
 
 --
--- Indexes for table `seenprofile`
---
-ALTER TABLE `seenprofile`
-  ADD PRIMARY KEY (`idSeenProfile`),
-  ADD KEY `idUser` (`idUser`),
-  ADD KEY `idUserSeen` (`idUserSeen`);
-
---
 -- Indexes for table `session`
 --
 ALTER TABLE `session`
@@ -290,11 +263,6 @@ ALTER TABLE `matchs`
 --
 ALTER TABLE `messages`
   MODIFY `idMessages` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `seenprofile`
---
-ALTER TABLE `seenprofile`
-  MODIFY `idSeenProfile` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `users`
 --
@@ -344,13 +312,6 @@ ALTER TABLE `messages`
 --
 ALTER TABLE `profil`
   ADD CONSTRAINT `profil_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `seenprofile`
---
-ALTER TABLE `seenprofile`
-  ADD CONSTRAINT `seenprofile_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `seenprofile_ibfk_2` FOREIGN KEY (`idUserSeen`) REFERENCES `users` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `session`
