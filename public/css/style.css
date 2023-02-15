@@ -85,6 +85,35 @@
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
   }
 
+   /*index page css*/
+
+   .div-index {
+    font-weight: bolder;
+    font-size: larger;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-bottom-right-radius: 1000px;
+   }
+
+   .div-index-inside {
+    margin-top: 300px;
+    background-color: #ffffff00;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+   }
+
+   .btn-design-index {
+    background-color: #000000;
+    padding-left: 2.5rem; 
+    padding-right: 2.5rem; 
+    width: 100%; 
+    height:55px; 
+    left: 50px; 
+    right: 50px; 
+    color: #ffffff;
+    border-radius: 15px;
+  }
+
+
   /*s'inscrire page css*/
 
   .div-inside-inscrire {
