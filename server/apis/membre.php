@@ -76,17 +76,16 @@ class MembreAPI
 		return $result->fetch_all();
 	}
 
-	function sendMessage($idUserSender,$idConvo, $idUserReciver, $contenu)
+	function sendMessage($idUserSender, $idConvo, $idUserReciver, $contenu)
 	{
-		$requete = "INSERT INTO `messages`
-		 (`idMessages`, `idConversation`, `idSender`, `idReceiver`, `content`, `date`)
-		  VALUES (NULL, ?, ?, ?, ?, CURRENT_TIMESTAMP);";
-
+		$requete = "INSERT INTO `messages` 
+					(`idConversation`, `idSender`, `idReceiver`, `content`, `date`) 
+					VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP);";
 		$stmt = $this->connexion->prepare($requete);
-		$stmt->bind_param("iiis", $idConvo,$idUserSender , $idUserReciver,$contenu);
+		$stmt->bind_param("iiis", $idConvo, $idUserSender, $idUserReciver, $contenu);
 		$stmt->execute();
-
 	}
+	
 
 	//Passer le id de convo
 		

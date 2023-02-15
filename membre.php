@@ -90,13 +90,13 @@ if (!$profil) {
                                         if($row['idUser1'] == $_SESSION['id']) {
                                         ?>
 
-                                        <button onclick="montrerMessage(<?php echo($_SESSION['id'])?>);" type="button" class="btn btn-secondary btn-lg btn-block"><?php echo $row['firstName2']; ?></button>
+                                        <button onclick="montrerMessage(<?php echo($row['idConversation'])?>, <?php echo($_SESSION['id'])?>);" type="button" class="btn btn-secondary btn-lg btn-block"><?php echo $row['firstName2']; ?></button>
 
                                     
                                         <?php
                                         } else {
                                         ?>
-                                        <button onclick="montrerMessage(<?php echo($_SESSION['id'])?>);" type="button" class="btn btn-secondary btn-lg btn-block"><?php echo $row['firstName1']; ?></button>
+                                        <button onclick="montrerMessage(<?php echo($row['idConversation'])?>, <?php echo($_SESSION['id'])?>);" type="button" class="btn btn-secondary btn-lg btn-block"><?php echo $row['firstName1']; ?></button>
 
                                     <?php
                                     } } 

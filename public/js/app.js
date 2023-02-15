@@ -619,17 +619,18 @@ function montrerCarte() {
 
     document.getElementById('contenuDeDroite').innerHTML = card;
 }
-function montrerMessage(id) {
+function montrerMessage(idConversation, idSession) {
     $.ajax({
         url: 'server/apis/getRowData.php',
         type: 'post',
         data: {
-            id: id,
+            id: idConversation,
             action: 'getAllMessage',
         },
         success: function(response) {
             let messages = JSON.parse(response);
             let card = `
+            <form id="" action="server/actions/sendMessage.php" method="POST">
                 <div class="">
                     <div class="chat">
                         <div class="chat-header clearfix">
@@ -647,6 +648,9 @@ function montrerMessage(id) {
                                     <a href="javascript:void(0);" class="btn btn-outline-primary"><i class="fa fa-image"></i></a>
                                     <a href="javascript:void(0);" class="btn btn-outline-info"><i class="fa fa-cogs"></i></a>
                                     <a href="javascript:void(0);" class="btn btn-outline-warning"><i class="fa fa-question"></i></a>
+
+                                    
+
                                 </div>
                             </div>
                         </div>
@@ -654,24 +658,33 @@ function montrerMessage(id) {
                             <ul id="listConvo" class="m-b-0">
             `;
             messages.forEach((message) => {
-                if (message.idSender === id) {
+                alert(message.idSender);
+                if (message.idSender == idSession) {
+                    alert(message.content);
+                    
                     card += `
-                        <li class="clearfix">
-                            <div class="message-data">
-                                <span class="message-data-time">${message.date}</span>
-                            </div>
-                            <div class="message my-message">${message.content}</div>                                    
-                        </li>
-                    `;
-                } else {
-                    card += `
+                        <input type="hidden" class="form-control is-valid" value="${message.idSender}" name="idUserSender"  required>
+                        <input type="hidden" class="form-control is-valid" value="${message.content}" name="idConvo"  required>
+                        <input type="hidden" class="form-control is-valid" value="${message.idReceiver}" name="idUserReciver"  required>
+
                         <li class="clearfix">
                             <div class="message-data text-right">
                                 <span class="message-data-time">${message.date}</span>
                                 <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="avatar">
                             </div>
                             <div class="message other-message float-right">${message.content}</div>
+                        </li>        
+                    `;
+                } else {
+                    card += `
+
+                        <li class="clearfix">
+                            <div class="message-data">
+                                <span class="message-data-time">${message.date}</span>
+                            </div>
+                            <div class="message my-message">${message.content}</div>                                    
                         </li>
+                      
                     `;
                 }
             });
@@ -683,12 +696,13 @@ function montrerMessage(id) {
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><button type = "submit" class="fa fa-send">Envoyer</button></span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Enter text here...">                                    
+                                <input type="text" name= "contenu" class="form-control" placeholder="Enter text here...">                                    
                             </div>
                             
                         </div>
                     </div>
                 </div>
+            </form>
             `;
             document.getElementById('contenuDeDroite').innerHTML = card;
         }
