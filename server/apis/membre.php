@@ -330,7 +330,12 @@ class MembreAPI
 	function getProfilesToShow()
     {
         $id= intval($_POST['id']);
-        $requete = "SELECT * from users u WHERE idUser not IN (SELECT idUserSeen FROM seenprofile sp where sp.idUserSeen=u.idUser and sp.idUser=$id)";
+		
+
+        $requete = "SELECT profil.*, users.firstName FROM profil 
+		INNER JOIN users ON users.idUser = profil.idUser 
+		WHERE (profil.idUser NOT LIKE $id) AND profil.idUser NOT IN 
+		(SELECT seenprofile.idUserSeen FROM seenprofile WHERE seenprofile.idUser = $id AND seenprofile.idUserSeen = seenprofile.idUserSeen);";
 
 
         $result = mysqli_query($this->connexion, $requete);
@@ -350,4 +355,25 @@ class MembreAPI
 
         return $result->fetch_all();
     }
+
+
+	function newLike(){
+		$id= $_POST['id'];
+		$idProfilLike = $_POST['idProfil'];
+
+		$requete = "INSERT INTO `likes` (`idUser`, `idLikedUser`, `date`) VALUES (?, ?, CURRENT_TIMESTAMP);";
+		$stmt = $this->connexion->prepare($requete);
+		$stmt->bind_param("ii", $id, $idProfilLike);
+		$stmt->execute();
+	}
+
+	function addNewSeenprofile(){
+		$idUser= intval($_POST['id']);
+		$idProfilSeen = intval($_POST['idProfil']);
+
+		$requete = "INSERT INTO `seenprofile` (`idUser`, `idUserSeen`) VALUES (?, ?);";
+		$stmt = $this->connexion->prepare($requete);
+		$stmt->bind_param("ii", $idUser, $idProfilSeen);
+		$stmt->execute();
+	}
 }

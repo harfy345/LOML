@@ -28,6 +28,12 @@ if (isset($_POST["action"])) {
         case "getAllProfilToShow":
             $myClass->getProfilesToShow();
             break;
+        case "addSeen":
+            $myClass->addNewSeenprofile();
+            break;
+        case "addLike":
+            $myClass->newLike();
+            break;  
             
         default:
             break;
