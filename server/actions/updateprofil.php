@@ -10,10 +10,29 @@
     $typeRelation = $_POST['relation'];
     $bio = $_POST['bio'];
 
-    $membreapi = new MembreAPI();
-    $membreapi->connect();
-    $membreapi->updateProfilUser($idUser,$prenom,$nom,$height,$gender,$typeRelation,$bio);
-    $membreapi->disconnect();
+    $dossier="../photosMembres/";
+    if($_FILES['picture']['tmp_name']!==""){
+        $nomImage=sha1($nom.time());
+        $tmp = $_FILES['picture']['tmp_name'];
+        $fichier= $_FILES['picture']['name'];
+        $extension=strrchr($fichier,'.');
+        @move_uploaded_file($tmp,$dossier.$nomImage.$extension);
+        @unlink($tmp); 
+        $image=$nomImage.$extension;
+    }
+    try{
+        $membreapi = new MembreAPI();
+        $membreapi->connect();
+        $membreapi->updateProfilUser($idUser,$prenom,$nom,$height,$gender,$typeRelation,$image,$bio);
+    } catch(Exception $e){
+        //Retourner le message voulu
+    }finally {
+        $membreapi->disconnect();
+    }
+
+   
+
+   
     header("location:".$_SERVER['HTTP_REFERER']);
 
 

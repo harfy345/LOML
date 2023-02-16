@@ -158,8 +158,16 @@ class MembreAPI
 
 	public function getAllMessage() {
 		$id = intval($_POST["id"]);
-		$requete = "SELECT * FROM messages WHERE idConversation = $id";
-		$result = mysqli_query($this->connexion, $requete);
+
+		$requete = "SELECT m.*, u.firstName, p.picture 
+					FROM messages AS m
+					JOIN users AS u ON m.idReceiver = u.idUser
+					JOIN profil AS p ON u.idUser = p.idUser
+					WHERE m.idConversation = $id;
+					";
+
+
+		$result = mysqli_query($this->connexion, $requete);	
 	
 		$messages = array();
 		while ($row = mysqli_fetch_assoc($result)) {
@@ -296,7 +304,7 @@ class MembreAPI
 		return $result;
 	}
 
-	function updateProfilUser($idUser,$prenom,$nom,$height,$gender,$typeRelation,$bio){
+	function updateProfilUser($idUser,$prenom,$nom,$height,$gender,$typeRelation,$image,$bio){
 	
 
 		$bio2 = $bio;
@@ -308,6 +316,7 @@ class MembreAPI
 		profil.height = $height, 
 		profil.gender = $gender ,
 		profil.typeRelation = '$typeRelation' ,
+		profil.picture = '$image', 
 		profil.bio = '$bio2' 
 		
 		WHERE users.idUser = profil.idUser AND users.idUser = $idUser";

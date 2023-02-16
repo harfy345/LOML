@@ -423,6 +423,7 @@ function popupProfileMembre() {
 
 
 function montrerProfil(id) {
+    var pictureValue;
 
     $.ajax({
         url: 'server/apis/getRowData.php',
@@ -431,26 +432,29 @@ function montrerProfil(id) {
             id: id,
             action: 'getRowDataProfil',
         },
-        success: function(response) {
+        success: function(response,pictureValue) {
             // parse the JSON response
             var data = JSON.parse(response);
-            alert(response);
             // fill the form inputs with the data
             $('#editidUser').val(data.idUser);
             $('#editfirstName').val(data.firstName);
             $('#editlastName').val(data.lastName);
-            $('#editpicture').val(data.picture);
+            pictureValue = data.picture;
+           
             $('#editheight').val(data.height);
             $('#editbio').val(data.bio);
             
             document.getElementById("radio-" + data.gender).checked = true;
             document.getElementById(data.typeRelation).checked = true;
-        }
-    });
 
+            
+        }
+       
+    });
+    alert(pictureValue);
     let card = `      
 <div class="accordion" id="accordionExample">
-<form id="formEnreg" action="server/actions/updateprofil.php" method="POST">
+<form id="formEnreg"  enctype="multipart/form-data" action="server/actions/updateprofil.php" method="POST">
 <div class="accordion-item">
   <h2 class="accordion-header" id="headingPhoto">
     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePhoto" aria-expanded="true" aria-controls="collapsePhoto">
@@ -459,9 +463,9 @@ function montrerProfil(id) {
   </h2>
   <div id="collapsePhoto" class="accordion-collapse collapse show" aria-labelledby="headingPhoto" data-bs-parent="#accordionExample">
     <div class="accordion-body">
-
-        <img src="public/images/logo.jpg" style="width:400px; heigth:400px;" class="rounded mx-auto d-block" alt="...">
-
+  
+        <img src="server/photosMembres/${pictureValue}" style="width:400px; heigth:400px;" name="editpicture"class="rounded mx-auto d-block" alt="...">
+        <input type="file" class="form-control is-valid" id="picture" name="picture" />
 
       </div>
   </div>
@@ -629,19 +633,30 @@ function montrerMessage(idConversation, idSession) {
         },
         success: function(response) {
             let messages = JSON.parse(response);
+            let receiverName = "";
+            let receiverPhoto = "";
             let card = `
             <form id="" action="server/actions/sendMessage.php" method="POST">
                 <div class="">
                     <div class="chat">
                         <div class="chat-header clearfix">
-                            <div class="row">
+                            <div class="row"> `;
+
+                            messages.forEach((message) => {
+              
+                                if (message.idSender == idSession) {
+                                    receiverName = message.firstName;
+                                    receiverPhoto = message.picture;
+                                }
+                            }); card += `
                                 <div class="col-lg-6">
                                     <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info">
-                                        <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="avatar">
-                                    </a>
-                                    <div class="chat-about">
-                                        <h6 class="m-b-0">Aiden Chavez</h6>
-                                    </div>
+                                        <img src="server/photosMembres/${receiverPhoto}" alt="avatar">
+                                    </a>  
+                        
+                                        <div class="chat-about">
+                                            <h6 class="m-b-0">${receiverName}</h6>
+                                        </div>
                                 </div>
                                 <div class="col-lg-6 hidden-sm text-right">
                                     <a href="javascript:void(0);" class="btn btn-outline-secondary"><i class="fa fa-camera"></i></a>

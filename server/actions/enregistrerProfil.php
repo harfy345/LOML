@@ -14,7 +14,7 @@
 
     $requete = "INSERT INTO profil values($id,?,?,?,?,?,?,?)";
     $stmt = $connexion->prepare($requete);
-    $stmt->bind_param("iiiisss", $rank, $age, $height, $gender, $typeRelation, $bio, $picture);
+    $stmt->bind_param("iiiisss", $rank, $age, $height, $gender, $typeRelation,$picture, $bio);
     $stmt->execute();
     $id=$connexion->insert_id;
 
