@@ -128,13 +128,13 @@ if (!$profil) {
                                         if($row['idUser1'] == $_SESSION['id']) {
                                         ?>
 
-                                        <button  type="button"  class="btn btn-secondary btn-lg btn-block"><?php echo $row['firstName2']; ?></button>
+                                        <button  type="button" onclick="profilMatch(<?php echo($row['idUser2']) ?>);"  class="btn btn-secondary btn-lg btn-block"><?php echo $row['firstName2']; ?></button>
 
                                     
                                         <?php
                                         } else {
                                         ?>
-                                        <button  type="button"  class="btn btn-secondary btn-lg btn-block"><?php echo $row['firstName1']; ?></button>
+                                        <button  type="button" onclick="profilMatch(<?php echo($row['idUser1']) ?>);" class="btn btn-secondary btn-lg btn-block"><?php echo $row['firstName1']; ?></button>
 
                                     <?php
                                     } } 
