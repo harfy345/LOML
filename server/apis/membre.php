@@ -346,10 +346,10 @@ class MembreAPI
             $profiles[] = $row;
         }
 
-        if ($result) {
+        if (mysqli_num_rows($result) > 0) {
             echo json_encode($profiles);
         } else {
-            echo json_encode(array("error" => "Could not retrieve row data."));
+            echo json_encode(array("Il n'y plus d'utilisateur a aimer"));
         }
         exit;
 
@@ -362,6 +362,36 @@ class MembreAPI
 		$idProfilLike = $_POST['idProfil'];
 
 		$requete = "INSERT INTO `likes` (`idUser`, `idLikedUser`, `date`) VALUES (?, ?, CURRENT_TIMESTAMP);";
+		$stmt = $this->connexion->prepare($requete);
+		$stmt->bind_param("ii", $id, $idProfilLike);
+		$stmt->execute();
+		$myClass = new MembreAPI();
+		 if (correspondance($id,$idProfilLike)->num_rows > 0) {
+			echo "<script>alert('vous avez eu un nouveau Match');</script>";
+			$myClass->newMatch($id,$idProfilLike);
+			$myClass->newConvo($id,$idProfilLike);
+		 }
+	}
+
+	function correspondance($id,$idProfilLike){
+		// Check if the users have already liked each other
+		$query = "SELECT * FROM likes WHERE (idUser = ? AND idLikedUser = ?) OR (idUser = ? AND idLikedUser = ?)";
+		$stmt = $this->connexion->prepare($query);
+		$stmt->bind_param("iiii", $id, $idProfilLike, $idProfilLike, $id);
+		$stmt->execute();
+		return $stmt->get_result();
+	}
+
+
+	function newMatch($id,$idProfilLike){
+		$requete = "INSERT INTO `matchs` (`idUser1`, `idUser2`, `date`) VALUES (?, ?, CURRENT_TIMESTAMP);";
+		$stmt = $this->connexion->prepare($requete);
+		$stmt->bind_param("ii", $id, $idProfilLike);
+		$stmt->execute();
+	}
+
+	function newConvo($id,$idProfilLike){
+		$requete = "INSERT INTO `conversation` (`idUser1`, `idUser2`) VALUES (?, ?);";
 		$stmt = $this->connexion->prepare($requete);
 		$stmt->bind_param("ii", $id, $idProfilLike);
 		$stmt->execute();

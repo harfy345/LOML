@@ -66,7 +66,7 @@ $(window).on("load", function () {
           </div>
           <!-- Fin du modal pour enregistrer film -->
       `;
-    document.getElementById("contenuModalProfil").innerHTML = form;
+    document.getElementById("contenu").innerHTML = form;
     $("#enregModal").modal("show");
   };
   
@@ -333,7 +333,7 @@ $(window).on("load", function () {
                           <h5 class="modal-title" id="ModalProfilLabel">NOUVEAU PROFILE</h5>
                       </div>
                       <div class="modal-body">
-                          <form class="row g-3"  id="formProfil" action="server/actions/enregistrerProfil.php" method="POST" style="align-content: center;">
+                          <form class="row g-3" enctype="multipart/form-data" id="formProfil" action="server/actions/enregistrerProfil.php" method="POST" style="align-content: center;">
                               <div class="col-md-12 mySlides">
                                   <label for="age" style="text-align: center;" class="form-label">Quelle est votre age ?</label>
                                   <input type="age"class="form-control" id="age" name="age">
@@ -761,6 +761,7 @@ function swipeRight(isOpen, id, idUser, name, age, height, gender, type, picture
                         action: 'addSeen',
                     },
                     success: function(response) {
+                        
                         getAllProfileNotSeen(id);
                     }
                 });
@@ -782,6 +783,7 @@ function getAllProfileNotSeen(id) {
         },
         success: function(response) {
             // parse the JSON response
+            alert(response);
             data = JSON.parse(response);
 
             let profil = data[0];
@@ -823,7 +825,7 @@ function getAllProfileNotSeen(id) {
             background-position: center;
             background-repeat: no-repeat;
             background-image:
-            url('https://static1.purepeople.com/articles/5/43/24/55/@/6216245-annily-chatelain-la-fille-d-alizee-et-j-950x0-2.jpg');
+            url('server/photosMembres/${picture}');
             ">
             <div class="align-items-end" style="width: 400px">
             <div
@@ -970,7 +972,7 @@ function montrerProfilClose(id, idUser, name, age, height, gender, type, picture
     background-position: center;
     background-repeat: no-repeat;
     background-image:
-    url('https://static1.purepeople.com/articles/5/43/24/55/@/6216245-annily-chatelain-la-fille-d-alizee-et-j-950x0-2.jpg');
+    url('server/photosMembres/${picture}');
     ">
     <div class="align-items-end" style="width: 400px">
     <div
@@ -1115,7 +1117,7 @@ function montrerProfilOpen(id, idUser, name, age, height, gender, type, picture,
     background-position: center;
     background-repeat: no-repeat;
     background-image:
-    url('https://static1.purepeople.com/articles/5/43/24/55/@/6216245-annily-chatelain-la-fille-d-alizee-et-j-950x0-2.jpg');
+    url('server/photosMembres/${picture}');
     ">
     <div
     class="align-items-end"
