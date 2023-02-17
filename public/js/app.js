@@ -648,9 +648,9 @@ $(window).on("load", function () {
         messages.forEach((message) => {
           if (message.idSender == idSession) {
             card += `
-                          <input type="hidden" class="form-control is-valid" value="${message.idSender}" name="idUserSender"  required>
-                          <input type="hidden" class="form-control is-valid" value="${message.idConversation}" name="idConvo"  required>
-                          <input type="hidden" class="form-control is-valid" value="${message.idReceiver}" name="idUserReciver"  required>
+                          <input type="hidden" class="form-control is-valid" value="${message.idSender}" name="idUserSender" id="idUserSender" required>
+                          <input type="hidden" class="form-control is-valid" value="${message.idConversation}" name="idConvo" id="idConvo"  required>
+                          <input type="hidden" class="form-control is-valid" value="${message.idReceiver}" name="idUserReciver" id="idConvo" required>
   
                           <li class="clearfix">
                               <div class="message-data float-right">
