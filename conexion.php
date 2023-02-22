@@ -40,18 +40,13 @@ require_once("./public/util/header.php");
           </div>
           <div class="d-flex justify-content-between align-items-center">
             <!-- Checkbox -->
-            <div class="form-check mb-0">
-              <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-              <label class="form-check-label" for="form2Example3">
-              Se souvenir de moi
-              </label>
-            </div>
-            <a href="#!" class="text-body password-forgot link-dark">Mot de passe Oublier?</a>
+           
+            <a href="#!" class="text-body password-forgot link-dark">Mot de passe oublié?</a>
           </div>
 
           <div class="text-center text-lg-start mt-4 pt-2">
-            <button class='btn-design' type="submit" class="btn btn-dark btn-lg rd">Conexion</button>
-            <p class="small fw-bold mt-2 pt-1 mb-0">Pas de Compte?
+            <button class='btn-design' type="submit" class="btn btn-dark btn-lg rd">Connexion</button>
+            <p class="small fw-bold mt-2 pt-1 mb-0">Pas de compte?
             <a href="./sinscrire.php" class="link-dark">S'inscrire</a>
             </p>
           </div>
