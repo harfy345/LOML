@@ -28,7 +28,7 @@ $membreapi->disconnect();
 <div class="container-fluid">
     <div class="row flex-nowrap">
         <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
-            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white ">
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                     <li>
                         <a href="javascript:montrerFormEnreg();" class="nav-link px-0 align-middle">
@@ -39,9 +39,9 @@ $membreapi->disconnect();
                         <a href="./membre.php" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline"> Page Membres</span></a>
                     </li>
-                </ul>
-                <hr>
-                <div class="dropdown pb-4">
+                    <li style="bottom: 0px;
+    position: absolute;">
+                    <div class="dropdown pb-4">
                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="server/photosMembres/<?php echo ($profil->picture) ?>" alt="hugenerd" width="40" height="40" class="rounded-circle">
 
@@ -52,12 +52,19 @@ $membreapi->disconnect();
                         <li><a class="dropdown-item" href="./deconnexion.php">Se déconnecter</a></li>
                     </ul>
                 </div>
+                    </li>
+                </ul>
+             
+                
 
             </div>
         </div>
 
 
-        <div class="col py-4">
+        <div class="col py-4" style="
+    overflow: hidden;
+    height: 90vh;
+    overflow-y: scroll;">
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
