@@ -1,6 +1,6 @@
 [
     {
-      "idUser": 1,
+      "idUser": 3,
       "firstName": "Emily",
       "lastName": "Wang",
       "admin": 0,
@@ -15,7 +15,7 @@
       "bio": ""
     },
     {
-      "idUser": 2,
+      "idUser": 4,
       "firstName": "Jackson",
       "lastName": "Lee",
       "admin": 0,
@@ -30,7 +30,7 @@
       "bio": ""
     },
     {
-      "idUser": 3,
+      "idUser": 5,
       "firstName": "Aria",
       "lastName": "Martinez",
       "admin": 0,
@@ -45,7 +45,7 @@
       "bio": ""
     },
     {
-      "idUser": 4,
+      "idUser": 6,
       "firstName": "Connor",
       "lastName": "Garcia",
       "admin": 0,
@@ -60,7 +60,7 @@
       "bio": ""
     },
     {
-      "idUser": 5,
+      "idUser": 7,
       "firstName": "Aurora",
       "lastName": "Gonzalez",
       "admin": 0,
@@ -75,7 +75,7 @@
       "bio": ""
     },
     {
-      "idUser": 6,
+      "idUser": 8,
       "firstName": "Landon",
       "lastName": "Perez",
       "admin": 0,
@@ -90,7 +90,7 @@
       "bio": ""
     },
     {
-      "idUser": 7,
+      "idUser": 9,
       "firstName": "Lucy",
       "lastName": "Smith",
       "admin": 0,

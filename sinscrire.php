@@ -34,8 +34,8 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="firstName" name="firstName"  class="form-control" required/>
-                      <label class="form-label" for="form3Example1c">Votre prenom</label>
+                      <input type="text" id="firstName" placeholder="Entrez votre prénom" name="firstName"  class="form-control" required/>
+                      <label class="form-label" for="form3Example1c">Votre prénom</label>
                     </div>
                   </div>
 
@@ -43,15 +43,15 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="lastName" name="lastName"  class="form-control" required/>
-                      <label class="form-label" for="form3Example1c">Votre Nom</label>
+                      <input type="text" id="lastName" placeholder="Entrez votre nom" name="lastName"  class="form-control" required/>
+                      <label class="form-label" for="form3Example1c">Votre nom</label>
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="email" id="email" name="email"class="form-control" required/>
+                      <input type="email" id="email" placeholder="toto@exemple.com" name="email"class="form-control" required/>
                       <label class="form-label" for="form3Example3c">Votre courriel</label>
                     </div>
                   </div>
@@ -59,23 +59,31 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="pass" name="pass" class="form-control" required/>
-                      <label class="form-label" for="form3Example4c">Mot de Passe</label>
+                      <input type="number" id="age" placeholder="Entrez votre âge" min="18" max="120" name="age" class="form-control" required/>
+                      <label class="form-label" for="form3Example4c">Votre âge</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="password"  id="pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Le mot de passe doit contenir au moins un chiffre, une lettre majuscule et une lettre minuscule, et avoir au moins 8 caractères ou plus " name="pass" class="form-control" required/>
+                      <label class="form-label" for="form3Example4c">Mot de passe</label>
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4cd" name="pass2" class="form-control" required/>
-                      <label class="form-label" for="form3Example4cd">Retaper Votre Mot de Passe</label>
+                      <input type="password" id="pass"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Le mot de passe doit contenir au moins un chiffre, une lettre majuscule et une lettre minuscule, et avoir au moins 8 caractères ou plus " name="pass2" class="form-control" required/>
+                      <label class="form-label" for="form3Example4cd">Confirmer votre mot de passe</label>
                     </div>
                   </div>
 
                   <div class="form-check d-flex justify-content-center mb-5">
                     <input class="form-check-input check-box me-2" type="checkbox" value="" id="form2Example3c" required/>
                     <label class="form-check-label" for="form2Example3">
-                    J'accepte toutes les déclarations dans les <a href="#!" class="link-dark"> conditions d'utilisation</a>
+                    J'accepte toutes les déclarations dans les <a href="#!" class="link-dark"> Conditions d'utilisation</a>
                     </label>
                   </div>
 

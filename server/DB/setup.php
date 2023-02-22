@@ -31,7 +31,7 @@ foreach ($clients as $client) {
   $stmt->bind_param("ss", $email, $pass);
   $stmt->execute();
 
-  $image = "";
+  $image = " ";
   $requete = "INSERT INTO profil values($id,?,?,?,?,?,?,?)";
   $stmt = $connexion->prepare($requete);
   $stmt->bind_param("iiiisss", $rank, $age, $height, $gender, $typeRelation,$image, $bio);
