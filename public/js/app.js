@@ -81,7 +81,7 @@ function editRow(id) {
         success: function (response) {
             // parse the JSON response
             var data = JSON.parse(response);
-            alert(response);
+            
             // fill the form inputs with the data
             $("#editidUser").val(data.idUser);
             $("#editFirstName").val(data.firstName);
@@ -1347,7 +1347,7 @@ function profilMatch(id) {
         success: function (response) {
             // parse the JSON response
             data = JSON.parse(response);
-            alert(response);
+            
 
 
             var name = data.firstName;
