@@ -35,7 +35,7 @@ $active_page = $_SESSION['active_page'];
     		
       <div class="d-flex nav-droite">
           <input class="form-control me-2" type="search" name="email" id="inputReche" placeholder="Recherche" aria-label="Recherche">
-          <button type="button" class="btn btn-primary" name="search" id="btnrecherche">recherche</button>
+          <button type="button" class="btn btn-primary" name="search" id="btnrecherche">Rechercher</button>
       </div>
             
     </div>
