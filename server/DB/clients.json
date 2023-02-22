@@ -10,7 +10,7 @@
       "rank": 0,
       "age": 27,
       "height": 168,
-      "gender": 2,
+      "gender": 1,
       "typeRelation": "rien",
       "bio": ""
     },
@@ -25,7 +25,7 @@
       "rank": 0,
       "age": 34,
       "height": 185,
-      "gender": 1,
+      "gender": 2,
       "typeRelation": "rien",
       "bio": ""
     },
@@ -40,7 +40,7 @@
       "rank": 0,
       "age": 22,
       "height": 163,
-      "gender": 2,
+      "gender": 1,
       "typeRelation": "rien",
       "bio": ""
     },
@@ -55,7 +55,7 @@
       "rank": 0,
       "age": 31,
       "height": 180,
-      "gender": 1,
+      "gender": 2,
       "typeRelation": "rien",
       "bio": ""
     },
@@ -70,7 +70,7 @@
       "rank": 0,
       "age": 25,
       "height": 162,
-      "gender": 2,
+      "gender": 1,
       "typeRelation": "rien",
       "bio": ""
     },
@@ -85,7 +85,7 @@
       "rank": 0,
       "age": 33,
       "height": 178,
-      "gender": 1,
+      "gender": 2,
       "typeRelation": "rien",
       "bio": ""
     },
@@ -100,7 +100,7 @@
       "rank": 0,
       "age": 29,
       "height": 170,
-      "gender": 2,
+      "gender": 1,
       "typeRelation": "rien",
       "bio": ""
     }
