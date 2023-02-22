@@ -15,4 +15,4 @@ $membreapi->connect();
 $membre = $membreapi->sendMessage($idUserSender,$idConvo, $idUserReciver, $contenu);
 $membreapi->disconnect();
 
-header("Location: ../../membre.php");
+echo "202";

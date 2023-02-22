@@ -1,27 +1,27 @@
 $(window).on("load", function () {
     $("#coverScreen").hide();
-  });
-  
-  $("#btnrecherche, #btnEdit").click(function () {
+});
+
+$("#btnrecherche, #btnEdit").click(function () {
     $("#coverScreen").show();
-  });
-  $("#contenu").click(function () {
+});
+$("#contenu").click(function () {
     $("#coverScreen").hide();
-  });
-  
-  let initialiser = (message) => {
+});
+
+let initialiser = (message) => {
     let textToast = document.getElementById("textToast");
     let toastElList = [].slice.call(document.querySelectorAll(".toast"));
     let toastList = toastElList.map(function (toastEl) {
-      return new bootstrap.Toast(toastEl);
+        return new bootstrap.Toast(toastEl);
     });
     if (message.length > 0) {
-      textToast.innerHTML = message;
-      toastList[0].show();
+        textToast.innerHTML = message;
+        toastList[0].show();
     }
-  };
-  
-  let montrerFormEnreg = () => {
+};
+
+let montrerFormEnreg = () => {
     let form = `
       <!-- Modal pour enregistrer patient -->
           <div class="modal fade" id="enregModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -68,30 +68,30 @@ $(window).on("load", function () {
       `;
     document.getElementById("contenu").innerHTML = form;
     $("#enregModal").modal("show");
-  };
-  
-  function editRow(id) {
+};
+
+function editRow(id) {
     $.ajax({
-      url: "server/apis/getRowData.php",
-      type: "post",
-      data: {
-        id: id,
-        action: "getRowData",
-      },
-      success: function (response) {
-        // parse the JSON response
-        var data = JSON.parse(response);
-        alert(response);
-        // fill the form inputs with the data
-        $("#editidUser").val(data.idUser);
-        $("#editFirstName").val(data.firstName);
-        $("#editLastName").val(data.lastName);
-        $("#editAdmin").val(data.admin);
-        $("#editEmail").val(data.email);
-        $("#editPass").val(data.pass);
-      },
+        url: "server/apis/getRowData.php",
+        type: "post",
+        data: {
+            id: id,
+            action: "getRowData",
+        },
+        success: function (response) {
+            // parse the JSON response
+            var data = JSON.parse(response);
+            alert(response);
+            // fill the form inputs with the data
+            $("#editidUser").val(data.idUser);
+            $("#editFirstName").val(data.firstName);
+            $("#editLastName").val(data.lastName);
+            $("#editAdmin").val(data.admin);
+            $("#editEmail").val(data.email);
+            $("#editPass").val(data.pass);
+        },
     });
-  
+
     let form = `
       <!-- Modal pour enregistrer patient -->
           <div class="modal fade" id="enregModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -137,72 +137,72 @@ $(window).on("load", function () {
       `;
     document.getElementById("contenu").innerHTML = form;
     $("#enregModal").modal("show");
-  }
-  
-  function deleteRow(id) {
+}
+
+function deleteRow(id) {
     $.ajax({
-      url: "server/apis/getRowData.php",
-      type: "post",
-      data: {
-        id: id,
-        action: "delete",
-      },
-      success: function (response) {
-        alert("usager bien supprimer");
-      },
-    });
-  }
-  function memberStatus(id) {
-    $.ajax({
-      url: "server/apis/getRowData.php",
-      type: "post",
-      data: {
-        active: id,
-        action: "changeActive",
-      },
-      success: function (response) {
-        alert("L'état du membre a été bien activé.");
-        location.reload();
-      },
-    });
-  }
-  function memberStatusDesactive(id) {
-    $.ajax({
-      url: "server/apis/getRowData.php",
-      type: "post",
-      data: {
-        active: id,
-        action: "changeDeactive",
-      },
-      success: function (response) {
-        alert("L'état du membre a été bien désactivé.");
-        location.reload();
-      },
-    });
-  }
-  
-  $(document).ready(function () {
-    $("button[name='search']").click(function (e) {
-      e.preventDefault();
-      var id = $("input[name='email']").val();
-      $.ajax({
         url: "server/apis/getRowData.php",
         type: "post",
         data: {
-          id: id,
-          action: "search",
+            id: id,
+            action: "delete",
         },
         success: function (response) {
-          // parse the JSON response
-          var data = JSON.parse(response);
-          // fill the form inputs with the data
-          $("#FirstName").val(data.first_name);
-          $("#LastName").val(data.last_name);
-          $("#Email").val(data.email);
+            alert("usager bien supprimer");
         },
-      });
-  
-      let form = `
+    });
+}
+function memberStatus(id) {
+    $.ajax({
+        url: "server/apis/getRowData.php",
+        type: "post",
+        data: {
+            active: id,
+            action: "changeActive",
+        },
+        success: function (response) {
+            alert("L'état du membre a été bien activé.");
+            location.reload();
+        },
+    });
+}
+function memberStatusDesactive(id) {
+    $.ajax({
+        url: "server/apis/getRowData.php",
+        type: "post",
+        data: {
+            active: id,
+            action: "changeDeactive",
+        },
+        success: function (response) {
+            alert("L'état du membre a été bien désactivé.");
+            location.reload();
+        },
+    });
+}
+
+$(document).ready(function () {
+    $("button[name='search']").click(function (e) {
+        e.preventDefault();
+        var id = $("input[name='email']").val();
+        $.ajax({
+            url: "server/apis/getRowData.php",
+            type: "post",
+            data: {
+                id: id,
+                action: "search",
+            },
+            success: function (response) {
+                // parse the JSON response
+                var data = JSON.parse(response);
+                // fill the form inputs with the data
+                $("#FirstName").val(data.first_name);
+                $("#LastName").val(data.last_name);
+                $("#Email").val(data.email);
+            },
+        });
+
+        let form = `
       <!-- Modal pour enregistrer patient -->
           <div class="modal fade" id="enregModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
@@ -234,12 +234,12 @@ $(window).on("load", function () {
           </div>
           <!-- Fin du modal pour enregistrer film -->
       `;
-      document.getElementById("contenu").innerHTML = form;
-      $("#enregModal").modal("show");
+        document.getElementById("contenu").innerHTML = form;
+        $("#enregModal").modal("show");
     });
-  });
-  
-  function afficherProfil() {
+});
+
+function afficherProfil() {
     let card = `
           <div class="msg" id="msg" style="width: fit-content; height: auto; padding-top: 0%;">
           <div class="card" style="max-width: 400px; min-height: 600px;">
@@ -282,9 +282,9 @@ $(window).on("load", function () {
       </div>
       `;
     document.getElementById("profil").innerHTML = card;
-  }
-  
-  function normalProfil() {
+}
+
+function normalProfil() {
     let card = `
       <div class="msg" id="msg">
               <div class="card" style="max-width: 400px; min-height: 700px;">
@@ -320,9 +320,9 @@ $(window).on("load", function () {
           </div>
       `;
     document.getElementById("profil").innerHTML = card;
-  }
-  
-  function popupProfileMembre() {
+}
+
+function popupProfileMembre() {
     let card = `
      <!-- Modal pour profil -->
      <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" id="modalProfil" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -399,34 +399,34 @@ $(window).on("load", function () {
       `;
     document.getElementById("contenuModalProfil").innerHTML = card;
     $("#modalProfil").modal("show");
-  }
-  
-  function montrerProfil(id) {
+}
+
+function montrerProfil(id) {
     $.ajax({
-      url: "server/apis/getRowData.php",
-      type: "post",
-      data: {
-        id: id,
-        action: "getRowDataProfil",
-      },
-      success: function (response) {
-        // parse the JSON response
-        var data = JSON.parse(response);
-        var imageUrl = "server/photosMembres/" + data.picture;
-        // fill the form inputs with the data
-        $("#editidUser").val(data.idUser);
-        $("#editfirstName").val(data.firstName);
-        $("#editlastName").val(data.lastName);
-        $("#editpicture").attr("src", imageUrl);
-  
-        $("#editheight").val(data.height);
-        $("#editbio").val(data.bio);
-  
-        document.getElementById("radio-" + data.gender).checked = true;
-        document.getElementById(data.typeRelation).checked = true;
-      },
+        url: "server/apis/getRowData.php",
+        type: "post",
+        data: {
+            id: id,
+            action: "getRowDataProfil",
+        },
+        success: function (response) {
+            // parse the JSON response
+            var data = JSON.parse(response);
+            var imageUrl = "server/photosMembres/" + data.picture;
+            // fill the form inputs with the data
+            $("#editidUser").val(data.idUser);
+            $("#editfirstName").val(data.firstName);
+            $("#editlastName").val(data.lastName);
+            $("#editpicture").attr("src", imageUrl);
+
+            $("#editheight").val(data.height);
+            $("#editbio").val(data.bio);
+
+            document.getElementById("radio-" + data.gender).checked = true;
+            document.getElementById(data.typeRelation).checked = true;
+        },
     });
-  
+
     let card = `      
   <div class="accordion" id="accordionExample">
   <form id="formEnreg"  enctype="multipart/form-data" action="server/actions/updateprofil.php" method="POST">
@@ -550,11 +550,11 @@ $(window).on("load", function () {
   </form>
   </div>
        `;
-  
+
     document.getElementById("contenuDeDroite").innerHTML = card;
-  }
-  
-  function montrerCarte() {
+}
+
+function montrerCarte() {
     let card = `
      
               <div id="profil" class="container accordion-body d-flex justify-content-center" style=" padding-bottom: 5%;" id="contenu" >
@@ -593,35 +593,33 @@ $(window).on("load", function () {
               </div>
    
        `;
-  
+
     document.getElementById("contenuDeDroite").innerHTML = card;
-  }
-  function montrerMessage(idConversation, idSession) {
+}
+function montrerMessage(idConversation, idSession, idContact, receiverName, receiverPhoto) {
+
+    
+    
+
     $.ajax({
-      url: "server/apis/getRowData.php",
-      type: "post",
-      data: {
-        id: idConversation,
-        action: "getAllMessage",
-      },
-      success: function (response) {
-        let messages = JSON.parse(response);
-        let receiverName = "";
-        let receiverPhoto = "";
-        let card = `
-              <form id="" action="server/actions/sendMessage.php" method="POST">
+        url: "server/apis/getRowData.php",
+        type: "post",
+        data: {
+            id: idConversation,
+            action: "getAllMessage",
+        },
+        success: function (response) {
+            let messages = JSON.parse(response);
+            let card = `
+             
+                <input type="hidden" class="form-control is-valid" value="${idSession}" name="idUserSender" id="idUserSender" required>
+                <input type="hidden" class="form-control is-valid" value="${idConversation}" name="idConvo" id="idConvo"  required>
+                <input type="hidden" class="form-control is-valid" value="${idContact}" name="idUserReciver" id="idReceiver" required>
                   <div class="">
                       <div class="chat">
                           <div class="chat-header clearfix">
-                              <div class="row"> `;
-  
-        messages.forEach((message) => {
-          if (message.idSender == idSession) {
-            receiverName = message.firstName;
-            receiverPhoto = message.picture;
-          }
-        });
-        card += `
+                              <div class="row"> 
+
                                   <div class="col-lg-6">
                                       <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info">
                                           <img src="server/photosMembres/${receiverPhoto}" alt="avatar">
@@ -645,12 +643,10 @@ $(window).on("load", function () {
                           <div class="chat-history">
                               <ul id="listConvo" class="m-b-0">
               `;
-        messages.forEach((message) => {
-          if (message.idSender == idSession) {
-            card += `
-                          <input type="hidden" class="form-control is-valid" value="${message.idSender}" name="idUserSender" id="idUserSender" required>
-                          <input type="hidden" class="form-control is-valid" value="${message.idConversation}" name="idConvo" id="idConvo"  required>
-                          <input type="hidden" class="form-control is-valid" value="${message.idReceiver}" name="idUserReciver" id="idConvo" required>
+            messages.forEach((message) => {
+                if (message.idSender == idSession) {
+                    card += `
+                          
   
                           <li class="clearfix">
                               <div class="message-data float-right">
@@ -662,8 +658,8 @@ $(window).on("load", function () {
                               
                           </li>        
                       `;
-          } else {
-            card += `
+                } else {
+                    card += `
   
                           <li class="clearfix">
                               <div class="message-data">
@@ -673,30 +669,84 @@ $(window).on("load", function () {
                           </li>
                         
                       `;
-          }
-        });
-        card += `
+                }
+            });
+            card += `
                               </ul>
                           </div>
                           <div class="chat-message clearfix">
                               <div class="input-group mb-0">
                                   <div class="input-group-prepend">
-                                      <span class="input-group-text"><button type = "submit" class="fa fa-send">Envoyer</button></span>
+                                      <span class="input-group-text"><button onclick="envoyer();" class="fa fa-send">Envoyer</button></span>
                                   </div>
-                                  <input type="text" name= "contenu" class="form-control" placeholder="Enter text here...">                                    
+                                  <input id="contenu" value="" type="text" name= "contenu" class="form-control" placeholder="Enter text here..."/>                                    
                               </div>
                               
                           </div>
                       </div>
                   </div>
-              </form>
+            
               `;
-        document.getElementById("contenuDeDroite").innerHTML = card;
-      },
+            
+            document.getElementById("contenuDeDroite").innerHTML = card;
+          
+        },
     });
-  }
-  
-  function swipeLeft(isOpen, id, idUser, name, age, height, gender, type, picture, bio) {
+}
+
+function envoyer() {
+
+    if ($('#contenu').val() == "") {
+        return;
+    }
+    $.ajax({
+        url: "./server/actions/sendMessage.php",
+        type: "post",
+        data: {
+            idUserSender: $('#idUserSender').val(),
+            idConvo: $('#idConvo').val(),
+            idUserReciver: $('#idReceiver').val(),
+            contenu: $('#contenu').val(),
+
+        },
+        success: function (response) {
+            // parse the JSON response
+            var data = JSON.parse(response);
+            //alert(response);202
+            $('#contenu').val() == " ";
+
+        },
+    });
+
+
+
+    const date = new Date();
+    const formattedDate = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2) + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2) + ':' + ('0' + date.getSeconds()).slice(-2);
+
+    console.log(formattedDate);
+
+    const text = $('#contenu').val();
+    const html = ` <li class="clearfix">
+    <div class="message-data float-right">
+        <div>
+            <span class="message-data-time">${formattedDate}</span>
+        </div>
+        <div class="message other-message float-right">${text}</div>
+    </div>
+    
+</li>     `;
+
+
+    $("#listConvo").append(html);
+    const listConvo = document.getElementById('listConvo');
+    listConvo.scrollTop = listConvo.scrollHeight;
+
+    const messageInput = document.getElementById('contenu');
+    messageInput.value = '';
+
+
+}
+function swipeLeft(isOpen, id, idUser, name, age, height, gender, type, picture, bio) {
     let idName;
     if (isOpen) {
         idName = "profil-card-open";
@@ -705,7 +755,7 @@ $(window).on("load", function () {
     }
 
     document.getElementById(idName).className = 'card swipe-left';
-    setTimeout(function() {
+    setTimeout(function () {
         if (isOpen) {
             //close see more if open
             montrerProfilClose(id, idUser, name, age, height, gender, type, picture, bio)
@@ -719,12 +769,12 @@ $(window).on("load", function () {
                 idProfil: idUser,
                 action: 'addSeen',
             },
-            success: function(response) {
+            success: function (response) {
                 getAllProfileNotSeen(id);
             }
         });
         document.getElementById(idName).className = 'card';
-    }, 500); 
+    }, 500);
 }
 
 function swipeRight(isOpen, id, idUser, name, age, height, gender, type, picture, bio) {
@@ -734,10 +784,10 @@ function swipeRight(isOpen, id, idUser, name, age, height, gender, type, picture
     } else {
         idName = "profil-card-close";
     }
-    
+
     document.getElementById(idName).className = 'card swipe-right';
 
-    setTimeout(function() {
+    setTimeout(function () {
         if (isOpen) {
             //close see more if open
             montrerProfilClose(id, idUser, name, age, height, gender, type, picture, bio)
@@ -751,7 +801,7 @@ function swipeRight(isOpen, id, idUser, name, age, height, gender, type, picture
                 idProfil: idUser,
                 action: 'addLike',
             },
-            success: function(response) {
+            success: function (response) {
                 $.ajax({
                     url: 'server/apis/getRowData.php',
                     type: 'post',
@@ -760,15 +810,15 @@ function swipeRight(isOpen, id, idUser, name, age, height, gender, type, picture
                         idProfil: idUser,
                         action: 'addSeen',
                     },
-                    success: function(response) {
-                        
+                    success: function (response) {
+
                         getAllProfileNotSeen(id);
                     }
                 });
             }
         });
         document.getElementById(idName).className = 'card';
-    }, 500); 
+    }, 500);
 }
 
 
@@ -781,13 +831,13 @@ function getAllProfileNotSeen(id) {
             id: id,
             action: 'getAllProfilToShow',
         },
-        success: function(response) {
+        success: function (response) {
             // parse the JSON response
             alert(response);
             data = JSON.parse(response);
 
             let profil = data[0];
-            
+
             let idUser = profil.idUser;
             let name = profil.firstName;
             let age = profil.age;
@@ -797,17 +847,17 @@ function getAllProfileNotSeen(id) {
 
             let type = profil.typeRelation;
             let picture = profil.picture;
-            let bio = profil.bio;  
-            
-            
-            if(gender == 1){
-                gender="une Femme";
-            }else if(gender == 2){
-                gender="Un Homme";
-            }else if(gender == 3){
-                gender="Non-Binaire";
+            let bio = profil.bio;
+
+
+            if (gender == 1) {
+                gender = "une Femme";
+            } else if (gender == 2) {
+                gender = "Un Homme";
+            } else if (gender == 3) {
+                gender = "Non-Binaire";
             }
-                    
+
             var card = `
             <div id="profil-close">
             <div
@@ -947,14 +997,14 @@ function getAllProfileNotSeen(id) {
             `;
             $('#contenuDeDroite').html(card);
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             console.log(error);
         }
     });
 }
 
 
-function montrerProfilClose(id, idUser, name, age, height, gender, type, picture, bio) {    
+function montrerProfilClose(id, idUser, name, age, height, gender, type, picture, bio) {
     var card = `
     <div id="profil-close">
     <div
@@ -1099,7 +1149,7 @@ function montrerProfilClose(id, idUser, name, age, height, gender, type, picture
 
 
 function montrerProfilOpen(id, idUser, name, age, height, gender, type, picture, bio) {
-       
+
     var card = `
     <div id="profil-open">
     <div
@@ -1285,7 +1335,7 @@ function montrerProfilOpen(id, idUser, name, age, height, gender, type, picture,
 
 }
 
-  
+
 function profilMatch(id) {
     $.ajax({
         url: 'server/apis/getRowData.php',
@@ -1294,30 +1344,30 @@ function profilMatch(id) {
             id: id,
             action: 'getRowDataProfil',
         },
-        success: function(response) {
+        success: function (response) {
             // parse the JSON response
             data = JSON.parse(response);
             alert(response);
-    
-        
+
+
             var name = data.firstName;
             var age = data.age;
             var height = data.height;
             var gender = data.gender;
             var type = data.typeRelation;
             var picture = data.picture;
-            var bio = data.bio;   
-            
+            var bio = data.bio;
+
             var nomGender;
 
-            if(gender == 1){
-                nomGender="une Femme";
-            }else if(gender == 2){
-                nomGender="Un Homme";
-            }else if(gender == 3){
-                nomGender="Non-Binaire";
+            if (gender == 1) {
+                nomGender = "une Femme";
+            } else if (gender == 2) {
+                nomGender = "Un Homme";
+            } else if (gender == 3) {
+                nomGender = "Non-Binaire";
             }
-                    
+
             var card = `
             <div class="modal fade" id="enregModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -1479,7 +1529,7 @@ function profilMatch(id) {
             document.getElementById("contenuModalProfil").innerHTML = card;
             $("#enregModal").modal("show");
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             alert(error);
         }
     });

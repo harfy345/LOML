@@ -88,15 +88,18 @@ if (!$profil) {
                                     while ($row = mysqli_fetch_array($convos)) {
                                         
                                         if($row['idUser1'] == $_SESSION['id']) {
+                                            
                                         ?>
 
-                                        <button onclick="montrerMessage(<?php echo($row['idConversation'])?>, <?php echo($_SESSION['id'])?>);" type="button" class="btn btn-secondary btn-lg btn-block"><?php echo $row['firstName2']; ?></button>
+                                        <button onclick="montrerMessage(<?php echo($row['idConversation'])?>, <?php echo($_SESSION['id'])?>, <?php echo($row['idUser2'])?>, '<?php echo($row['firstName2'])?>', '<?php echo($row['picture2'])?>');"
+                                         type="button" class="btn btn-secondary btn-lg btn-block"><?php echo $row['firstName2']; ?></button>
 
                                     
                                         <?php
                                         } else {
                                         ?>
-                                        <button onclick="montrerMessage(<?php echo($row['idConversation'])?>, <?php echo($_SESSION['id'])?>);" type="button" class="btn btn-secondary btn-lg btn-block"><?php echo $row['firstName1']; ?></button>
+                                        <button onclick="montrerMessage(<?php echo($row['idConversation'])?>, <?php echo($_SESSION['id'])?>, <?php echo($row['idUser1'])?>, '<?php echo($row['firstName1'])?>', '<?php echo($row['picture1'])?>');"
+                                         type="button" class="btn btn-secondary btn-lg btn-block"><?php echo $row['firstName1']; ?></button>
 
                                     <?php
                                     } } 

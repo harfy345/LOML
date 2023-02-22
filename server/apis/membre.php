@@ -97,8 +97,14 @@ class MembreAPI
 
 	public function getAllConvosPourUser($id)
 	{
-		$requete = "SELECT m.* , u1.firstName as firstName1 , u2.firstName as firstName2
-        FROM conversation m INNER JOIN users u1 on m.idUser1 = u1.idUser join users u2 on m.idUser2 = u2.idUser where u1.idUser = ? or u2.idUser = ?" ;
+		
+		$requete = "SELECT m.*, u1.firstName as firstName1, u2.firstName as firstName2, p1.picture as picture1, p2.picture as picture2
+            FROM conversation m 
+            INNER JOIN users u1 on m.idUser1 = u1.idUser 
+            INNER JOIN users u2 on m.idUser2 = u2.idUser 
+            LEFT JOIN profil p2 ON u2.idUser = p2.idUser
+			LEFT JOIN profil p1 ON u1.idUser = p1.idUser
+            WHERE u1.idUser = ? or u2.idUser = ?";
 
 		$stmt = $this->connexion->prepare($requete);
 		$stmt->bind_param("ii", $id,$id);
