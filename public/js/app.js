@@ -237,6 +237,17 @@ $(document).ready(function () {
         document.getElementById("contenu").innerHTML = form;
         $("#enregModal").modal("show");
     });
+
+    $('#conditionCheckBox').change(()=>{
+        
+        if($("#conditionCheckBox").is(':checked')){ 
+            $( "#btnInscrire" ).prop( "disabled", false );
+            $( "#btnInscrire" ).css( "background-color","black" );
+        } else { 
+            $( "#btnInscrire" ).prop( "disabled", true );
+            $( "#btnInscrire" ).css( "background-color","rgb(138, 138, 138 )" );
+        }
+    });
 });
 
 function afficherProfil() {

@@ -81,14 +81,16 @@
                   </div>
 
                   <div class="form-check d-flex justify-content-center mb-5">
-                    <input class="form-check-input check-box me-2" type="checkbox" value="" id="form2Example3c" required/>
+                    <input class="form-check-input check-box me-2" type="checkbox" value="" id="conditionCheckBox" required
+                   
+                    />
                     <label class="form-check-label" for="form2Example3">
                     J'accepte toutes les déclarations dans les <a href="#!" class="link-dark"> Conditions d'utilisation</a>
                     </label>
                   </div>
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="submit" class="btn-design">S'inscrire</button>
+                    <button id="btnInscrire" type="submit" class="btn-design" style="background-color: rgb(138, 138, 138 );">S'inscrire</button>
                   </div>
 
                 </form>
