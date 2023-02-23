@@ -101,7 +101,8 @@ body{
    }
 
    .div-index-inside {
-    margin-top: 300px;
+    margin-top: 100px;
+    margin-bottom: 100px;
     background-color: #ffffff00;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
@@ -119,6 +120,27 @@ body{
     border-radius: 5px;
   }
 
+   /*header page css*/
+
+   .font-design {
+    font-weight: bolder;
+    font-size: larger;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .font-title {
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: xx-large;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+
+
+
+/*fin header page css*/
 
   /*s'inscrire page css*/
 

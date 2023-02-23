@@ -23,21 +23,21 @@ $active_page = $_SESSION['active_page'];
 
 <header class="w-100">
 <?php if($active_page == 'admin'){?>
-  <nav class="navbar navbar-dark navbar-expand-lg text-center sticky-top bg-header" >
+  <nav class="font-design navbar navbar-dark navbar-expand-lg text-center sticky-top bg-header" >
     <div id="navCont" class="container maxWidth">
 
 
           <div class="d-flex nav-gauche">
-              <img src = "public/images/Logo.PNG" width ="60px" height ="60px" href="index.php">
-              <a class="dr-title navbar-brand text-nav display-3" href="index.php">LOML</a>
+              <img src = "public/images/Logo.PNG" width ="90px" height ="90px" href="index.php">
+              <a class="font-title navbar text-dark" href="index.php">LOML</a>
           </div>	
           
    
 
     		
       <div class="d-flex nav-droite">
-          <input class="form-control me-2" type="search" name="email" id="inputReche" placeholder="Recherche" aria-label="Recherche">
-          <button type="button" class="btn btn-primary" name="search" id="btnrecherche">Rechercher</button>
+          <input class="form-control me-2" type="search" name="email" id="inputReche" placeholder="Recherche..." aria-label="Recherche">
+          <button type="button" class="btn btn-dark" name="search" id="btnrecherche">Rechercher</button>
       </div>
             
     </div>
@@ -47,7 +47,7 @@ $active_page = $_SESSION['active_page'];
 
 <?php if($active_page == 'membre'){?>
 
-  <nav class="navbar navbar-dark navbar-expand-lg text-center sticky-top bg-header" >
+  <nav class="font-design navbar navbar-dark navbar-expand-lg text-center sticky-top bg-header" >
           <div id="navCont" class="container maxWidth">
             <div class="d-flex nav-gauche">
               <!--Le mettre beau -->
@@ -56,7 +56,7 @@ $active_page = $_SESSION['active_page'];
                 <i class="fas fa-bars"></i>
 </img>
               <img src = "public/images/Logo.PNG" width ="60px" height ="60px" href="index.php">
-              <a class="dr-title navbar-brand text-nav display-3" href="index.php">LOML</a>
+              <a class="font-title navbar text-dark" href="index.php">LOML</a>
             </div>	
           
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -70,22 +70,22 @@ $active_page = $_SESSION['active_page'];
 
 
 <?php if($active_page == 'home'){?>
-  <nav class="navbar navbar-dark navbar-expand-lg text-center sticky-top bg-header">
+  <nav class="font-design navbar navbar-dark navbar-expand-lg text-center sticky-top bg-header">
         <div id="navCont" class="container maxWidth">
           
             <div class="d-flex nav-gauche">
-              <img src = "public/images/Logo.PNG" width ="60px" height ="60px" href="index.php">
-              <a class="dr-title navbar-brand text-nav display-3" href="index.php">LOML</a>
+              <img src = "public/images/Logo.PNG" width ="90px" height ="90px" href="index.php">
+              <a class="font-title navbar text-dark " href="index.php">LOML</a>
             </div>	
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <div class="navbar-nav me-auto">                    
+                <div class="navbanr-av me-auto">                    
                 </div>
                   <div class="navbar-nav ms-auto">
-                    <a href="./conexion.php" class="nav-item nav-link text-nav"> se connecter<i class="ms-1 fa-solid fa-user"></i></a>
-                    <a href="./sinscrire.php" class="nav-item nav-link text-nav"> s'inscrire<i class="ms-1 fa-solid fa-user"></i></a>
-                    <a href="./about.php" class="nav-item nav-link text-nav">à propos</a>
-                    <a href="./contactUs.php" class="nav-item nav-link text-nav">contactez-nous</a>
+                    <a href="./conexion.php" class="nav-item nav-link text-nav text-dark"> se connecter<i class="ms-1 fa-solid fa-user"></i></a>
+                    <a href="./sinscrire.php" class="nav-item nav-link text-nav text-dark"> s'inscrire<i class="ms-1 fa-solid fa-user"></i></a>
+                    <a href="./about.php" class="nav-item nav-link text-nav text-dark">à propos</a>
+                    <a href="./contactUs.php" class="nav-item nav-link text-nav text-dark">contactez-nous</a>
                 </div>
             </div>
         </div>

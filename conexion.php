@@ -31,22 +31,22 @@ require_once("./public/util/header.php");
           <!-- Email input -->
           <div class="form-outline mb-4">
             <input type="email" id="courrielc" name="courrielc" class="form-control form-control-lg" placeholder="Entrez un adresse courriel valide" required />
-            <label class="form-label text-info-connexion" for="form3Example3">Adresse courriel</label>
+            <label class="font-design form-label text-info-connexion text-dark" for="form3Example3">Adresse courriel</label>
           </div>
           <!-- Password input -->
           <div class="form-outline mb-3">
             <input type="password" id="passc" name="passc" class="form-control form-control-lg" placeholder="Entrer le mot de passe" required />
-            <label class="form-label text-info-connexion" for="form3Example4">Mot de passe</label>
+            <label class="font-design form-label text-info-connexion text-dark" for="form3Example4">Mot de passe</label>
           </div>
           <div class="d-flex justify-content-between align-items-center">
             <!-- Checkbox -->
            
-            <a href="#!" class="text-body password-forgot link-dark">Mot de passe oublié?</a>
+            <a href="#!" class="text-body password-forgot link-dark ">Mot de passe oublié?</a>
           </div>
 
           <div class="text-center text-lg-start mt-4 pt-2">
             <button class='btn-design' type="submit" class="btn btn-dark btn-lg rd">Connexion</button>
-            <p class="small fw-bold mt-2 pt-1 mb-0">Pas de compte?
+            <p class="small fw-bold mt-2 pt-1 mb-0 text-dark">Pas de compte?
             <a href="./sinscrire.php" class="link-dark">S'inscrire</a>
             </p>
           </div>
