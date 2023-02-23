@@ -18,6 +18,7 @@ foreach ($clients as $client) {
   $gender = $client['gender'];
   $typeRelation = $client['typeRelation'];
   $bio = $client['bio'];
+  $image = $client['image'];
 
   $requete = "INSERT INTO users values(0,?,?,?,?)";
   $stmt = $connexion->prepare($requete);
@@ -31,7 +32,6 @@ foreach ($clients as $client) {
   $stmt->bind_param("ss", $email, $pass);
   $stmt->execute();
 
-  $image = " ";
   $requete = "INSERT INTO profil values($id,?,?,?,?,?,?,?)";
   $stmt = $connexion->prepare($requete);
   $stmt->bind_param("iiiisss", $rank, $age, $height, $gender, $typeRelation,$image, $bio);

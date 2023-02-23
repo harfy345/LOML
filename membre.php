@@ -45,11 +45,11 @@ if (!$profil) {
 </div>
 
 
-<div class="container" style="display: flex;">
-  <div class="sidebar-menu" style="flex: 3;">
+<div  style="display: flex;">
+  <div  style="flex: 3; ">
                         
         <!--Main Navigation-->
-        <header>
+        <header style="w-25">
             <!-- Sidebar -->
             <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
                 <div class="position-sticky">
@@ -230,9 +230,11 @@ if (!$profil) {
         </header>
         <!--Main Navigation-->
   </div>
-  <div class="chat" style="flex: 7;">
 
-    <div id="contenuDeDroite" class="container justify-content-center">
+
+  <div  style="flex: 7;">
+
+    <div id="contenuDeDroite" class="container ">
 
     </div>
   

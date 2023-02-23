@@ -1021,7 +1021,7 @@ function getAllProfileNotSeen(id) {
                       
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Vous avez liker tout les uitilisateurs</h5>
+                        <h5 class="card-title">Vous avez aimer tout les uitilisateurs</h5>
                         <p class="card-text">revenez un peu plus tard pour voir plus de profil.</p>
                       
                     </div>
