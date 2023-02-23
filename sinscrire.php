@@ -17,7 +17,6 @@
 
 
 
-<section class="vh-100 bg-main">
   <div class="container h-100 ">
     <div class="row d-flex justify-content-center align-items-center h-100 div-inscrire" >
       <div class="col-lg-12 col-xl-11 ">
@@ -106,7 +105,7 @@
       </div>
     </div>
   </div>
-</section>
+
 
  <!-- Afficher le toast de la connection-->
 <div class="toast-container posToast" style="margin:0 0 0 20px !important; top:20px;">

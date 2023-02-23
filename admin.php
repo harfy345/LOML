@@ -25,6 +25,9 @@ $membreapi->disconnect();
 <div class="container" id="contenu">
 
 </div>
+
+
+
 <div class="container-fluid">
     <div class="row flex-nowrap">
         <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
@@ -39,8 +42,7 @@ $membreapi->disconnect();
                         <a href="./membre.php" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline"> Page Membres</span></a>
                     </li>
-                    <li style="bottom: 0px;
-    position: absolute;">
+                    <li style="bottom: 0px;position: absolute;">
                     <div class="dropdown pb-4">
                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="server/photosMembres/<?php echo ($profil->picture) ?>" alt="hugenerd" width="40" height="40" class="rounded-circle">
@@ -61,10 +63,7 @@ $membreapi->disconnect();
         </div>
 
 
-        <div class="col py-4" style="
-    overflow: hidden;
-    height: 90vh;
-    overflow-y: scroll;">
+        <div class="col py-4" style=" overflow: hidden;height: 90vh; overflow-y: scroll;">
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
@@ -122,8 +121,10 @@ $membreapi->disconnect();
         
     </div>
 </div>
-<div id="coverScreen" class="LockOn">
-        </div>
+
+
+
+<div id="coverScreen" class="LockOn"></div>
 
 
 <?php
