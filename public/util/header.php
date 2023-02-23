@@ -28,7 +28,7 @@ $active_page = $_SESSION['active_page'];
 
 
           <div class="d-flex nav-gauche">
-              <img src = "public/images/Logo.PNG" width ="90px" height ="90px" href="index.php">
+              <img src = "public/images/logo-no-bg.png" width ="90px" height ="90px" href="index.php">
               <a class="font-title navbar text-dark" href="index.php">LOML</a>
           </div>	
           
@@ -55,7 +55,7 @@ $active_page = $_SESSION['active_page'];
                 <!-- <span class="navbar-toggler-icon"></span> -->
                 <i class="fas fa-bars"></i>
 </img>
-              <img src = "public/images/Logo.PNG" width ="60px" height ="60px" href="index.php">
+              <img src = "public/images/logo-no-bg.png" width ="60px" height ="60px" href="index.php">
               <a class="font-title navbar text-dark" href="index.php">LOML</a>
             </div>	
           
@@ -74,7 +74,7 @@ $active_page = $_SESSION['active_page'];
         <div id="navCont" class="container maxWidth">
           
             <div class="d-flex nav-gauche">
-              <img src = "public/images/Logo.PNG" width ="90px" height ="90px" href="index.php">
+              <img src = "public/images/logo-no-bg.png" width ="90px" height ="90px" href="index.php">
               <a class="font-title navbar text-dark " href="index.php">LOML</a>
             </div>	
 
