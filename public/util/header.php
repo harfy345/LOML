@@ -20,6 +20,7 @@ $active_page = $_SESSION['active_page'];
 
 <body onLoad="initialiser(<?php echo "'" . $msg . "'" ?>);" class="d-flex flex-column min-vh-100" style='font-family: Arial, Helvetica, sans-serif;'> 
 
+<header class="w-100">
 <?php if($active_page == 'admin'){?>
   <nav class="navbar navbar-dark navbar-expand-lg text-center sticky-top bg-header" >
     <div id="navCont" class="container maxWidth">
@@ -91,5 +92,6 @@ $active_page = $_SESSION['active_page'];
 <?php } ?>  
 
 
+</header>
 
 <main class="mb-auto w-100 h-100">

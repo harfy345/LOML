@@ -128,6 +128,6 @@ $membreapi->disconnect();
 
 <?php
 
-require_once("public/util/footer.php");
+require_once("./public/util/footer.php");
 
 ?>

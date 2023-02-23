@@ -3,6 +3,12 @@
     ---main-background-color:#677d9e;
     ---header-background-color:#e3b6c7;
 }
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
 
 
 .bg-main{
