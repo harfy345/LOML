@@ -336,76 +336,80 @@ function normalProfil() {
 function popupProfileMembre() {
     let card = `
      <!-- Modal pour profil -->
-     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" id="modalProfil" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-fullscreen" >
-                  <div class="modal-content" style="margin: 0 auto; padding: 40px 100px 100px 100px; align-items: center; text-align: center; background-image: linear-gradient(to bottom, rgb(227, 111, 111) , rgb(247, 142, 142));  color: rgb(0, 0, 0); width:35%; height:75%">
-                      <img class="rounded-circle" style="width: 15%; border: 10px solid white;"  src="public/images/Logo.PNG" alt="">  
-                      <div class="modal-header">
-                          <h5 class="modal-title" id="ModalProfilLabel">NOUVEAU PROFILE</h5>
-                      </div>
-                      <div class="modal-body">
-                          <form class="row g-3" enctype="multipart/form-data" id="formProfil" action="server/actions/enregistrerProfil.php" method="POST" style="align-content: center;">
-                              <div class="col-md-12 mySlides">
-                                  <label for="age" style="text-align: center;" class="form-label">Quelle est votre age ?</label>
-                                  <input type="age"class="form-control" id="age" name="age">
-                              </div>
-                              <div class="col-md-12 mySlides">
-                                  <label for="bio" class="form-label">Parlez-nous de vous</label> <br>
-                                  <textarea id="bio" name="bio" rows="5" cols="50"></textarea>
-                              </div>
-                              <div class="col-md-12 mySlides">
-                                  <label for="height" class="form-label">Quelle est votre taille ? (cm)</label> 
-                                  <input type="height" class="form-control" id="height" name="height" required> 
-                              </div>
-                              <div class="mySlides">
-                              <span class="msgFormEnreg">Ton sexe ?</span><br><br>
-                              <div class="form-check mb-3">
-                                  <input type="radio" class="form-check-input" id="feminin" value="1" name="gender">
-                                  <label class="form-check-label" for="feminin">Féminin</label>
-                              </div>
-                              <div class="form-check mb-3">
-                                  <input type="radio" class="form-check-input" id="masculin" value="2" name="gender">
-                                  <label class="form-check-label" for="masculin">Masculin</label>
-                              </div>
-                              <div class="form-check mb-3">
-                                  <input type="radio" class="form-check-input" id="nonBinaire" value="3" name="gender">
-                                  <label class="form-check-label" for="nonBinaire">Non Binaire</label>
-                              </div>
-                              </div>
-                              <div class="mySlides">
-                              <span class="msgFormEnreg">Quelle type de relation recherche-tu ?</span> <br><br>
-                              <div class="form-check mb-3">
-                                  <input type="radio" class="form-check-input" id="serieux" value="serieux" name="relation">
-                                  <label class="form-check-label" for="serieux">Relation sérieuse</label>
-                              </div>
-                              <div class="form-check mb-3">
-                                  <input type="radio" class="form-check-input" id="rien" value="rien" name="relation">
-                                  <label class="form-check-label" for="rien">Rien de sérieux</label>
-                              </div>
-                              <div class="form-check mb-3">
-                                  <input type="radio" class="form-check-input" id="sex" value="friend" name="relation">
-                                  <label class="form-check-label" for="sex">Sex friend</label>
-                              </div>
-                              <div class="form-check mb-3">
-                                  <input type="radio" class="form-check-input" id="coup" value="coup" name="relation">
-                                  <label class="form-check-label" for="coup">Coup d'un soir</label>
-                              </div>
-                          </div>
-                          <div class="col-md-12 mySlides">
-                              <label for="picture" class="form-label">Photo de profil</label>
-                              <input type="file" accept="image/*" class="form-control" id="picture" name="picture" id="in" value="">
-                              <div class="mySlidesform-check col-12">
-                                  <button class="btn btn-primary" style="margin-top: 15px; border: 5px solid white; background-color: rgb(0, 0, 0,0);" type="submit">Enregister</button>                              
-                              </div>
-                          </div>
-                          
-                          </form>
-                          <div class="row" style="margin-top: 10px;">
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
+     <div class="modal fade bd-example-modal-lg" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" tabindex="-1" role="dialog" id="modalProfil" aria-labelledby="modal-fullscreen" aria-hidden="true">
+     <div class="modal-dialog " >
+         <div class="modal-content" style="margin: 0 auto; padding: 40px 100px 100px 100px; align-items: center; text-align: center; background-image: linear-gradient(to bottom, rgb(252, 195, 195) , rgba(255, 206, 206, 0.572));  color: rgb(0, 0, 0); width:fit-content; height:100%">
+             <img class="rounded-circle" style="width: auto; height: 150px; border: 10px solid white;"  src="public/images/Logo.PNG" alt="">  
+             <div class="modal-header">
+                 <h5 class="modal-title" style="font-size: xx-large;" id="ModalProfilLabel">NOUVEAU PROFILE</h5>
+             </div>
+             <div class="modal-body">
+                 <form class="row g-3" enctype="multipart/form-data" id="formProfil" action="server/actions/enregistrerProfil.php" method="POST" style="align-content: center;">
+                     <div class="col-md-12 mySlides">
+                         <label for="age"  style="text-align: center; font-size: x-large;" class="form-label">Quelle est votre age ?</label>
+                         <input type="number" min="18" max="120" class="form-control" style="max-width: 700px; display: block; text-align: center; margin-right: auto; margin-left: auto;"  id="age" name="age" required>
+                     </div>
+                     <div class="col-md-12 mySlides">
+                         <label for="bio" class="form-label" style="font-size: x-large;">Parlez-nous de vous</label> <br>
+                         <textarea id="bio" name="bio"   rows="5" cols="40" required></textarea>
+                     </div>
+                     <div class="col-md-12 mySlides">
+                         <label for="height" class="form-label" style="font-size: x-large;">Quelle est votre taille ? (cm)</label> 
+                         <input type="number" min="50" max="260" class="form-control" style="max-width: 700px; display: block; text-align: center; margin-right: auto; margin-left: auto;"  id="height" name="height" required> 
+                     </div>
+                     <div class="col-md-12 mySlides" style="max-width: 700px; display: block; text-align: center; margin-right: auto; margin-left: auto;">
+
+                         <span class="msgFormEnreg" style="font-size: x-large;">Ton sexe ?</span><br><br>
+                         <div class="form-check mb-3">
+                             <input type="radio" class="form-check-input" id="feminin" value="1" name="gender">
+                             <label class="form-check-label" for="feminin" required>Féminin</label>
+                         </div>
+                         <div class="form-check mb-3">
+                             <input type="radio" class="form-check-input" id="masculin" value="2" name="gender">
+                             <label class="form-check-label" for="masculin" required>Masculin</label>
+                         </div>
+                         <div class="form-check mb-3">
+                             <input type="radio" class="form-check-input" id="nonBinaire" value="3" name="gender">
+                             <label class="form-check-label" for="nonBinaire" required>Non Binaire</label>
+                         </div>
+
+                     </div>
+                     
+                     <div class="col-md-12 mySlides" style="max-width: 700px; display: block; text-align: center; margin-right: auto; margin-left: auto;" >
+
+                         <span class="msgFormEnreg" style="font-size: x-large;">Quelle type de relation recherche-tu ?</span> <br><br>
+                         <div class="form-check mb-3">
+                             <input type="radio" class="form-check-input" id="serieux" value="serieux" name="relation">
+                             <label class="form-check-label" for="serieux" required>Relation sérieuse</label>
+                         </div>
+                         <div class="form-check mb-3">
+                             <input type="radio" class="form-check-input" id="rien" value="rien" name="relation">
+                             <label class="form-check-label" for="rien" required>Rien de sérieux</label>
+                         </div>
+                         <div class="form-check mb-3">
+                             <input type="radio" class="form-check-input" id="sex" value="friend" name="relation">
+                             <label class="form-check-label" for="sex" required>Sex friend</label>
+                         </div>
+                         <div class="form-check mb-3">
+                             <input type="radio" class="form-check-input" id="coup" value="coup" name="relation">
+                             <label class="form-check-label" for="coup" required>Coup d'un soir</label>
+                         </div>
+
+                     </div>
+                     <div class="col-md-12 mySlides">
+                         <label for="picture" style="font-size: x-large;" class="form-label">Photo de profil</label>
+                         <input type="file" style="max-width: 700px; display: block; text-align: center; margin-right: auto; margin-left: auto;" accept="image/*" class="form-control" id="picture" name="picture" id="in" value="" required>
+                         <div class="mySlidesform-check col-12">
+                             <button class="btn btn-primary text-black" style="margin-top: 15px; border: 5px solid rgb(0, 0, 0); background-color: rgb(0, 0, 0,0);" type="submit">Enregister</button>                              
+                         </div>
+                     </div>
+                 </form>
+                 <div class="row" style="margin-top: 10px;">
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
           <!-- fin modal pour profil -->
       `;
     document.getElementById("contenuModalProfil").innerHTML = card;
