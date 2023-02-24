@@ -67,7 +67,8 @@ $active_page = $_SESSION['active_page'];
             </div>
         </div>
     </nav>
-<?php } ?>  
+<?php } 
+?>  
 
 
 <?php if($active_page == 'home'){?>
