@@ -473,6 +473,10 @@ body{
     animation-duration: 1.5s;
 }
 
+.btn-animation:hover {
+    background-color: #c698aa;
+}
+
 .switch {
   position: relative;
   display: inline-block;
