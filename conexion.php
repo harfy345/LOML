@@ -11,8 +11,8 @@ require_once("./public/util/header.php");
 ?>
 
   <div class="container-fluid h-custom form-connexion">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 text-info-connexion form-design">
+    <div class="row d-flex justify-content-center align-items-center h-100 connexion-position">
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 text-info-connexion form-design menu-index-animation connexion-position-inside">
       <!-- Compléter l'action --- le lier au serveur -->
         <div class="form-outline text-white mb-4">
           <h1>LOVE OF MY LIFE</h1>

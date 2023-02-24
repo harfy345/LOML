@@ -113,6 +113,16 @@ body{
 
 /*fin header page css*/
 
+  .connexion-position {
+    position: relative;
+    top: -30px;
+  }
+
+  .connexion-position-inside {
+    position: absolute;
+    top: -30px;
+  }
+
   /*s'inscrire page css*/
 
   .div-inside-inscrire {
@@ -121,6 +131,16 @@ body{
     font-size: larger;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     border-bottom-right-radius: 1000px;
+  }
+
+  .div-inscrire-up {
+    position: relative;
+    top: -10px;
+  }
+
+  .div-inscrire {
+    position: absolute;
+    top: -50px;
   }
 
   .logo-inscrire {
@@ -426,6 +446,7 @@ body{
     }
   }
 
+
   .swipe-right {
     animation-duration: 0.5s;
     animation-name: swipeR;
@@ -435,6 +456,22 @@ body{
     animation-duration: 0.5s;
     animation-name: swipeL;
   }
+
+@keyframes openning {
+    0% {
+        transform: translateY(-400px);
+    }
+}
+
+.menu-text-index-animation {
+    animation-name: openning;
+    animation-duration: 2.5s;
+}
+
+.menu-index-animation {
+    animation-name: openning;
+    animation-duration: 1.5s;
+}
 
 .switch {
   position: relative;
