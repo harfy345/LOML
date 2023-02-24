@@ -1600,3 +1600,51 @@ function profilMatch(id) {
         }
     });
 }
+
+function afficherMatches(matchesToShow){
+
+   
+    var card = `
+    <div class="modal fade" id="enregModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+    
+            <div class="card text-center bg-danger mb-3">
+            
+                <div class="card-body">
+                    <h5 class="card-title">nouveaux matchs allez voir son profil! </h5>`
+                        matchesToShow.forEach(e=>card+="<div>"+e.firstName+"</div>")
+                        card+= `
+
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+       
+    `;
+    
+    document.getElementById("contenuModalProfil").innerHTML = card;
+    $("#enregModal2").modal("show");
+   
+}
+
+function updateViewed(id1,id2) {
+    
+ 
+    $.ajax({
+      type: 'POST',
+      url: 'server/apis/getRowData.php ',
+      data: { 
+        id1: id1,
+        id2: id2, 
+        action: 'update-viewed',
+    },
+      success: function() {
+        console.log('Viewed updated successfully');
+      },
+      error: function() {
+        console.log('Failed to update viewed');
+      }
+    });
+  }

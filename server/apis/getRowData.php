@@ -34,6 +34,11 @@ if (isset($_POST["action"])) {
         case "addLike":
             $myClass->newLike();
             break;  
+        case "update-viewed":
+            $myClass->viewed();
+            break;  
+
+            
             
         default:
             break;

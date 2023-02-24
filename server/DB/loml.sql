@@ -73,7 +73,7 @@ DROP TRIGGER IF EXISTS `new_match`;
 DELIMITER $$
 CREATE TRIGGER `new_match` BEFORE INSERT ON `likes` FOR EACH ROW BEGIN
   IF EXISTS (SELECT * FROM likes WHERE idUser = NEW.idLikedUser AND idLikedUser = NEW.idUser) THEN
-    INSERT INTO matchs (idUser1, idUser2,date) VALUES (NEW.idUser, NEW.idLikedUser,CURRENT_TIMESTAMP);
+    INSERT INTO matchs (idUser1, idUser2,date,viewed) VALUES (NEW.idUser, NEW.idLikedUser,CURRENT_TIMESTAMP,0);
      INSERT INTO `conversation` (`idConversation`, `idUser1`, `idUser2`) VALUES (NULL, NEW.idUser, NEW.idLikedUser);
   END IF;
 END
@@ -91,7 +91,9 @@ CREATE TABLE `matchs` (
   `idMatch` int(11) NOT NULL,
   `idUser1` int(11) NOT NULL,
   `idUser2` int(11) NOT NULL,
+  `viewed` tinyint(4) NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp()
+
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
@@ -212,7 +214,6 @@ ALTER TABLE `matchs`
   ADD PRIMARY KEY (`idMatch`),
   ADD KEY `matchs_ibfk_1` (`idUser1`),
   ADD KEY `matchs_idfk_2` (`idUser2`) USING BTREE;
-
 --
 -- Index pour la table `messages`
 --

@@ -397,14 +397,18 @@ class MembreAPI
 	}
 
 
-	function getMatchSeenByUser($idUser1,$idUser2){
-		
-		$requete = "SELECT * FROM matchs where idUser1 = $idUser1 AND idUser1 = $idUser2 OR  idUser1 = $idUser2 AND idUser1 = $idUser1";
-		$result = mysqli_query($this->connexion, $requete);
+	function viewed(){
+		$idUser1= intval($_POST['id1']);
+		$idUser2= intval($_POST['id2']);
 
-		$row = mysqli_fetch_assoc($result);
+		$requette = "UPDATE matchs 
+		SET viewed = 1 
+		WHERE (idUser1 = $idUser1 AND idUser2 = $idUser2) OR (idUser1 = $idUser2 AND idUser2 = $idUser1)";
 
-		return $row["viewed"];
+	
+		$stmt = $this->connexion->prepare($requette);
+	
+		$stmt->execute();
 
 	}
 }
