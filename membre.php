@@ -24,9 +24,6 @@ if ($profilActive -> active == 0) {
     header("location:./conexion.php?msg=$msg");
 }
 
-
-
-
 if (!$profil) {
 ?>
 
@@ -39,13 +36,6 @@ if (!$profil) {
 
 <?php
 }
-
-
-// $membreapi->connect();
-// $matchsViewed = $membreapi->getMatchSeenByUser($_SESSION['id']);
-// $membreapi->disconnect();
-
-
 ?>
 
 <div class="container" id="contenuModalProfil">
@@ -125,30 +115,68 @@ if (!$profil) {
                                 </h2>
                                 <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body">
-
+                                    <script>
+                                    
+                                    const matchesToShow = [];
+                                    </script>
                                     <?php
 
                                     while ($row = mysqli_fetch_array($matches)) {
-                                        
+                                       
+                                       
                                         if($row['idUser1'] == $_SESSION['id']) {
                                         ?>
+                                        
+                                        <?php if($row['viewed'] == 0){
+                                            ?>
+                                             <script>
+                                           
+                                                matchesToShow.push({firstName: '<?php echo $row['firstName2']; ?>'});
+                                               
+                                            </script>
+                                        <?php
+                                            }
+                                                ?>
+                                       
 
-                                        <button  type="button" onclick="profilMatch(<?php echo($row['idUser2']) ?>);"  class="btn btn-secondary btn-lg btn-block"><?php echo $row['firstName2']; ?></button>
+                                        <button  type="button" onclick="profilMatch(<?php echo($row['idUser2']) ?>); updateViewed(<?php echo $row['idUser2']; ?>,<?php echo $row['idUser1']; ?>);"  class="btn btn-secondary btn-lg btn-block"><?php echo $row['firstName2']; ?></button>
                                         <button type="button" class="btn-close" aria-label="Close" onclick=unmatch()></button>
-
                                     
                                         <?php
                                         } else {
                                         ?>
-                                        <button  type="button" onclick="profilMatch(<?php echo($row['idUser1']) ?>);" class="btn btn-secondary btn-lg btn-block"><?php echo $row['firstName1']; ?></button>
-                                        <button type="button" class="btn-close" aria-label="Close" onclick=unmatch()></button>
+                                     
+                                        
+                                         <?php if($row['viewed'] == 0){
+                                            ?>
+                                            
+                                            <script>
+                                    
+                                                matchesToShow.push({firstName: '<?php echo $row['firstName1']; ?>'});
+                                               
+                                            </script>
+                                        <?php
+                                            }
+                                                ?>
+                                       
+                                       <button type="button" onclick="profilMatch(<?php echo $row['idUser1']; ?>); updateViewed(<?php echo $row['idUser1']; ?>,<?php echo $row['idUser2']; ?>);" class="btn btn-secondary btn-lg btn-block"><?php echo $row['firstName1']; ?></button>
+                                       <button type="button" class="btn-close" aria-label="Close" onclick=unmatch()></button>
+
 
                                     <?php
                                     } } 
-                                    
                                       ?>
 
-
+                                    <script>
+                                        if (matchesToShow.length === 0) {
+                                            console.log("Le tableau est vide !");
+                                        }
+                                        else{
+                                          
+                                            afficherMatches(matchesToShow);
+                                        }
+                                   
+                                    </script>
 
                                     </div>
                                 </div>
