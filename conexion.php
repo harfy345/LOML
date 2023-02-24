@@ -10,8 +10,6 @@ $pagetitre = "conexion";
 require_once("./public/util/header.php");
 ?>
 
-
-<section class="vh-100 mainPage">
   <div class="container-fluid h-custom form-connexion">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 text-info-connexion form-design">
@@ -54,7 +52,7 @@ require_once("./public/util/header.php");
       </div>
     </div>
   </div>
-</section>
+
     
 
 

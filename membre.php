@@ -16,6 +16,7 @@ $membreapi = new MembreAPI();
 $membreapi->connect();
 $profil = $membreapi->verifierUserProfil($_SESSION['id']);
 $profilActive = $membreapi->verifierUserActive($_SESSION['id']);
+$matches = $membreapi->getAllMatchesPourUser($_SESSION['id']);
 $membreapi->disconnect();
 
 if ($profilActive -> active == 0) {
@@ -38,6 +39,13 @@ if (!$profil) {
 
 <?php
 }
+
+
+// $membreapi->connect();
+// $matchsViewed = $membreapi->getMatchSeenByUser($_SESSION['id']);
+// $membreapi->disconnect();
+
+
 ?>
 
 <div class="container" id="contenuModalProfil">
@@ -45,11 +53,11 @@ if (!$profil) {
 </div>
 
 
-<div class="container" style="display: flex;">
-  <div class="sidebar-menu" style="flex: 3;">
+<div  style="display: flex;">
+  <div  style="flex: 2; ">
                         
         <!--Main Navigation-->
-        <header>
+        <header style="w-25">
             <!-- Sidebar -->
             <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
                 <div class="position-sticky">
@@ -119,12 +127,6 @@ if (!$profil) {
                                     <div class="accordion-body">
 
                                     <?php
-
-                                    $membreapi->connect();
-
-                                    $matches = $membreapi->getAllMatchesPourUser($_SESSION['id']);
-
-                                    $membreapi->disconnect();
 
                                     while ($row = mysqli_fetch_array($matches)) {
                                         
@@ -230,9 +232,11 @@ if (!$profil) {
         </header>
         <!--Main Navigation-->
   </div>
-  <div class="chat" style="flex: 7;">
 
-    <div id="contenuDeDroite" class="container justify-content-center">
+
+  <div  style="flex: 7;">
+
+    <div id="contenuDeDroite" class="container ">
 
     </div>
   

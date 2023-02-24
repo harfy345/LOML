@@ -848,7 +848,6 @@ function getAllProfileNotSeen(id) {
         },
         success: function (response) {
             // parse the JSON response
-            alert(response);
             data = JSON.parse(response);
 
             let profil = data[0];
@@ -872,8 +871,13 @@ function getAllProfileNotSeen(id) {
             } else if (gender == 3) {
                 gender = "Non-Binaire";
             }
-
+           
+            data.forEach((profil) => {
+                console.log(profil);
+                if (profil != "Il n'y plus d'utilisateur a aimer" ) {
+               
             var card = `
+           
             <div id="profil-close">
             <div
             class="container accordion-body d-flex justify-content-center"
@@ -1011,6 +1015,30 @@ function getAllProfileNotSeen(id) {
             </div>
             `;
             $('#contenuDeDroite').html(card);
+         
+            }else{
+                var card = `
+
+         
+                <div class="card text-center bg-danger mb-3">
+                    <div class="card-header">
+                      
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Vous avez aimer tout les uitilisateurs</h5>
+                        <p class="card-text">revenez un peu plus tard pour voir plus de profil.</p>
+                      
+                    </div>
+                    <div class="card-footer text-muted">
+                       
+                    </div>
+                </div>
+                `;
+                
+                $('#contenuDeDroite').html(card);
+            }
+        });
+     
         },
         error: function (xhr, status, error) {
             console.log(error);

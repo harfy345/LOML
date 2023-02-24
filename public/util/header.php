@@ -36,7 +36,7 @@ $active_page = $_SESSION['active_page'];
 
     		
       <div class="d-flex nav-droite">
-          <input class="form-control me-2" type="search" name="email" id="inputReche" placeholder="Recherche..." aria-label="Recherche">
+          <input class="form-control me-2" type="search" name="email" id="inputReche" placeholder="Recherche par ID" aria-label="Recherche">
           <button type="button" class="btn btn-dark" name="search" id="btnrecherche">Rechercher</button>
       </div>
             
@@ -54,19 +54,21 @@ $active_page = $_SESSION['active_page'];
               <img src='public/images/menuLogo.png' width='60pt' height='60pt' class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <!-- <span class="navbar-toggler-icon"></span> -->
                 <i class="fas fa-bars"></i>
-</img>
+              </img>
+              
               <img src = "public/images/logo-no-bg.png" width ="60px" height ="60px" href="index.php">
               <a class="font-title navbar text-dark" href="index.php">LOML</a>
             </div>	
           
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="navbar-nav ms-auto">
-                    <a href="./deconnexion.php" class="nav-item nav-link text-nav"> Se Déconnecter<i class="ms-1 fa-solid fa-user"></i></a>
+                    <a href="./deconnexion.php" class="btn btn-dark"> Se Déconnecter<i class="ms-1 fa-solid fa-user"></i></a>
                 </div>
             </div>
         </div>
     </nav>
-<?php } ?>  
+<?php } 
+?>  
 
 
 <?php if($active_page == 'home'){?>
