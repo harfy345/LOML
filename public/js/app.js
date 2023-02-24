@@ -361,16 +361,16 @@ function popupProfileMembre() {
 
                          <span class="msgFormEnreg" style="font-size: x-large;">Ton sexe ?</span><br><br>
                          <div class="form-check mb-3">
-                             <input type="radio" class="form-check-input" id="feminin" value="1" name="gender">
-                             <label class="form-check-label" for="feminin" required>Féminin</label>
+                             <input type="radio" class="form-check-input" id="feminin" value="1" name="gender" required>
+                             <label class="form-check-label" for="feminin">Féminin</label>
                          </div>
                          <div class="form-check mb-3">
                              <input type="radio" class="form-check-input" id="masculin" value="2" name="gender">
-                             <label class="form-check-label" for="masculin" required>Masculin</label>
+                             <label class="form-check-label" for="masculin">Masculin</label>
                          </div>
                          <div class="form-check mb-3">
                              <input type="radio" class="form-check-input" id="nonBinaire" value="3" name="gender">
-                             <label class="form-check-label" for="nonBinaire" required>Non Binaire</label>
+                             <label class="form-check-label" for="nonBinaire">Non Binaire</label>
                          </div>
 
                      </div>
@@ -379,20 +379,20 @@ function popupProfileMembre() {
 
                          <span class="msgFormEnreg" style="font-size: x-large;">Quelle type de relation recherche-tu ?</span> <br><br>
                          <div class="form-check mb-3">
-                             <input type="radio" class="form-check-input" id="serieux" value="serieux" name="relation">
-                             <label class="form-check-label" for="serieux" required>Relation sérieuse</label>
+                             <input type="radio" class="form-check-input" id="serieux" value="serieux" name="relation" required>
+                             <label class="form-check-label" for="serieux">Relation sérieuse</label>
                          </div>
                          <div class="form-check mb-3">
                              <input type="radio" class="form-check-input" id="rien" value="rien" name="relation">
-                             <label class="form-check-label" for="rien" required>Rien de sérieux</label>
+                             <label class="form-check-label" for="rien">Rien de sérieux</label>
                          </div>
                          <div class="form-check mb-3">
                              <input type="radio" class="form-check-input" id="sex" value="friend" name="relation">
-                             <label class="form-check-label" for="sex" required>Sex friend</label>
+                             <label class="form-check-label" for="sex" >Sex friend</label>
                          </div>
                          <div class="form-check mb-3">
                              <input type="radio" class="form-check-input" id="coup" value="coup" name="relation">
-                             <label class="form-check-label" for="coup" required>Coup d'un soir</label>
+                             <label class="form-check-label" for="coup">Coup d'un soir</label>
                          </div>
 
                      </div>
