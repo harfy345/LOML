@@ -40,10 +40,6 @@ CREATE TABLE `connection` (
 -- Déchargement des données de la table `connection`
 --
 
-INSERT INTO `connection` (`idUser`, `email`, `pass`) VALUES
-(1, 'loml@hotmail.com', '123'),
-(2, 'ricardo@gmail.com', '123');
-
 -- --------------------------------------------------------
 
 --
@@ -136,9 +132,7 @@ CREATE TABLE `profil` (
 -- Déchargement des données de la table `profil`
 --
 
-INSERT INTO `profil` (`idUser`, `rank`, `age`, `height`, `gender`, `typeRelation`, `picture`, `bio`) VALUES
-(1, 1, 23, 230, 1, 'rien', '', ''),
-(2, 1, 35, 120, 2, 'rien', '', '');
+
 
 -- --------------------------------------------------------
 
@@ -184,9 +178,7 @@ CREATE TABLE `users` (
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`idUser`, `firstName`, `lastName`, `admin`, `active`) VALUES
-(1, 'Christopher', 'Gazemar', 1, 1),
-(2, 'Ricardo2', 'Jean', 1, 1);
+
 
 --
 -- Index pour les tables déchargées
@@ -288,7 +280,7 @@ ALTER TABLE `seenprofile`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- Contraintes pour les tables déchargées

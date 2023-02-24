@@ -17,7 +17,6 @@
 
 
 
-<section class="vh-100 bg-main">
   <div class="container h-100 ">
     <div class="row d-flex justify-content-center align-items-center h-100 div-inscrire" >
       <div class="col-lg-12 col-xl-11 ">
@@ -26,7 +25,7 @@
             <div class="row justify-content-center ">
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 ">
 
-                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">S'inscrire</p>
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 text-dark">S'inscrire</p>
 
                 <!-- Compléter l'action --- le lier au serveur -->
                 <form class="mx-1 mx-md-4" action="server/actions/enregistrerMembre.php" method="POST">
@@ -34,8 +33,8 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="firstName" name="firstName"  class="form-control" required/>
-                      <label class="form-label" for="form3Example1c">Votre prenom</label>
+                      <input type="text" id="firstName" placeholder="Entrez votre prénom" name="firstName"  class="form-control" required/>
+                      <label class="form-label text-dark" for="form3Example1c">Votre prénom</label>
                     </div>
                   </div>
 
@@ -43,44 +42,54 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="lastName" name="lastName"  class="form-control" required/>
-                      <label class="form-label" for="form3Example1c">Votre Nom</label>
+                      <input type="text" id="lastName" placeholder="Entrez votre nom" name="lastName"  class="form-control" required/>
+                      <label class="form-label text-dark" for="form3Example1c">Votre nom</label>
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="email" id="email" name="email"class="form-control" required/>
-                      <label class="form-label" for="form3Example3c">Votre courriel</label>
+                      <input type="email" id="email" placeholder="toto@exemple.com" name="email"class="form-control" required/>
+                      <label class="form-label text-dark" for="form3Example3c">Votre courriel</label>
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="pass" name="pass" class="form-control" required/>
-                      <label class="form-label" for="form3Example4c">Mot de Passe</label>
+                      <input type="number" id="age" placeholder="Entrez votre âge" min="18" max="120" name="age" class="form-control" required/>
+                      <label class="form-label text-dark" for="form3Example4c">Votre âge</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="password"  id="pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Le mot de passe doit contenir au moins un chiffre, une lettre majuscule et une lettre minuscule, et avoir au moins 8 caractères ou plus " name="pass" class="form-control" required/>
+                      <label class="form-label text-dark" for="form3Example4c">Mot de passe</label>
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4cd" name="pass2" class="form-control" required/>
-                      <label class="form-label" for="form3Example4cd">Retaper Votre Mot de Passe</label>
+                      <input type="password" id="pass"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Le mot de passe doit contenir au moins un chiffre, une lettre majuscule et une lettre minuscule, et avoir au moins 8 caractères ou plus " name="pass2" class="form-control" required/>
+                      <label class="form-label text-dark" for="form3Example4cd">Confirmer votre mot de passe</label>
                     </div>
                   </div>
 
                   <div class="form-check d-flex justify-content-center mb-5">
-                    <input class="form-check-input check-box me-2" type="checkbox" value="" id="form2Example3c" required/>
-                    <label class="form-check-label" for="form2Example3">
-                    J'accepte toutes les déclarations dans les <a href="#!" class="link-dark"> conditions d'utilisation</a>
+                    <input class="form-check-input check-box me-2" type="checkbox" value="" id="conditionCheckBox" required
+                   
+                    />
+                    <label class="form-check-label text-dark" for="form2Example3">
+                    J'accepte toutes les déclarations dans les <a href="#!" class="link-dark"> Conditions d'utilisation</a>
                     </label>
                   </div>
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="submit" class="btn-design">S'inscrire</button>
+                    <button id="btnInscrire" type="submit" class="btn-design" style="background-color: rgb(138, 138, 138 );">S'inscrire</button>
                   </div>
 
                 </form>
@@ -96,7 +105,7 @@
       </div>
     </div>
   </div>
-</section>
+
 
  <!-- Afficher le toast de la connection-->
 <div class="toast-container posToast" style="margin:0 0 0 20px !important; top:20px;">

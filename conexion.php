@@ -10,8 +10,6 @@ $pagetitre = "conexion";
 require_once("./public/util/header.php");
 ?>
 
-
-<section class="vh-100 mainPage">
   <div class="container-fluid h-custom form-connexion">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 text-info-connexion form-design">
@@ -31,27 +29,22 @@ require_once("./public/util/header.php");
           <!-- Email input -->
           <div class="form-outline mb-4">
             <input type="email" id="courrielc" name="courrielc" class="form-control form-control-lg" placeholder="Entrez un adresse courriel valide" required />
-            <label class="form-label text-info-connexion" for="form3Example3">Adresse courriel</label>
+            <label class="font-design form-label text-info-connexion text-dark" for="form3Example3">Adresse courriel</label>
           </div>
           <!-- Password input -->
           <div class="form-outline mb-3">
             <input type="password" id="passc" name="passc" class="form-control form-control-lg" placeholder="Entrer le mot de passe" required />
-            <label class="form-label text-info-connexion" for="form3Example4">Mot de passe</label>
+            <label class="font-design form-label text-info-connexion text-dark" for="form3Example4">Mot de passe</label>
           </div>
           <div class="d-flex justify-content-between align-items-center">
             <!-- Checkbox -->
-            <div class="form-check mb-0">
-              <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-              <label class="form-check-label" for="form2Example3">
-              Se souvenir de moi
-              </label>
-            </div>
-            <a href="#!" class="text-body password-forgot link-dark">Mot de passe Oublier?</a>
+           
+            <a href="#!" class="text-body password-forgot link-dark ">Mot de passe oublié?</a>
           </div>
 
           <div class="text-center text-lg-start mt-4 pt-2">
-            <button class='btn-design' type="submit" class="btn btn-dark btn-lg rd">Conexion</button>
-            <p class="small fw-bold mt-2 pt-1 mb-0">Pas de Compte?
+            <button class='btn-design' type="submit" class="btn btn-dark btn-lg rd">Connexion</button>
+            <p class="small fw-bold mt-2 pt-1 mb-0 text-dark">Pas de compte?
             <a href="./sinscrire.php" class="link-dark">S'inscrire</a>
             </p>
           </div>
@@ -59,7 +52,7 @@ require_once("./public/util/header.php");
       </div>
     </div>
   </div>
-</section>
+
     
 
 

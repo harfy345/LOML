@@ -16,6 +16,7 @@ $membreapi = new MembreAPI();
 $membreapi->connect();
 $profil = $membreapi->verifierUserProfil($_SESSION['id']);
 $profilActive = $membreapi->verifierUserActive($_SESSION['id']);
+$matches = $membreapi->getAllMatchesPourUser($_SESSION['id']);
 $membreapi->disconnect();
 
 if ($profilActive -> active == 0) {
@@ -38,6 +39,13 @@ if (!$profil) {
 
 <?php
 }
+
+
+// $membreapi->connect();
+// $matchsViewed = $membreapi->getMatchSeenByUser($_SESSION['id']);
+// $membreapi->disconnect();
+
+
 ?>
 
 <div class="container" id="contenuModalProfil">
@@ -45,11 +53,11 @@ if (!$profil) {
 </div>
 
 
-<div class="container" style="display: flex;">
-  <div class="sidebar-menu" style="flex: 3;">
+<div  style="display: flex;">
+  <div  style="flex: 2; ">
                         
         <!--Main Navigation-->
-        <header>
+        <header style="w-25">
             <!-- Sidebar -->
             <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
                 <div class="position-sticky">
@@ -120,12 +128,6 @@ if (!$profil) {
 
                                     <?php
 
-                                    $membreapi->connect();
-
-                                    $matches = $membreapi->getAllMatchesPourUser($_SESSION['id']);
-
-                                    $membreapi->disconnect();
-
                                     while ($row = mysqli_fetch_array($matches)) {
                                         
                                         if($row['idUser1'] == $_SESSION['id']) {
@@ -175,6 +177,49 @@ if (!$profil) {
                                 rencontres
                             </button>
 
+                            <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingSix">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseThree">
+                                            Abonnement
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            
+                                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                        <input type="hidden" name="cmd" value="_xclick-subscriptions">
+                                        <input type="hidden" name="business" value="totof2724@hotmail.com">
+                                        <input type="hidden" name="lc" value="CA">
+                                        <input type="hidden" name="item_name" value="Premium">
+                                        <input type="hidden" name="no_note" value="1">
+                                        <input type="hidden" name="src" value="1">
+                                        <input type="hidden" name="currency_code" value="CAD">
+                                        <input type="hidden" name="bn" value="PP-SubscriptionsBF:btn_subscribeCC_LG.gif:NonHostedGuest">
+                                        <table>
+                                        <tr><td><input type="hidden" name="on0" value=""></td></tr><tr><td><select name="os0">
+                                            <option value="Premium">Premium : $25.00 CAD - mensuel</option>
+                                            <option value="Boost">Boost : $36.00 CAD - mensuel</option>
+                                        </select> </td></tr>
+                                        </table>
+                                        <input type="hidden" name="option_select0" value="Premium">
+                                        <input type="hidden" name="option_amount0" value="25.00">
+                                        <input type="hidden" name="option_period0" value="M">
+                                        <input type="hidden" name="option_frequency0" value="1">
+                                        <input type="hidden" name="option_select1" value="Boost">
+                                        <input type="hidden" name="option_amount1" value="36.00">
+                                        <input type="hidden" name="option_period1" value="M">
+                                        <input type="hidden" name="option_frequency1" value="1">
+                                        <input type="hidden" name="option_index" value="0">
+                                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - la solution de paiement en ligne la plus simple et la plus sécurisée !">
+                                        <img alt="" border="0" src="https://www.paypalobjects.com/fr_XC/i/scr/pixel.gif" width="1" height="1">
+                                        </form>
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
 
 
                         </div>
@@ -187,9 +232,11 @@ if (!$profil) {
         </header>
         <!--Main Navigation-->
   </div>
-  <div class="chat" style="flex: 7;">
 
-    <div id="contenuDeDroite" class="container justify-content-center">
+
+  <div  style="flex: 7;">
+
+    <div id="contenuDeDroite" class="container ">
 
     </div>
   

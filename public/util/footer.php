@@ -1,6 +1,4 @@
-<footer>
-<div></div>
-</footer>
+
 
 <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
 <script src="./public/js/app.js"></script>
@@ -12,5 +10,8 @@
 <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 </main>
+<footer>
+<div>copy right</div>
+</footer>
 </body>
 </html>

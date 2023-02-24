@@ -395,4 +395,16 @@ class MembreAPI
 		$stmt->bind_param("ii", $idUser, $idProfilSeen);
 		$stmt->execute();
 	}
+
+
+	function getMatchSeenByUser($idUser1,$idUser2){
+		
+		$requete = "SELECT * FROM matchs where idUser1 = $idUser1 AND idUser1 = $idUser2 OR  idUser1 = $idUser2 AND idUser1 = $idUser1";
+		$result = mysqli_query($this->connexion, $requete);
+
+		$row = mysqli_fetch_assoc($result);
+
+		return $row["viewed"];
+
+	}
 }
