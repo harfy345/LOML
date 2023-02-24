@@ -73,6 +73,17 @@ class MembreAPI
 		$stmt->bind_param("iiis", $idConvo, $idUserSender, $idUserReciver, $contenu);
 		$stmt->execute();
 	}
+
+	function unmatch($idUserSender, $idUserReciever){
+		$requete = "DELETE matchs , conversation
+		FROM matchs 
+		INNER JOIN conversation ON matchs.idUser1 =conversation.idUser1 
+		AND matchs.idUser2 =conversation.idUser2 
+		WHERE matchs.idUser1 = ? and matchs.idUser2 = ? OR matchs.idUser1 = ? and matchs.idUser2 = ?;";
+		$stmt = $this->connexion->prepare($requete);
+		$stmt->bind_param("iiii", $idUserSender, $idUserReciever, $idUserReciever, $idUserSender);
+		$stmt->execute();
+	}
 	
 
 	//Passer le id de convo

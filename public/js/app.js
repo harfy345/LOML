@@ -677,7 +677,7 @@ function montrerMessage(idConversation, idSession, idContact, receiverName, rece
                           <div class="chat-message clearfix">
                               <div class="input-group mb-0">
                                   <div class="input-group-prepend">
-                                      <span class="input-group-text"><button onclick="envoyer();" class="fa fa-send">Envoyer</button></span>
+                                      <span class="input-group-text"><button onclick="unmatch()">Supprimer le Match</button><button onclick="envoyer();" class="fa fa-send">Envoyer</button></span>
                                   </div>
                                   <input id="contenu" value="" type="text" name= "contenu" class="form-control" placeholder="Enter text here..."/>                                    
                               </div>
@@ -690,6 +690,27 @@ function montrerMessage(idConversation, idSession, idContact, receiverName, rece
             
             document.getElementById("contenuDeDroite").innerHTML = card;
           
+        },
+    });
+}
+
+function unmatch() {
+    console.log('unmatchjs');
+    $.ajax({
+        url: "./server/actions/unmatch.php",
+        type: "post",
+        data: {
+            idUserSender: $('#idUserSender').val(),
+            idConvo: $('#idConvo').val(),
+            idUserReciver: $('#idReceiver').val(),
+
+        },
+        success: function (response) {
+            console.log('unmatchjsSucces');
+            // parse the JSON response
+            //var data = JSON.parse(response);
+            //alert(response);202s
+
         },
     });
 }
