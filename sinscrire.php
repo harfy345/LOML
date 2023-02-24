@@ -17,7 +17,7 @@
 
 
 
-  <div class="container h-100 ">
+  <div class="container h-100 menu-text-index-animation div-inscrire-up">
     <div class="row d-flex justify-content-center align-items-center h-100 div-inscrire" >
       <div class="col-lg-12 col-xl-11 ">
         <div class="card text-white " >
@@ -89,7 +89,7 @@
                   </div>
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button id="btnInscrire" type="submit" class="btn-design" style="background-color: rgb(138, 138, 138 );">S'inscrire</button>
+                    <button id="btnInscrire" type="submit" class="btn-design" >S'inscrire</button>
                   </div>
 
                 </form>
