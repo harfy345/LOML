@@ -135,12 +135,12 @@ body{
 
   .div-inscrire-up {
     position: relative;
-    top: -10px;
+    top: 50px;
   }
 
   .div-inscrire {
     position: absolute;
-    top: -50px;
+    top: 20px;
   }
 
   .logo-inscrire {
