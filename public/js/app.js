@@ -55,7 +55,7 @@ let montrerFormEnreg = () => {
                           </div>
                           </br>
                           <div class="col-12">
-                              <button class="btn btn-primary" type="submit" >Enresgister</button>
+                              <button class="btn btn-primary" type="submit" >Enregistrer</button>
                           </div>
                       </form>
                       </div>
@@ -124,7 +124,7 @@ function editRow(id) {
                           </div>
                           </br>
                           <div class="col-12">
-                              <button class="btn btn-primary" type="submit" >Enresgister</button>
+                              <button class="btn btn-primary" type="submit" >Enregistrer</button>
                           </div>
                       </form>
                       </div>
@@ -556,7 +556,7 @@ function montrerProfil(id) {
     </div>
   </div>
       <div class="col-12">
-          <button class="btn btn-primary" type="submit" >Enresgister</button>
+          <button class="btn btn-primary" type="submit" >Enregistrer</button>
       </div>
   </form>
   </div>
@@ -632,7 +632,7 @@ function montrerMessage(idConversation, idSession, idContact, receiverName, rece
                               <div class="row"> 
 
                                   <div class="col-lg-6">
-                                      <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info">
+                                      <a onclick="profilMatch(${idContact})" data-toggle="modal" data-target="#view_info">
                                           <img src="server/photosMembres/${receiverPhoto}" alt="avatar">
                                       </a>  
                           
@@ -641,6 +641,7 @@ function montrerMessage(idConversation, idSession, idContact, receiverName, rece
                                           </div>
                                   </div>
                                   <div class="col-lg-6 hidden-sm text-right">
+                                  <span ><button onclick="unmatch()">Supprimer le Match</button></span>
                                       <a href="javascript:void(0);" class="btn btn-outline-secondary"><i class="fa fa-camera"></i></a>
                                       <a href="javascript:void(0);" class="btn btn-outline-primary"><i class="fa fa-image"></i></a>
                                       <a href="javascript:void(0);" class="btn btn-outline-info"><i class="fa fa-cogs"></i></a>
@@ -688,7 +689,8 @@ function montrerMessage(idConversation, idSession, idContact, receiverName, rece
                           <div class="chat-message clearfix">
                               <div class="input-group mb-0">
                                   <div class="input-group-prepend">
-                                      <span class="input-group-text"><button onclick="unmatch()">Supprimer le Match</button><button onclick="envoyer();" class="fa fa-send">Envoyer</button></span>
+
+                                      <span class="input-group-text"><button onclick="envoyer();" class="fa fa-send">Envoyer</button></span>
                                   </div>
                                   <input id="contenu" value="" type="text" name= "contenu" class="form-control" placeholder="Enter text here..."/>                                    
                               </div>

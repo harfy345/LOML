@@ -134,12 +134,14 @@ if (!$profil) {
                                         ?>
 
                                         <button  type="button" onclick="profilMatch(<?php echo($row['idUser2']) ?>);"  class="btn btn-secondary btn-lg btn-block"><?php echo $row['firstName2']; ?></button>
+                                        <button type="button" class="btn-close" aria-label="Close" onclick=unmatch()></button>
 
                                     
                                         <?php
                                         } else {
                                         ?>
                                         <button  type="button" onclick="profilMatch(<?php echo($row['idUser1']) ?>);" class="btn btn-secondary btn-lg btn-block"><?php echo $row['firstName1']; ?></button>
+                                        <button type="button" class="btn-close" aria-label="Close" onclick=unmatch()></button>
 
                                     <?php
                                     } } 
@@ -172,10 +174,16 @@ if (!$profil) {
                             }
                             ?>
 
-
-                            <button onclick="getAllProfileNotSeen(<?php echo($_SESSION['id']) ?>);" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-headingRencontre" aria-expanded="false" aria-controls="flush-headingRencontre">
-                                rencontres
+                        <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingFive">
+                            <button onclick="getAllProfileNotSeen(<?php echo($_SESSION['id']) ?>);" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                                Rencontres
                             </button>
+                            <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body"></div>
+                                </div>
+                        </h2>
+                        </div>
 
                             <div class="accordion-item">
                                     <h2 class="accordion-header" id="flush-headingSix">
