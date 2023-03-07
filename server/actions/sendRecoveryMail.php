@@ -1,5 +1,5 @@
 <?php
-$simple_string = "2";
+$simple_string = "2"; // remplacer 2 par id de user
 
 // Displaying the original string
 echo "Original String: " . $simple_string. "<br/>";
