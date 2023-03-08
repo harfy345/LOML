@@ -40,7 +40,7 @@ echo "Decrypted String: " . $id;
 <div class="row">
 <div class="col-sm-6 col-sm-offset-3">
 <p class="text-center">Utilisez le formulaire ci-dessous pour changer votre mot de passe.</p>
-<form method="post" id="passwordForm">
+
 <input type="password" class="input-lg form-control" name="password1" id="password1" placeholder="Nouveau mot de passe" autocomplete="off">
 <div class="row">
 <div class="col-sm-6">
@@ -58,8 +58,8 @@ echo "Decrypted String: " . $id;
 <span id="pwmatch" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> Confirmer le mot de passe
 </div>
 </div>
-<input type="submit" class="col-xs-12 btn btn-primary btn-load btn-lg"  onclick="editPass(<?php echo ($id) ?>);" data-loading-text="Changing Password..." value="Changer le mot de passe">
-</form>
+<button type="button" id="btnEdit" class="col-xs-12 btn btn-primary btn-load btn-lg"  onclick="editPass(<?php echo ($id) ?>);">Changer le mot de passe</button>
+
 </div><!--/col-sm-6-->
 </div><!--/row-->
 </div>

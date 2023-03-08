@@ -1,5 +1,5 @@
 <?php
-require_once("../apis/membre.php");
+require_once("./../apis/membre.php");
 $email = $_POST['courrielc'];
 $membreapi = new MembreAPI();
 $membreapi->connect();
