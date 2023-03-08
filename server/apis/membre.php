@@ -422,6 +422,10 @@ class MembreAPI
         $stmt = $this->connexion->prepare($requete);
 
         $stmt->execute();
+		$msg = "Vous avez bien modifié le mot de passe.";
+		header("Location: ../../conexion.php?msg=$msg");
+
+
     }
 
 	function getRecoveryMail($email) {

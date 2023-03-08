@@ -1662,7 +1662,10 @@ function updateViewed(id1, id2) {
 }
 
 function editPass(id) {
-    pass = document.getElementById("password1").val();
+    
+    pass = $('#password1').val();
+    
+    alert(pass);
     $.ajax({
         type: 'POST',
         url: 'server/apis/getRowData.php ',
