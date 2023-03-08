@@ -696,7 +696,7 @@ function montrerMessage(idConversation, idSession, idContact, receiverName, rece
 
                                       <span class="input-group-text"><button onclick="envoyer();" class="fa fa-send">Envoyer</button></span>
                                   </div>
-                                  <input id="contenu" value="" type="text" name= "contenu" class="form-control" placeholder="Enter text here..."/>                                    
+                                  <input onkeydown="if (event.keyCode == 13) { envoyer(); return false; }" id="contenu" value="" type="text" name= "contenu" class="form-control" placeholder="Enter text here..."/>                                    
                               </div>
                               
                           </div>
@@ -1425,6 +1425,18 @@ function profilMatch(id) {
             var bio = data.bio;
 
             var nomGender;
+            var nomType;
+
+            if(type == 'coup'){
+                nomType = "Un coup d'un soir"
+            }else if(type == 'rien'){
+                nomType = 'Rien de serieux';
+            }else if(type == 'friend'){
+                nomType = 'Un Sex Friend';
+            }else if(type == 'serieux'){
+                nomType = 'Une relation serieuse';
+            }
+            console.log(nomType);
 
             if (gender == 1) {
                 nomGender = "une Femme";
@@ -1557,7 +1569,7 @@ function profilMatch(id) {
             </h6>
             <p style="color: rgb(255, 255, 255, 0.7)">
             Je recherche
-            ${type}
+            ${nomType}
             </p>
             </div>
             <div class="card-body">

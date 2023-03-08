@@ -1,4 +1,8 @@
 <?php
+session_start();
+if (isset($_SESSION['username'])) {
+  header("location:./membre.php");
+}
 $_SESSION['active_page'] = 'home';
 $pagetitre = "index";
 require_once("./public/util/header.php");

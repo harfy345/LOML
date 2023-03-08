@@ -3,9 +3,7 @@
 session_start();
 
 // vous mettez ca dans une page que vous voulez pas que l'utilisateur ait acces sans connexion 
-if (!isset($_SESSION['username'])) {
-    header("location:./conexion.php");
-}
+
 $_SESSION['active_page'] = 'membre';
 $pagetitre = "index";
 
@@ -89,14 +87,14 @@ if (!$profil) {
                                             
                                         ?>
 
-                                        <button onclick="montrerMessage(<?php echo($row['idConversation'])?>, <?php echo($_SESSION['id'])?>, <?php echo($row['idUser2'])?>, '<?php echo($row['firstName2'])?>', '<?php echo($row['picture2'])?>');"
+                                        <button onclick="montrerMessage(<?php echo($row['idConversation'])?>, <?php echo($_SESSION['id'])?>, <?php echo($row['idUser2'])?>, '<?php echo($row['firstName2'])?>', '<?php echo($row['picture2'])?>'); updateViewed(<?php echo $row['idUser1']; ?>,<?php echo $row['idUser2']; ?>);"
                                          type="button" class="btn btn-secondary btn-lg btn-block"><?php echo $row['firstName2']; ?></button>
 
                                     
                                         <?php
                                         } else {
                                         ?>
-                                        <button onclick="montrerMessage(<?php echo($row['idConversation'])?>, <?php echo($_SESSION['id'])?>, <?php echo($row['idUser1'])?>, '<?php echo($row['firstName1'])?>', '<?php echo($row['picture1'])?>');"
+                                        <button onclick="montrerMessage(<?php echo($row['idConversation'])?>, <?php echo($_SESSION['id'])?>, <?php echo($row['idUser1'])?>, '<?php echo($row['firstName1'])?>', '<?php echo($row['picture1'])?>'); updateViewed(<?php echo $row['idUser1']; ?>,<?php echo $row['idUser2']; ?>);"
                                          type="button" class="btn btn-secondary btn-lg btn-block"><?php echo $row['firstName1']; ?></button>
 
                                     <?php

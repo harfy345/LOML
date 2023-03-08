@@ -34,7 +34,7 @@ $active_page = $_SESSION['active_page'];
 
 
           <div class="d-flex nav-gauche">
-              <img src = "public/images/logo-no-bg.png" width ="90px" height ="90px" href="index.php">
+              <img src = "public/images/logo-no-bg.png" width ="90px" height ="90px" href="index.php"/>
               <a class="font-title navbar text-dark" href="index.php">LOML</a>
           </div>	
           
@@ -62,12 +62,13 @@ $active_page = $_SESSION['active_page'];
                 <i class="fas fa-bars"></i>
               </img>
               
-              <img src = "public/images/logo-no-bg.png" width ="60px" height ="60px" href="index.php">
+              <img src = "public/images/logo-no-bg.png" width ="60px" height ="60px" href="index.php"/>
               <a class="font-title navbar text-dark" href="index.php">LOML</a>
             </div>	
           
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="navbar-nav ms-auto">
+                    <a href="./contactUs.php" class="btn btn-dark"> Contactez-nous<i class="ms-1 fa-solid fa-user"></i></a>
                     <a href="./deconnexion.php" class="btn btn-dark"> Se Déconnecter<i class="ms-1 fa-solid fa-user"></i></a>
                 </div>
             </div>
@@ -82,7 +83,7 @@ $active_page = $_SESSION['active_page'];
         <div id="navCont" class="container maxWidth">
           
             <div class="d-flex nav-gauche">
-              <img src = "public/images/logo-no-bg.png" width ="90px" height ="90px" href="index.php">
+              <img src = "public/images/logo-no-bg.png" width ="90px" height ="90px" href="index.php"/>
               <a class="font-title navbar text-dark " href="index.php">LOML</a>
             </div>	
 
