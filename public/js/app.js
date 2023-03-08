@@ -1660,3 +1660,21 @@ function updateViewed(id1,id2) {
       }
     });
   }
+
+  function editPass(id){
+    $.ajax({
+        type: 'POST',
+        url: 'server/apis/getRowData.php ',
+        data: { 
+          id: id,
+          action: 'editPass',
+      },
+        success: function() {
+          console.log('password updated successfully');
+        },
+        error: function() {
+          console.log('Failed to update password');
+        }
+      });
+    }
+  

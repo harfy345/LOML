@@ -1,8 +1,14 @@
 <?php
-$simple_string = "2"; // remplacer 2 par id de user
+require_once("../apis/membre.php");
+$email = $_POST['courrielc'];
+$membreapi = new MembreAPI();
+$membreapi->connect();
+$idUser = $membreapi->getRecoveryMail($email);
+$membreapi->disconnect();
 
+if($idUser) {
 // Displaying the original string
-echo "Original String: " . $simple_string. "<br/>";
+ echo "Original String: " . $idUser. "<br/>";
 
 // Storingthe cipher method
 $ciphering = "AES-128-CTR";
@@ -18,12 +24,13 @@ $encryption_iv = '1234567891011121';
 $encryption_key = "W3docs";
 
 // Using openssl_encrypt() function to encrypt the data
-$encryption = openssl_encrypt($simple_string, $ciphering, $encryption_key, $options, $encryption_iv);
+$encryption = openssl_encrypt($idUser, $ciphering, $encryption_key, $options, $encryption_iv);
 
 // Displaying the encrypted string
 echo "Encrypted String: " . $encryption . "<br/>";
-echo "<a href='./../../passwordRecovery.php?id=$encryption'>click</a>";
+echo "<a href='../../passwordRecovery.php?id=$encryption'>click</a>"; 
 
+}
 
 // $headers =  'MIME-Version: 1.0' . "\r\n"; 
 // $headers .= 'From: Your name <info@address.com>' . "\r\n";

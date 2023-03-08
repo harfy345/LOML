@@ -1,4 +1,8 @@
 <?php
+
+$_SESSION['active_page'] = 'home';
+$pagetitre = "index";
+require_once("public/util/header.php");
 //loml.com/passwordRecovery?id=FASf2fAFSSAF2rt2@@fsa
 
 $encryption = $_GET['id'];
@@ -30,14 +34,14 @@ echo "Decrypted String: " . $id;
 <div class="container">
 <div class="row">
 <div class="col-sm-12">
-<h1>Change Password</h1>
+<h1>Changer le mot de passe</h1>
 </div>
 </div>
 <div class="row">
 <div class="col-sm-6 col-sm-offset-3">
-<p class="text-center">Use the form below to change your password. Your password cannot be the same as your username.</p>
+<p class="text-center">Utilisez le formulaire ci-dessous pour changer votre mot de passe.</p>
 <form method="post" id="passwordForm">
-<input type="password" class="input-lg form-control" name="password1" id="password1" placeholder="New Password" autocomplete="off">
+<input type="password" class="input-lg form-control" name="password1" id="password1" placeholder="Nouveau mot de passe" autocomplete="off">
 <div class="row">
 <div class="col-sm-6">
 <span id="8char" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> 8 Characters Long<br>
@@ -48,14 +52,19 @@ echo "Decrypted String: " . $id;
 <span id="num" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> One Number
 </div>
 </div>
-<input type="password" class="input-lg form-control" name="password2" id="password2" placeholder="Repeat Password" autocomplete="off">
+<input type="password" class="input-lg form-control" name="password1" id="password2" placeholder="Confirmer le mot de passe" autocomplete="off">
 <div class="row">
 <div class="col-sm-12">
-<span id="pwmatch" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> Passwords Match
+<span id="pwmatch" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> Confirmer le mot de passe
 </div>
 </div>
-<input type="submit" class="col-xs-12 btn btn-primary btn-load btn-lg" data-loading-text="Changing Password..." value="Change Password">
+<input type="submit" class="col-xs-12 btn btn-primary btn-load btn-lg"  onclick="editPass(<?php echo ($id) ?>);" data-loading-text="Changing Password..." value="Changer le mot de passe">
 </form>
 </div><!--/col-sm-6-->
 </div><!--/row-->
 </div>
+<?php
+
+require_once("./public/util/footer.php");
+
+?>

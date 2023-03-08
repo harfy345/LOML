@@ -38,8 +38,9 @@ if (isset($_POST["action"])) {
             $myClass->viewed();
             break;  
 
-            
-            
+        case "editPass":
+            $myClass ->editPassword();
+            break;
         default:
             break;
     }

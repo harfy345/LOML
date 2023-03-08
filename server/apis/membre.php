@@ -313,6 +313,7 @@ class MembreAPI
 		return $result->fetch_object();
 	}
 
+	
 
 	function listerMembre(){
 		$requete="SELECT users.* , connection.email, connection.pass
@@ -411,4 +412,32 @@ class MembreAPI
 		$stmt->execute();
 
 	}
+
+	function editPassword($user_id){
+        $new_password = $_POST['password1'];
+ 
+        $requete = "UPDATE connection SET pass = '$new_password' WHERE idUser = $user_id ";
+
+        $stmt = $this->connexion->prepare($requete);
+
+        $stmt->execute();
+    }
+
+	function getRecoveryMail($email) {
+		$requete = "SELECT idUser FROM connection WHERE email = ?";
+		$stmt = $this->connexion->prepare($requete);
+		$stmt->bind_param("s", $email);
+		$stmt->execute();
+		$result = $stmt->get_result();
+		$stmt->close();
+	
+		if ($result->num_rows == 0) {
+			// Email does not exist in database
+			echo "Ce courriel n'existe pas. Vous devez créer un compte pour se connecter. ";
+		} else {
+			$row = $result->fetch_assoc();
+			return $row["idUser"];
+		}
+	}
+
 }
