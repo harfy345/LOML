@@ -18,7 +18,7 @@
 
 
   <div class="container h-100 menu-text-index-animation div-inscrire-up">
-    <div class="row d-flex justify-content-center align-items-center h-100 div-inscrire" >
+    <div class="row d-flex justify-content-center align-items-center h-100" >
       <div class="col-lg-12 col-xl-11 ">
         <div class="card text-white " >
           <div class="card-body p-md-5 bg-secon div-inside-inscrire">
