@@ -81,7 +81,7 @@ function editRow(id) {
         success: function (response) {
             // parse the JSON response
             var data = JSON.parse(response);
-            
+
             // fill the form inputs with the data
             $("#editidUser").val(data.idUser);
             $("#editFirstName").val(data.firstName);
@@ -238,14 +238,14 @@ $(document).ready(function () {
         $("#enregModal").modal("show");
     });
 
-    $('#conditionCheckBox').change(()=>{
-        
-        if($("#conditionCheckBox").is(':checked')){ 
-            $( "#btnInscrire" ).prop( "disabled", false );
-            $( "#btnInscrire" ).css( "background-color","black" );
-        } else { 
-            $( "#btnInscrire" ).prop( "disabled", true );
-            $( "#btnInscrire" ).css( "background-color","rgb(138, 138, 138 )" );
+    $('#conditionCheckBox').change(() => {
+
+        if ($("#conditionCheckBox").is(':checked')) {
+            $("#btnInscrire").prop("disabled", false);
+            $("#btnInscrire").css("background-color", "black");
+        } else {
+            $("#btnInscrire").prop("disabled", true);
+            $("#btnInscrire").css("background-color", "rgb(138, 138, 138 )");
         }
     });
 });
@@ -613,8 +613,8 @@ function montrerCarte() {
 }
 function montrerMessage(idConversation, idSession, idContact, receiverName, receiverPhoto) {
 
-    
-    
+
+
 
     $.ajax({
         url: "server/apis/getRowData.php",
@@ -704,9 +704,9 @@ function montrerMessage(idConversation, idSession, idContact, receiverName, rece
                   </div>
             
               `;
-            
+
             document.getElementById("contenuDeDroite").innerHTML = card;
-          
+
         },
     });
 }
@@ -894,12 +894,12 @@ function getAllProfileNotSeen(id) {
             } else if (gender == 3) {
                 gender = "Non-Binaire";
             }
-           
+
             data.forEach((profil) => {
                 console.log(profil);
-                if (profil != "Il n'y plus d'utilisateur a aimer" ) {
-               
-            var card = `
+                if (profil != "Il n'y plus d'utilisateur a aimer") {
+
+                    var card = `
            
             <div id="profil-close">
             <div
@@ -1037,10 +1037,10 @@ function getAllProfileNotSeen(id) {
             </div>
             </div>
             `;
-            $('#contenuDeDroite').html(card);
-         
-            }else{
-                var card = `
+                    $('#contenuDeDroite').html(card);
+
+                } else {
+                    var card = `
 
          
                 <div class="card text-center bg-danger mb-3">
@@ -1057,11 +1057,11 @@ function getAllProfileNotSeen(id) {
                     </div>
                 </div>
                 `;
-                
-                $('#contenuDeDroite').html(card);
-            }
-        });
-     
+
+                    $('#contenuDeDroite').html(card);
+                }
+            });
+
         },
         error: function (xhr, status, error) {
             console.log(error);
@@ -1413,7 +1413,7 @@ function profilMatch(id) {
         success: function (response) {
             // parse the JSON response
             data = JSON.parse(response);
-            
+
 
 
             var name = data.firstName;
@@ -1427,13 +1427,13 @@ function profilMatch(id) {
             var nomGender;
             var nomType;
 
-            if(type == 'coup'){
+            if (type == 'coup') {
                 nomType = "Un coup d'un soir"
-            }else if(type == 'rien'){
+            } else if (type == 'rien') {
                 nomType = 'Rien de serieux';
-            }else if(type == 'friend'){
+            } else if (type == 'friend') {
                 nomType = 'Un Sex Friend';
-            }else if(type == 'serieux'){
+            } else if (type == 'serieux') {
                 nomType = 'Une relation serieuse';
             }
             console.log(nomType);
@@ -1613,9 +1613,9 @@ function profilMatch(id) {
     });
 }
 
-function afficherMatches(matchesToShow){
+function afficherMatches(matchesToShow) {
 
-   
+
     var card = `
     <div class="modal fade" id="enregModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -1624,8 +1624,8 @@ function afficherMatches(matchesToShow){
             
                 <div class="card-body">
                     <h5 class="card-title">nouveaux matchs allez voir son profil! </h5>`
-                        matchesToShow.forEach(e=>card+="<div>"+e.firstName+"</div>")
-                        card+= `
+    matchesToShow.forEach(e => card += "<div>" + e.firstName + "</div>")
+    card += `
 
                 </div>
                 
@@ -1635,46 +1635,47 @@ function afficherMatches(matchesToShow){
     </div>
        
     `;
-    
+
     document.getElementById("contenuModalProfil").innerHTML = card;
     $("#enregModal2").modal("show");
-   
+
 }
 
-function updateViewed(id1,id2) {
-    
- 
-    $.ajax({
-      type: 'POST',
-      url: 'server/apis/getRowData.php ',
-      data: { 
-        id1: id1,
-        id2: id2, 
-        action: 'update-viewed',
-    },
-      success: function() {
-        console.log('Viewed updated successfully');
-      },
-      error: function() {
-        console.log('Failed to update viewed');
-      }
-    });
-  }
+function updateViewed(id1, id2) {
 
-  function editPass(id){
+
     $.ajax({
         type: 'POST',
         url: 'server/apis/getRowData.php ',
-        data: { 
-          id: id,
-          action: 'editPass',
-      },
-        success: function() {
-          console.log('password updated successfully');
+        data: {
+            id1: id1,
+            id2: id2,
+            action: 'update-viewed',
         },
-        error: function() {
-          console.log('Failed to update password');
+        success: function () {
+            console.log('Viewed updated successfully');
+        },
+        error: function () {
+            console.log('Failed to update viewed');
         }
-      });
-    }
-  
+    });
+}
+
+function editPass(id) {
+    pass = document.getElementById("password1").val();
+    $.ajax({
+        type: 'POST',
+        url: 'server/apis/getRowData.php ',
+        data: {
+            id: id,
+            password: pass,
+            action: 'editPass',
+        },
+        success: function () {
+            console.log('password updated successfully');
+        },
+        error: function () {
+            console.log('Failed to update password');
+        }
+    });
+}

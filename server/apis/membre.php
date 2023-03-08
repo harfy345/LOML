@@ -413,8 +413,9 @@ class MembreAPI
 
 	}
 
-	function editPassword($user_id){
-        $new_password = $_POST['password1'];
+	function editPassword(){
+        $new_password = $_POST['password'];
+		$user_id= intval($_POST['id']);
  
         $requete = "UPDATE connection SET pass = '$new_password' WHERE idUser = $user_id ";
 

@@ -58,7 +58,7 @@ echo "Decrypted String: " . $id;
 <span id="pwmatch" class="glyphicon glyphicon-remove" style="color:#FF0004;"></span> Confirmer le mot de passe
 </div>
 </div>
-<button type="button" id="btnEdit" class="col-xs-12 btn btn-primary btn-load btn-lg"  onclick="editPass(<?php echo ($id) ?>);">Changer le mot de passe</button>
+<button type="button" id="btnEdit" class="col-xs-12 btn btn-primary btn-load btn-lg"  onclick="editPass(<?php echo ($id) ?> );">Changer le mot de passe</button>
 
 </div><!--/col-sm-6-->
 </div><!--/row-->
