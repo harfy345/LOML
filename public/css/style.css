@@ -534,3 +534,13 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+/* scrollbar style */
+body::-webkit-scrollbar {
+    width: 10px; 
+          
+ }
+ 
+body::-webkit-scrollbar-thumb {   
+   background: #e3b6c7;
+   height: 100px;   
+}
