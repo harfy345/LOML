@@ -31,6 +31,12 @@ $encryption = openssl_encrypt($idUser, $ciphering, $encryption_key, $options, $e
 echo "Encrypted String: " . $encryption . "<br/>";
 echo "<a href='../../passwordRecovery.php?id=$encryption'>click</a>"; 
 
+}else{
+    echo "Ce courriel n'existe pas. Vous devez créer un compte pour se connecter.";
+
+    echo "<a href='../../sinscrire.php'>s'inscrire</a>";
+    exit;
+    
 }
 
 // $headers =  'MIME-Version: 1.0' . "\r\n"; 

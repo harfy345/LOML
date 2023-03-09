@@ -438,7 +438,7 @@ class MembreAPI
 	
 		if ($result->num_rows == 0) {
 			// Email does not exist in database
-			echo "Ce courriel n'existe pas. Vous devez créer un compte pour se connecter. ";
+			return null;
 		} else {
 			$row = $result->fetch_assoc();
 			return $row["idUser"];
