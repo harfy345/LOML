@@ -34,7 +34,7 @@ $active_page = $_SESSION['active_page'];
 
 
           <div class="d-flex nav-gauche">
-              <img src = "public/images/logo-no-bg.png" width ="90px" height ="90px" href="index.php"/>
+              <a href="index.php"><img src = "public/images/logo-no-bg.png" width ="90px" height ="90px" href="index.php"/></a>
               <a class="font-title navbar text-dark" href="index.php">LOML</a>
           </div>	
           
@@ -66,7 +66,7 @@ $active_page = $_SESSION['active_page'];
               <a class="font-title navbar text-dark" href="index.php">LOML</a>
             </div>	
           
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start" id="navbarSupportedContent">
                 <div class="navbar-nav ms-auto">
                     <a href="./contactUs.php" class="btn btn-dark"> Contactez-nous<i class="ms-1 fa-solid fa-user"></i></a>
                     <a href="./deconnexion.php" class="btn btn-dark"> Se Déconnecter<i class="ms-1 fa-solid fa-user"></i></a>
@@ -87,7 +87,7 @@ $active_page = $_SESSION['active_page'];
               <a class="font-title navbar text-dark " href="index.php">LOML</a>
             </div>	
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start" id="navbarSupportedContent">
                 <div class="navbanr-av me-auto">                    
                 </div>
                   <div class="navbar-nav ms-auto">
