@@ -63,7 +63,7 @@ $mailer->setSubject("Sending with SendGrid is Fun");
 $mailer->addTo($email, "Example User");
 $mailer->addContent("text/plain", "and easy to do anywhere, even with PHP");
 $mailer->addContent(
-    "text/html", "<strong>localhost:80/passwordRecovery.php?id=$encryption</strong>"
+    "text/html", "<strong><a href='localhost:80/passwordRecovery.php?id=$encryption'>localhost:80/passwordRecovery.php?id=$encryption</a></strong>"
 );
 $sendgrid = new \SendGrid(sendgrid_api);
 try {
