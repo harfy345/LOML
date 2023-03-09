@@ -1,41 +1,74 @@
 <?php
-echo "<a href='passwordRecovery.php?id=9A=='>click</a>"
-// // Storing a string into the variable which
-// // needs to be Encrypted
-// $simple_string = "2";
 
-// // Displaying the original string
-// echo "Original String: " . $simple_string. "<br/>";
+declare(strict_types=1);
 
-// // Storingthe cipher method
-// $ciphering = "AES-128-CTR";
+require 'mail/vendor/autoload.php'; 
+require_once("mail/config.php");
 
-// // Using OpenSSl Encryption method
-// $iv_length = openssl_cipher_iv_length($ciphering);
-// $options = 0;
+use \SendGrid\Mail\Mail;
 
-// // Non-NULL Initialization Vector for encryption
-// $encryption_iv = '1234567891011121';
+$email = new Mail();
+// Replace the email address and name with your verified sender
+$email->setFrom(
+    '201911524@collegeahuntsic.qc.ca',
+    'Example Recipient'
+);
+$email->setSubject('Sending with Twilio SendGrid is Fun');
+// Replace the email address and name with your recipient
+$email->addTo(
+    'hakam.almotlk345@gmail.com',
+    'Example Sender'
+);
+$email->addContent(
+    'text/html',
+    '<strong>and fast with the PHP helper library.</strong>'
+);
 
-// // Storing the encryption key
-// $encryption_key = "W3docs";
+$sendgrid = new \SendGrid(sendgrid_api);
+try {
+    $response = $sendgrid->send($email);
+    printf("Response status: %d\n\n", $response->statusCode());
 
-// // Using openssl_encrypt() function to encrypt the data
-// $encryption = openssl_encrypt($simple_string, $ciphering, $encryption_key, $options, $encryption_iv);
+    $headers = array_filter($response->headers());
+    echo "Response Headers\n\n";
+    foreach ($headers as $header) {
+        echo '- ' . $header . "\n";
+    }
+} catch (Exception $e) {
+    echo 'Caught exception: '. $e->getMessage() ."\n";
+}
+?>
 
-// // Displaying the encrypted string
-// echo "Encrypted String: " . $encryption . "<br/>";
 
-// // Non-NULL Initialization Vector for decryption
-// $decryption_iv = '1234567891011121';
 
-// // Storing the decryption key
-// $decryption_key = "W3docs";
 
-// // Using openssl_decrypt() function to decrypt the data
-// $decryption = openssl_decrypt($encryption, $ciphering, $decryption_key, $options, $decryption_iv);
 
-// // Displaying the decrypted string
-// echo "Decrypted String: " . $decryption;
 
+<?php
+// require 'vendor/autoload.php'; // If you're using Composer (recommended)
+// // Comment out the above line if not using Composer
+// // require("<PATH TO>/sendgrid-php.php");
+// // If not using Composer, uncomment the above line and
+// // download sendgrid-php.zip from the latest release here,
+// // replacing <PATH TO> with the path to the sendgrid-php.php file,
+// // which is included in the download:
+// // https://github.com/sendgrid/sendgrid-php/releases
+
+// $email = new \SendGrid\Mail\Mail(); 
+// $email->setFrom("test@example.com", "Example User");
+// $email->setSubject("Sending with SendGrid is Fun");
+// $email->addTo("test@example.com", "Example User");
+// $email->addContent("text/plain", "and easy to do anywhere, even with PHP");
+// $email->addContent(
+//     "text/html", "<strong>and easy to do anywhere, even with PHP</strong>"
+// );
+// $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
+// try {
+//     $response = $sendgrid->send($email);
+//     print $response->statusCode() . "\n";
+//     print_r($response->headers());
+//     print $response->body() . "\n";
+// } catch (Exception $e) {
+//     echo 'Caught exception: '. $e->getMessage() ."\n";
+// }
 ?>
