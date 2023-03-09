@@ -68,7 +68,6 @@ $active_page = $_SESSION['active_page'];
           
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start" id="navbarSupportedContent">
                 <div class="navbar-nav ms-auto">
-                    <a href="./contactUs.php" class="btn btn-dark"> Contactez-nous<i class="ms-1 fa-solid fa-user"></i></a>
                     <a href="./deconnexion.php" class="btn btn-dark"> Se Déconnecter<i class="ms-1 fa-solid fa-user"></i></a>
                 </div>
             </div>

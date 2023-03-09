@@ -1661,24 +1661,40 @@ function updateViewed(id1, id2) {
     });
 }
 
-function editPass(id) {
-    
-    pass = $('#password1').val();
-    
-    alert(pass);
-    $.ajax({
-        type: 'POST',
-        url: 'server/apis/getRowData.php ',
-        data: {
-            id: id,
-            password: pass,
-            action: 'editPass',
-        },
-        success: function () {
-            console.log('password updated successfully');
-        },
-        error: function () {
-            console.log('Failed to update password');
-        }
-    });
+function validatePassword(password) {
+    const regex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_\-+={}[\]\\|:;"'<>,.?/~`]).{8,}$/;
+    return regex.test(password);
 }
+
+
+function editPass(id) {
+    const pass = $('#password1').val();
+    const pass2 = $('#password2').val();
+
+    if (pass === pass2) {
+        if (validatePassword(pass)) {
+            $.ajax({
+                type: 'POST',
+                url: 'server/apis/getRowData.php ',
+                data: {
+                    id: id,
+                    password: pass,
+                    action: 'editPass',
+                },
+                success: function () {
+                    console.log('password updated successfully');
+                    alert('Le mot de passe a bien été changé.');
+                    window.location.href = 'conexion.php';
+                },
+                error: function () {
+                    console.log('Failed to update password');
+                },
+            });
+        } else {
+            alert('Le mot de passe doit contenir au moins 8 caractères, une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial.');
+        }
+    } else {
+        alert('Les mots de passe doivent être similaires.');
+    }
+}
+
