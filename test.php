@@ -16,9 +16,11 @@ $email->setFrom(
 $email->setSubject('Sending with Twilio SendGrid is Fun');
 // Replace the email address and name with your recipient
 $email->addTo(
+    // remplacer le email du client
     'hakam.almotlk345@gmail.com',
     'Example Sender'
 );
+// le html que vous voulez envoyer
 $email->addContent(
     'text/html',
     '<strong>and fast with the PHP helper library.</strong>'
@@ -34,8 +36,11 @@ try {
     foreach ($headers as $header) {
         echo '- ' . $header . "\n";
     }
+
+    // rediriger vers la bonne page 
 } catch (Exception $e) {
     echo 'Caught exception: '. $e->getMessage() ."\n";
+        // affichier un message d'erreur
 }
 ?>
 
