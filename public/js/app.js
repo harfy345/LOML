@@ -533,7 +533,7 @@ function montrerProfil(id) {
                         <label class="form-check-label" for="rien">Rien de sérieux</label>
                     </div>
                     <div class="form-check mb-3">
-                        <input type="radio" class="form-check-input" id="sex" value="friend" name="relation">
+                        <input type="radio" class="form-check-input" id="friend" value="friend" name="relation">
                         <label class="form-check-label" for="sex">Sex friend</label>
                     </div>
                     <div class="form-check mb-3">
