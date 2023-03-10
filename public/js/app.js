@@ -436,6 +436,7 @@ function montrerProfil(id) {
 
             $("#editheight").val(data.height);
             $("#editbio").val(data.bio);
+            $("#img").val(data.picture);
 
             document.getElementById("radio-" + data.gender).checked = true;
             document.getElementById(data.typeRelation).checked = true;
@@ -456,7 +457,8 @@ function montrerProfil(id) {
     
           <img style="width:400px; heigth:400px;" id="editpicture"class="rounded mx-auto d-block" alt="...">
           <input type="file" class="form-control is-valid" id="picture" name="picture" />
-  
+          <input type="file" class="form-control is-valid" id="img" name="img" hidden />
+
         </div>
     </div>
   </div>

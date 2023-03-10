@@ -9,7 +9,7 @@
     $gender = $_POST['gender'];
     $typeRelation = $_POST['relation'];
     $bio = $_POST['bio'];
-
+    $img = $_POST['img'];
     $dossier="../photosMembres/";
     if($_FILES['picture']['tmp_name']!==""){
         $nomImage=sha1($nom.time());
@@ -23,7 +23,8 @@
     try{
         $membreapi = new MembreAPI();
         $membreapi->connect();
-        $membreapi->updateProfilUser($idUser,$prenom,$nom,$height,$gender,$typeRelation,$image,$bio);
+
+        $membreapi->updateProfilUser($idUser,$prenom,$nom,$height,$gender,$typeRelation,$image ? $image : $img,$bio);
     } catch(Exception $e){
         //Retourner le message voulu
     }finally {
