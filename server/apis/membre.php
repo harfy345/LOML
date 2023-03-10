@@ -442,6 +442,8 @@ class MembreAPI
 		} else {
 			$row = $result->fetch_assoc();
 			return $row["idUser"];
+
+
 		}
 	}
 

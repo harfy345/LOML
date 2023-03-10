@@ -1,4 +1,10 @@
 <?php
+if (isset($_GET['msg'])) {
+  $msg = $_GET['msg'];
+ 
+} else {
+  $msg = "";
+}
 session_start();
 if (isset($_SESSION['username'])) {
   header("location:./membre.php");
@@ -40,6 +46,20 @@ require_once("./public/util/header.php");
 </html>
 
 
+<!-- Afficher le toast de la connection-->
+<div class="toast-container posToast" style="margin:0 0 0 20px !important; top:20px;">
+  <div id="toast" class="toast  align-items-center text-white bg-danger border-0" data-bs-autohide="false" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <img src="public/images/message.png" width=24 height=24 class="rounded me-2" alt="message">
+      <strong class="me-auto">Messages</strong>
+      <small class="text-muted"></small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div id="textToast" class="toast-body">
+    </div>
+  </div>
+</div>
+</div>
 
 
 <?php

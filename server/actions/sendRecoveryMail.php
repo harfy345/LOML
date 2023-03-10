@@ -69,14 +69,16 @@ $mailer->setSubject("Sending with SendGrid is Fun");
 $mailer->addTo($email, "Example User");
 $mailer->addContent("text/plain", "and easy to do anywhere, even with PHP");
 $mailer->addContent(
-    "text/html", "<strong><a href='localhost:80/passwordRecovery.php?id=$encryption'>localhost:80/passwordRecovery.php?id=$encryption</a></strong>"
+    "text/html",
+    "<strong><a href='http://localhost:80/LOML/passwordRecovery.php?id=$encryption'>Réinitialiser votre mot de passe</a></strong>"
 );
+
 $sendgrid = new \SendGrid(sendgrid_api);
 try {
     $response = $sendgrid->send($mailer);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
+    $msg = "l'email a été envoyé.";
+    header("Location: ../../index.php?msg=$msg");
+
 } catch (Exception $e) {
     echo 'Caught exception: '. $e->getMessage() ."\n";
 }
