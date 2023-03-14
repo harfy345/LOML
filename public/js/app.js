@@ -560,19 +560,27 @@ function montrerProfil(id) {
           
           
               <div class="mySlides">
-                  <span class="msgFormEnreg">Quelle sexe tu veux voir?</span> <br><br>
-                  <div class="form-check mb-3">
-                      <input type="radio" class="form-check-input" id="homme" value="2" name="sexLooking">
-                      <label class="form-check-label" for="homme">homme</label>
-                  </div>
-                  <div class="form-check mb-3">
-                      <input type="radio" class="form-check-input" id="femme" value="1" name="sexLooking">
-                      <label class="form-check-label" for="femme">femme</label>
-                  </div>
-                  <div class="form-check mb-3">
-                      <input type="radio" class="form-check-input" id="tous" value="0" name="sexLooking">
-                      <label class="form-check-label" for="tous">tous</label>
-                  </div>
+                <span class="msgFormEnreg">Quelle sexe tu veux voir?</span> <br><br>
+
+                <div class="form-check mb-3">
+                    <input type="radio" class="form-check-input" id="radioP-1" value="1" name="sexLooking">
+                    <label class="form-check-label" for="femme">femme</label>
+                </div>
+
+                <div class="form-check mb-3">
+                    <input type="radio" class="form-check-input" id="radioP-2" value="2" name="sexLooking">
+                    <label class="form-check-label" for="homme">homme</label>
+                </div>
+
+                <div class="form-check mb-3">
+                    <input type="radio" class="form-check-input" id="radioP-3" value="3" name="sexLooking">
+                    <label class="form-check-label" for="homme">non-Binaire</label>
+                </div>
+
+                <div class="form-check mb-3">
+                    <input type="radio" class="form-check-input" id="radioP-null" value="0" name="sexLooking">
+                    <label class="form-check-label" for="tous">tous</label>
+                </div>
                   
               </div>
           
@@ -606,6 +614,7 @@ function montrerProfil(id) {
             console.log("object: ");
             console.log(data);
             document.getElementById("radio-" + data.gender).checked = true;
+            document.getElementById("radioP-" + data.sexLooking).checked = true;
             document.getElementById(data.typeRelation).checked = true;
         },
     });
