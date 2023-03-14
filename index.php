@@ -33,7 +33,7 @@ require_once("./public/util/header.php");
           <img class="menu-text-index-animation" src="public\images\Logo-partern-white.png" alt="">
           <h1 class="jumbotron-heading menu-text-index-animation">Bienvenue sur notre de site de rencontre</h1>
           <h2 class="lead text-muted menu-text-index-animation">Love of my life</h2>
-          <h2 class="lead text-muted menu-text-index-animation">Focaliser vous sur ce que la personne a offir et non sur l'apparence.</h2>
+          <h2 class="lead text-muted menu-text-index-animation">Focalisez-vous sur ce que la personne a à offir et non sur l'apparence physique.</h2>
           <p>
             <button class="btn btn-dark col-3 btn-design-index" onClick="location.href = 'sinscrire.php';">S'inscrire</button>
             <button class="btn btn-dark col-3 btn-design-index" onClick="location.href = 'conexion.php';">Se connecter</button>
