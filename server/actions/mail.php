@@ -1,5 +1,4 @@
 <?php
-
 require_once("../DB/databaseRequests.php");
   if (isset($_POST['name']))
     $name = $_POST['name'];
@@ -40,7 +39,7 @@ require_once("../../mail/config.php");
 $mailer = new \SendGrid\Mail\Mail(); 
 $mailer->setFrom("201911524@collegeahuntsic.qc.ca", "Example User");
 $mailer->setSubject($subject ? $subject : "unknown");
-$mailer->addTo("METTEZ VOTRE EMAIL ICI POUR QUE CA MARCHE", "Example User");
+$mailer->addTo("totof2724@hotmail.com", "Example User");
 $mailer->addContent(
     "text/html",
     "<strong>$email</strong><br/><strong>$message</strong>"
@@ -57,6 +56,7 @@ try {
         echo '- ' . $header . "\n";
     }
     $msg = "l'email a été envoyé.";
+    header("Location: ../../index.php?msg=$msg");
   echo $msg;
 } catch (Exception $e) {
     echo 'Caught exception: '. $e->getMessage() ."\n";
