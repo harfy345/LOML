@@ -417,6 +417,8 @@ function popupProfileMembre() {
 }
 
 function montrerProfil(id) {
+
+
     $.ajax({
         url: "server/apis/getRowData.php",
         type: "post",
@@ -425,6 +427,132 @@ function montrerProfil(id) {
             action: "getRowDataProfil",
         },
         success: function (response) {
+            let card = `      
+            <div class="accordion" id="accordionExample">
+            <form id="formEnreg"  enctype="multipart/form-data" action="server/actions/updateprofil.php" method="POST">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingPhoto">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePhoto" aria-expanded="true" aria-controls="collapsePhoto">
+                Mes photos
+                </button>
+              </h2>
+              <div id="collapsePhoto" class="accordion-collapse collapse show" aria-labelledby="headingPhoto" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+              
+                    <img style="width:400px; heigth:400px;" id="editpicture"class="rounded mx-auto d-block" alt="...">
+                    <input type="file" class="form-control is-valid" id="picture" name="picture" />
+                    <input type="text" value="" id="img" name="img" hidden />
+          
+                  </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Mes Informations de base
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+            
+                              <label for="height" class="form-label">Quelle est votre taille ? (cm)</label> 
+                              <input type="height" class="form-control" id="editheight" name="height" required> 
+            
+                              <div class="mySlides">
+                                  <span class="msgFormEnreg">Ton sexe ?</span><br><br>
+                                  <div class="form-check mb-3">
+                                      <input type="radio" class="form-check-input" id="radio-1" value="1" name="gender">
+                                      <label class="form-check-label" for="feminin">Féminin</label>
+                                  </div>
+                                  <div class="form-check mb-3">
+                                      <input type="radio" class="form-check-input" id="radio-2"" value="2" name="gender">
+                                      <label class="form-check-label" for="masculin">Masculin</label>
+                                  </div>
+                                  <div class="form-check mb-3">
+                                      <input type="radio" class="form-check-input" id="radio-3" value="3" name="gender">
+                                      <label class="form-check-label" for="nonBinaire">Non Binaire</label>
+                                  </div>
+                              </div>
+            
+                              
+                                <div class="col-md-12">
+                                     <input type="hidden" class="form-control is-valid" id="editidUser" name="idUser"  required>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="prenom" class="form-label">Prénom</label>
+                                    <input type="text" class="form-control" id="editfirstName" name="firstName" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="nom" class="form-label">Nom</label>
+                                    <input type="text" class="form-control " id="editlastName" name="lastName" required>
+                                </div>
+            
+            
+                  </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                A propos de moi
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+            
+            
+                          <div class="col-md-12 mySlides">
+                              <label for="bio" class="form-label">Parlez-nous de vous</label> <br>
+                              <textarea id="editbio" name="bio" rows="5" cols="50"></textarea>
+                          </div>
+            
+            
+                  </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                type de relation
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+            
+            
+            
+            
+                <div class="mySlides">
+                    <span class="msgFormEnreg">Quelle type de relation recherche-tu ?</span> <br><br>
+                    <div class="form-check mb-3">
+                        <input type="radio" class="form-check-input" id="serieux" value="serieux" name="relation">
+                        <label class="form-check-label" for="serieux">Relation sérieuse</label>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input type="radio" class="form-check-input" id="rien" value="rien" name="relation">
+                        <label class="form-check-label" for="rien">Rien de sérieux</label>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input type="radio" class="form-check-input" id="friend" value="friend" name="relation">
+                        <label class="form-check-label" for="sex">Sex friend</label>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input type="radio" class="form-check-input" id="coup" value="coup" name="relation">
+                        <label class="form-check-label" for="coup">Coup d'un soir</label>
+                    </div>
+                </div>
+            
+                </div>
+              </div>
+            </div>
+                <div class="col-12">
+                    <button class="btn btn-primary" type="submit" >Enregistrer</button>
+                </div>
+            </form>
+            </div>
+                 `;
+
+            document.getElementById("contenuDeDroite").innerHTML = card;
             // parse the JSON response
             var data = JSON.parse(response);
             var imageUrl = "server/photosMembres/" + data.picture;
@@ -436,137 +564,16 @@ function montrerProfil(id) {
 
             $("#editheight").val(data.height);
             $("#editbio").val(data.bio);
+            $("#img").val(data.picture);
 
+            console.log("object: ");
+            console.log(data);
             document.getElementById("radio-" + data.gender).checked = true;
             document.getElementById(data.typeRelation).checked = true;
         },
     });
 
-    let card = `      
-  <div class="accordion" id="accordionExample">
-  <form id="formEnreg"  enctype="multipart/form-data" action="server/actions/updateprofil.php" method="POST">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingPhoto">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePhoto" aria-expanded="true" aria-controls="collapsePhoto">
-      Mes photos
-      </button>
-    </h2>
-    <div id="collapsePhoto" class="accordion-collapse collapse show" aria-labelledby="headingPhoto" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-    
-          <img style="width:400px; heigth:400px;" id="editpicture"class="rounded mx-auto d-block" alt="...">
-          <input type="file" class="form-control is-valid" id="picture" name="picture" />
-  
-        </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-      Mes Informations de base
-      </button>
-    </h2>
-    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-  
-                    <label for="height" class="form-label">Quelle est votre taille ? (cm)</label> 
-                    <input type="height" class="form-control" id="editheight" name="height" required> 
-  
-                    <div class="mySlides">
-                        <span class="msgFormEnreg">Ton sexe ?</span><br><br>
-                        <div class="form-check mb-3">
-                            <input type="radio" class="form-check-input" id="radio-1" value="1" name="gender">
-                            <label class="form-check-label" for="feminin">Féminin</label>
-                        </div>
-                        <div class="form-check mb-3">
-                            <input type="radio" class="form-check-input" id="radio-2"" value="2" name="gender">
-                            <label class="form-check-label" for="masculin">Masculin</label>
-                        </div>
-                        <div class="form-check mb-3">
-                            <input type="radio" class="form-check-input" id="radio-3" value="3" name="gender">
-                            <label class="form-check-label" for="nonBinaire">Non Binaire</label>
-                        </div>
-                    </div>
-  
-                    
-                      <div class="col-md-12">
-                           <input type="hidden" class="form-control is-valid" id="editidUser" name="idUser"  required>
-                      </div>
-                      <div class="col-md-12">
-                          <label for="prenom" class="form-label">Prénom</label>
-                          <input type="text" class="form-control" id="editfirstName" name="firstName" required>
-                      </div>
-                      <div class="col-md-12">
-                          <label for="nom" class="form-label">Nom</label>
-                          <input type="text" class="form-control " id="editlastName" name="lastName" required>
-                      </div>
-  
-  
-        </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingTwo">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-      A propos de moi
-      </button>
-    </h2>
-    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-  
-  
-                <div class="col-md-12 mySlides">
-                    <label for="bio" class="form-label">Parlez-nous de vous</label> <br>
-                    <textarea id="editbio" name="bio" rows="5" cols="50"></textarea>
-                </div>
-  
-  
-        </div>
-    </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingThree">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-      type de relation
-      </button>
-    </h2>
-    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-  
-  
-  
-  
-      <div class="mySlides">
-          <span class="msgFormEnreg">Quelle type de relation recherche-tu ?</span> <br><br>
-          <div class="form-check mb-3">
-              <input type="radio" class="form-check-input" id="serieux" value="serieux" name="relation">
-              <label class="form-check-label" for="serieux">Relation sérieuse</label>
-          </div>
-          <div class="form-check mb-3">
-              <input type="radio" class="form-check-input" id="rien" value="rien" name="relation">
-              <label class="form-check-label" for="rien">Rien de sérieux</label>
-          </div>
-          <div class="form-check mb-3">
-              <input type="radio" class="form-check-input" id="sex" value="friend" name="relation">
-              <label class="form-check-label" for="sex">Sex friend</label>
-          </div>
-          <div class="form-check mb-3">
-              <input type="radio" class="form-check-input" id="coup" value="coup" name="relation">
-              <label class="form-check-label" for="coup">Coup d'un soir</label>
-          </div>
-      </div>
-  
-      </div>
-    </div>
-  </div>
-      <div class="col-12">
-          <button class="btn btn-primary" type="submit" >Enregistrer</button>
-      </div>
-  </form>
-  </div>
-       `;
 
-    document.getElementById("contenuDeDroite").innerHTML = card;
 }
 
 function montrerCarte() {

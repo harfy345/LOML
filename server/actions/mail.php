@@ -30,9 +30,35 @@ require_once("../DB/databaseRequests.php");
     echo "Message cannot be empty.";
     die();
   }
-  $content = "From: $name \nEmail: $email \nMessage: $message";
-  $recipient = "totof2724@hotmail.com";
-  $mailheader = "From: $email \r\n";
-  mail($recipient, $subject, $content, $mailheader) or die("Error!");
-  echo "Email sent!";
+
+ 
+
+
+require '../../mail/vendor/autoload.php'; 
+require_once("../../mail/config.php");
+
+$mailer = new \SendGrid\Mail\Mail(); 
+$mailer->setFrom("201911524@collegeahuntsic.qc.ca", "Example User");
+$mailer->setSubject($subject ? $subject : "unknown");
+$mailer->addTo("METTEZ VOTRE EMAIL ICI POUR QUE CA MARCHE", "Example User");
+$mailer->addContent(
+    "text/html",
+    "<strong>$email</strong><br/><strong>$message</strong>"
+);
+
+$sendgrid = new \SendGrid(sendgrid_api);
+try {
+    $response = $sendgrid->send($mailer);
+    printf("Response status: %d\n\n", $response->statusCode());
+
+    $headers = array_filter($response->headers());
+    echo "Response Headers\n\n";
+    foreach ($headers as $header) {
+        echo '- ' . $header . "\n";
+    }
+    $msg = "l'email a été envoyé.";
+  echo $msg;
+} catch (Exception $e) {
+    echo 'Caught exception: '. $e->getMessage() ."\n";
+}
 ?>
