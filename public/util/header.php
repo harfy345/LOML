@@ -90,10 +90,10 @@ $active_page = $_SESSION['active_page'];
                 <div class="navbanr-av me-auto">                    
                 </div>
                   <div class="navbar-nav ms-auto">
-                    <a href="./conexion.php" class="nav-item nav-link text-nav text-dark btn-animation"> se connecter<i class="ms-1 fa-solid fa-user"></i></a>
-                    <a href="./sinscrire.php" class="nav-item nav-link text-nav text-dark btn-animation"> s'inscrire<i class="ms-1 fa-solid fa-user"></i></a>
-                    <a href="./about.php" class="nav-item nav-link text-nav text-dark btn-animation">à propos</a>
-                    <a href="./contactUs.php" class="nav-item nav-link text-nav text-dark btn-animation">contactez-nous</a>
+                    <a href="./conexion.php" class="nav-item nav-link text-nav text-dark btn-animation"> Se connecter<i class="ms-1 fa-solid fa-user"></i></a>
+                    <a href="./sinscrire.php" class="nav-item nav-link text-nav text-dark btn-animation"> S'inscrire<i class="ms-1 fa-solid fa-user"></i></a>
+                    <a href="./about.php" class="nav-item nav-link text-nav text-dark btn-animation">À propos</a>
+                    <a href="./contactUs.php" class="nav-item nav-link text-nav text-dark btn-animation">Contactez-nous</a>
                 </div>
             </div>
         </div>
