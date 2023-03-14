@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 14 mars 2023 à 19:28
+-- Généré le : mar. 14 mars 2023 à 19:44
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.2.0
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `loml`
 --
+CREATE DATABASE IF NOT EXISTS `loml` DEFAULT CHARACTER SET utf16 COLLATE utf16_unicode_ci;
+USE `loml`;
 
 -- --------------------------------------------------------
 
@@ -27,6 +29,7 @@ SET time_zone = "+00:00";
 -- Structure de la table `connection`
 --
 
+DROP TABLE IF EXISTS `connection`;
 CREATE TABLE `connection` (
   `idUser` int(11) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -39,6 +42,7 @@ CREATE TABLE `connection` (
 -- Structure de la table `conversation`
 --
 
+DROP TABLE IF EXISTS `conversation`;
 CREATE TABLE `conversation` (
   `idConversation` int(11) NOT NULL,
   `idUser1` int(11) NOT NULL,
@@ -51,6 +55,7 @@ CREATE TABLE `conversation` (
 -- Structure de la table `likes`
 --
 
+DROP TABLE IF EXISTS `likes`;
 CREATE TABLE `likes` (
   `idUser` int(11) NOT NULL,
   `idLikedUser` int(11) NOT NULL,
@@ -60,6 +65,7 @@ CREATE TABLE `likes` (
 --
 -- Déclencheurs `likes`
 --
+DROP TRIGGER IF EXISTS `new_match`;
 DELIMITER $$
 CREATE TRIGGER `new_match` BEFORE INSERT ON `likes` FOR EACH ROW BEGIN
   IF EXISTS (SELECT * FROM likes WHERE idUser = NEW.idLikedUser AND idLikedUser = NEW.idUser) THEN
@@ -76,6 +82,7 @@ DELIMITER ;
 -- Structure de la table `matchs`
 --
 
+DROP TABLE IF EXISTS `matchs`;
 CREATE TABLE `matchs` (
   `idMatch` int(11) NOT NULL,
   `idUser1` int(11) NOT NULL,
@@ -90,6 +97,7 @@ CREATE TABLE `matchs` (
 -- Structure de la table `messages`
 --
 
+DROP TABLE IF EXISTS `messages`;
 CREATE TABLE `messages` (
   `idMessages` int(11) NOT NULL,
   `idConversation` int(11) NOT NULL,
@@ -105,6 +113,7 @@ CREATE TABLE `messages` (
 -- Structure de la table `profil`
 --
 
+DROP TABLE IF EXISTS `profil`;
 CREATE TABLE `profil` (
   `idUser` int(11) NOT NULL,
   `rank` int(11) NOT NULL,
@@ -123,6 +132,7 @@ CREATE TABLE `profil` (
 -- Structure de la table `seenprofile`
 --
 
+DROP TABLE IF EXISTS `seenprofile`;
 CREATE TABLE `seenprofile` (
   `idSeenProfile` int(11) NOT NULL,
   `idUser` int(11) NOT NULL,
@@ -135,6 +145,7 @@ CREATE TABLE `seenprofile` (
 -- Structure de la table `session`
 --
 
+DROP TABLE IF EXISTS `session`;
 CREATE TABLE `session` (
   `idSession` int(11) NOT NULL,
   `idUser` int(11) NOT NULL
@@ -146,6 +157,7 @@ CREATE TABLE `session` (
 -- Structure de la table `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `idUser` int(11) NOT NULL,
   `firstName` varchar(255) NOT NULL,
