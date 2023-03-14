@@ -324,12 +324,13 @@ class MembreAPI
 		return $result;
 	}
 
-	function updateProfilUser($idUser,$prenom,$nom,$height,$gender,$typeRelation,$image,$bio){
+	function updateProfilUser($idUser,$prenom,$nom,$height,$gender,$typeRelation,$image,$bio , $sexLooking){
 	
 
 		$bio2 = $bio;
 		$bio2 = mysqli_real_escape_string($this->connexion, $bio2);
 
+		if($sexLooking)
 
 		$requette = "UPDATE users, profil SET users.firstName = '$prenom', 
 		users.lastName = '$nom',
@@ -337,8 +338,21 @@ class MembreAPI
 		profil.gender = $gender ,
 		profil.typeRelation = '$typeRelation' ,
 		profil.picture = '$image', 
-		profil.bio = '$bio2' 
-		
+		profil.bio = '$bio2',
+		profil.sexLooking = '$sexLooking' 
+		 
+		WHERE users.idUser = profil.idUser AND users.idUser = $idUser";
+
+else 
+$requette = "UPDATE users, profil SET users.firstName = '$prenom', 
+		users.lastName = '$nom',
+		profil.height = $height, 
+		profil.gender = $gender ,
+		profil.typeRelation = '$typeRelation' ,
+		profil.picture = '$image', 
+		profil.bio = '$bio2',
+		profil.sexLooking = null 
+		 
 		WHERE users.idUser = profil.idUser AND users.idUser = $idUser";
 
 		$stmt = $this->connexion->prepare($requette);

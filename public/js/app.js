@@ -562,15 +562,15 @@ function montrerProfil(id) {
               <div class="mySlides">
                   <span class="msgFormEnreg">Quelle sexe tu veux voir?</span> <br><br>
                   <div class="form-check mb-3">
-                      <input type="radio" class="form-check-input" id="homme" value="homme" name="sexe">
+                      <input type="radio" class="form-check-input" id="homme" value="2" name="sexLooking">
                       <label class="form-check-label" for="homme">homme</label>
                   </div>
                   <div class="form-check mb-3">
-                      <input type="radio" class="form-check-input" id="femme" value="femme" name="sexe">
+                      <input type="radio" class="form-check-input" id="femme" value="1" name="sexLooking">
                       <label class="form-check-label" for="femme">femme</label>
                   </div>
                   <div class="form-check mb-3">
-                      <input type="radio" class="form-check-input" id="tous" value="tous" name="sexe">
+                      <input type="radio" class="form-check-input" id="tous" value="0" name="sexLooking">
                       <label class="form-check-label" for="tous">tous</label>
                   </div>
                   

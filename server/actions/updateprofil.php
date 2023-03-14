@@ -8,9 +8,17 @@
     $height = $_POST['height'];   
     $gender = $_POST['gender'];
     $typeRelation = $_POST['relation'];
+    $sexLooking = $_POST['sexLooking'];
+
     $bio = $_POST['bio'];
     $img = $_POST['img'];
     $dossier="../photosMembres/";
+
+
+    if($sexLooking ==0)
+    $sexLooking = null;
+
+   
     if($_FILES['picture']['tmp_name']!==""){
         $nomImage=sha1($nom.time());
         $tmp = $_FILES['picture']['tmp_name'];
@@ -24,7 +32,7 @@
         $membreapi = new MembreAPI();
         $membreapi->connect();
 
-        $membreapi->updateProfilUser($idUser,$prenom,$nom,$height,$gender,$typeRelation,$image ? $image : $img,$bio);
+        $membreapi->updateProfilUser($idUser,$prenom,$nom,$height,$gender,$typeRelation,$image ? $image : $img,$bio, $sexLooking );
     } catch(Exception $e){
         //Retourner le message voulu
     }finally {
