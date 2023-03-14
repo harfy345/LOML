@@ -43,7 +43,7 @@ $mailer->setSubject($subject ? $subject : "unknown");
 $mailer->addTo("hakam.almotlk345@gmail.com", "Example User");
 $mailer->addContent(
     "text/html",
-    "<a href='mailto:$email'>$email</a><br/><strong>$message</strong>"
+    "<strong>$email</strong><br/><strong>$message</strong>"
 );
 
 $sendgrid = new \SendGrid(sendgrid_api);
