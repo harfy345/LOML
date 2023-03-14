@@ -545,6 +545,43 @@ function montrerProfil(id) {
                 </div>
               </div>
             </div>
+
+
+            <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                montre moi: 
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+          
+          
+          
+          
+              <div class="mySlides">
+                  <span class="msgFormEnreg">Quelle sexe tu veux voir?</span> <br><br>
+                  <div class="form-check mb-3">
+                      <input type="radio" class="form-check-input" id="homme" value="homme" name="sexe">
+                      <label class="form-check-label" for="homme">homme</label>
+                  </div>
+                  <div class="form-check mb-3">
+                      <input type="radio" class="form-check-input" id="femme" value="femme" name="sexe">
+                      <label class="form-check-label" for="femme">femme</label>
+                  </div>
+                  <div class="form-check mb-3">
+                      <input type="radio" class="form-check-input" id="tous" value="tous" name="sexe">
+                      <label class="form-check-label" for="tous">tous</label>
+                  </div>
+                  
+              </div>
+          
+              </div>
+            </div>
+          </div>
+
+
+
                 <div class="col-12">
                     <button class="btn btn-primary" type="submit" >Enregistrer</button>
                 </div>
