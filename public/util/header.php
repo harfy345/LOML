@@ -34,7 +34,7 @@ $active_page = $_SESSION['active_page'];
 
 
           <div class="d-flex nav-gauche">
-              <a href="index.php"><img src = "public/images/logo-no-bg.png" width ="90px" height ="90px" href="index.php"/></a>
+              <a href="index.php"><img src = "public/images/logo-no-bg.png" width ="90px" height ="90px"/></a>
               <a class="font-title navbar text-dark" href="index.php">LOML</a>
           </div>	
           
@@ -57,12 +57,12 @@ $active_page = $_SESSION['active_page'];
           <div id="navCont" class="container maxWidth">
             <div class="d-flex nav-gauche">
               <!--Le mettre beau -->
-              <img src='public/images/menuLogo.png' width='60pt' height='60pt' class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <img src='public/images/menuLogo.png' width='60pt' height='60pt' class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"/>
                 <!-- <span class="navbar-toggler-icon"></span> -->
                 <i class="fas fa-bars"></i>
               </img>
               
-              <img src = "public/images/logo-no-bg.png" width ="60px" height ="60px" href="index.php"/>
+              <a href="index.php"><img src = "public/images/logo-no-bg.png" width ="60px" height ="60px"/></a>
               <a class="font-title navbar text-dark" href="index.php">LOML</a>
             </div>	
           
@@ -82,7 +82,7 @@ $active_page = $_SESSION['active_page'];
         <div id="navCont" class="container maxWidth">
           
             <div class="d-flex nav-gauche">
-              <img src = "public/images/logo-no-bg.png" width ="90px" height ="90px" href="index.php"/>
+            <a href="index.php"><img src = "public/images/logo-no-bg.png" width ="90px" height ="90px" href="index.php"/></a>
               <a class="font-title navbar text-dark " href="index.php">LOML</a>
             </div>	
 
