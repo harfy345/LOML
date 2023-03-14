@@ -123,7 +123,7 @@ CREATE TABLE `profil` (
   `typeRelation` varchar(255) NOT NULL,
   `picture` varchar(255) NOT NULL,
   `bio` varchar(255) NOT NULL,
-  `sexLooking` varchar(255) DEFAULT NULL
+  `sexLooking` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------

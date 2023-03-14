@@ -10,6 +10,7 @@
     $typeRelation = $_POST['relation'];
     $bio = $_POST['bio'];
     $picture = $_POST['picture'];
+    $sexLooking = null;
 
 
     $dossier="../photosMembres/";
@@ -23,9 +24,9 @@
         $image=$nomImage.$extension;
     }
     try{
-        $requete = "INSERT INTO profil values($id,?,?,?,?,?,?,?)";
+        $requete = "INSERT INTO profil values($id,?,?,?,?,?,?,?,?)";
         $stmt = $connexion->prepare($requete);
-        $stmt->bind_param("iiiisss", $rank, $age, $height, $gender, $typeRelation,$image, $bio);
+        $stmt->bind_param("iiiissss", $rank, $age, $height, $gender, $typeRelation,$image, $bio, $sexLooking);
         $stmt->execute();
         $id=$connexion->insert_id;
 

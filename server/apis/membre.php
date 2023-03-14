@@ -347,16 +347,46 @@ class MembreAPI
 		
 	}
 
+	function getSexLooking($id){
+
+		$requete = "SELECT users.*, profil.sexLooking
+		FROM users INNER JOIN profil ON users.idUser = profil.idUser WHERE users.idUser =?";
+
+		$stmt = $this->connexion->prepare($requete);
+		$stmt->bind_param("i", $id);
+		$stmt->execute();
+		$result = $stmt->get_result();
+		$stmt->close();
+
+		if ($result->num_rows == 0) {
+			// id does not exist in database
+			return null;
+		} else {
+			$row = $result->fetch_assoc();
+			return $row["sexLooking"];
+		}
+
+	}
+
+
 	function getProfilesToShow()
     {
         $id= intval($_POST['id']);
 		
+		$sexLooking = $this->getSexLooking($id);
 
-        $requete = "SELECT profil.*, users.firstName FROM profil 
-		INNER JOIN users ON users.idUser = profil.idUser 
-		WHERE (profil.idUser NOT LIKE $id) AND profil.idUser NOT IN 
-		(SELECT seenprofile.idUserSeen FROM seenprofile WHERE seenprofile.idUser = $id AND seenprofile.idUserSeen = seenprofile.idUserSeen);";
+		if($sexLooking != null){
+			$requete = "SELECT profil.*, users.firstName FROM profil 
+			INNER JOIN users ON users.idUser = profil.idUser 
+			WHERE (profil.idUser NOT LIKE $id) AND profil.idUser NOT IN 
+			(SELECT seenprofile.idUserSeen FROM seenprofile WHERE seenprofile.idUser = $id AND seenprofile.idUserSeen = seenprofile.idUserSeen) AND profil.gender = $sexLooking;";
+		}else{
+			$requete = "SELECT profil.*, users.firstName FROM profil 
+			INNER JOIN users ON users.idUser = profil.idUser 
+			WHERE (profil.idUser NOT LIKE $id) AND profil.idUser NOT IN 
+			(SELECT seenprofile.idUserSeen FROM seenprofile WHERE seenprofile.idUser = $id AND seenprofile.idUserSeen = seenprofile.idUserSeen)";
 
+		}
 
         $result = mysqli_query($this->connexion, $requete);
 
