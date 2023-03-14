@@ -40,7 +40,7 @@ require_once("../../mail/config.php");
 $mailer = new \SendGrid\Mail\Mail(); 
 $mailer->setFrom("201911524@collegeahuntsic.qc.ca", "Example User");
 $mailer->setSubject($subject ? $subject : "unknown");
-$mailer->addTo("hakam.almotlk345@gmail.com", "Example User");
+$mailer->addTo("METTEZ VOTRE EMAIL ICI POUR QUE CA MARCHE", "Example User");
 $mailer->addContent(
     "text/html",
     "<strong>$email</strong><br/><strong>$message</strong>"
