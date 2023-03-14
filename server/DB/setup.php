@@ -35,7 +35,7 @@ foreach ($clients as $client) {
 
   $requete = "INSERT INTO profil values($id,?,?,?,?,?,?,?,?)";
   $stmt = $connexion->prepare($requete);
-  $stmt->bind_param("iiiissss", $rank, $age, $height, $gender, $typeRelation,$image, $bio, $sexLooking);
+  $stmt->bind_param("iiiisssi", $rank, $age, $height, $gender, $typeRelation,$image, $bio, $sexLooking);
   $stmt->execute();
 
 }
