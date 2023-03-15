@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 17 fév. 2023 à 15:19
+-- Généré le : mar. 14 mars 2023 à 19:44
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.2.0
 
@@ -35,10 +35,6 @@ CREATE TABLE `connection` (
   `email` varchar(255) NOT NULL,
   `pass` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci;
-
---
--- Déchargement des données de la table `connection`
---
 
 -- --------------------------------------------------------
 
@@ -93,7 +89,6 @@ CREATE TABLE `matchs` (
   `idUser2` int(11) NOT NULL,
   `viewed` tinyint(4) NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp()
-
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
@@ -127,14 +122,9 @@ CREATE TABLE `profil` (
   `gender` int(11) NOT NULL,
   `typeRelation` varchar(255) NOT NULL,
   `picture` varchar(255) NOT NULL,
-  `bio` varchar(255) NOT NULL
+  `bio` varchar(255) NOT NULL,
+  `sexLooking` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci ROW_FORMAT=COMPACT;
-
---
--- Déchargement des données de la table `profil`
---
-
-
 
 -- --------------------------------------------------------
 
@@ -177,12 +167,6 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_unicode_ci;
 
 --
--- Déchargement des données de la table `users`
---
-
-
-
---
 -- Index pour les tables déchargées
 --
 
@@ -214,6 +198,7 @@ ALTER TABLE `matchs`
   ADD PRIMARY KEY (`idMatch`),
   ADD KEY `matchs_ibfk_1` (`idUser1`),
   ADD KEY `matchs_idfk_2` (`idUser2`) USING BTREE;
+
 --
 -- Index pour la table `messages`
 --
@@ -257,31 +242,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `conversation`
 --
 ALTER TABLE `conversation`
-  MODIFY `idConversation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `idConversation` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `matchs`
 --
 ALTER TABLE `matchs`
-  MODIFY `idMatch` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `idMatch` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `idMessages` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `idMessages` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `seenprofile`
 --
 ALTER TABLE `seenprofile`
-  MODIFY `idSeenProfile` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `idSeenProfile` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Contraintes pour les tables déchargées

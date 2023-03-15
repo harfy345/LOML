@@ -2,6 +2,10 @@
 
 session_start();
 
+if (!isset($_SESSION['username'])) {
+    header("location:./conexion.php");
+}
+
 // vous mettez ca dans une page que vous voulez pas que l'utilisateur ait acces sans connexion 
 
 $_SESSION['active_page'] = 'membre';

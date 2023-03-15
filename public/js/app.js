@@ -359,7 +359,7 @@ function popupProfileMembre() {
                      </div>
                      <div class="col-md-12 mySlides" style="max-width: 700px; display: block; text-align: center; margin-right: auto; margin-left: auto;">
 
-                         <span class="msgFormEnreg" style="font-size: x-large;">Ton sexe ?</span><br><br>
+                         <span class="msgFormEnreg" style="font-size: x-large;">Quelle est votre sexe ?</span><br><br>
                          <div class="form-check mb-3">
                              <input type="radio" class="form-check-input" id="feminin" value="1" name="gender" required>
                              <label class="form-check-label" for="feminin">Féminin</label>
@@ -377,7 +377,7 @@ function popupProfileMembre() {
                      
                      <div class="col-md-12 mySlides" style="max-width: 700px; display: block; text-align: center; margin-right: auto; margin-left: auto;" >
 
-                         <span class="msgFormEnreg" style="font-size: x-large;">Quelle type de relation recherche-tu ?</span> <br><br>
+                         <span class="msgFormEnreg" style="font-size: x-large;">Quelle type de relation recherches-tu ?</span> <br><br>
                          <div class="form-check mb-3">
                              <input type="radio" class="form-check-input" id="serieux" value="serieux" name="relation" required>
                              <label class="form-check-label" for="serieux">Relation sérieuse</label>
@@ -433,7 +433,7 @@ function montrerProfil(id) {
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingPhoto">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePhoto" aria-expanded="true" aria-controls="collapsePhoto">
-                Mes photos
+                Ma photo
                 </button>
               </h2>
               <div id="collapsePhoto" class="accordion-collapse collapse show" aria-labelledby="headingPhoto" data-bs-parent="#accordionExample">
@@ -449,7 +449,7 @@ function montrerProfil(id) {
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingOne">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Mes Informations de base
+                Mes informations de base
                 </button>
               </h2>
               <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
@@ -459,7 +459,7 @@ function montrerProfil(id) {
                               <input type="height" class="form-control" id="editheight" name="height" required> 
             
                               <div class="mySlides">
-                                  <span class="msgFormEnreg">Ton sexe ?</span><br><br>
+                                  <span class="msgFormEnreg">Quelle est votre sexe ?</span><br><br>
                                   <div class="form-check mb-3">
                                       <input type="radio" class="form-check-input" id="radio-1" value="1" name="gender">
                                       <label class="form-check-label" for="feminin">Féminin</label>
@@ -494,7 +494,7 @@ function montrerProfil(id) {
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingTwo">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                A propos de moi
+                À propos de moi
                 </button>
               </h2>
               <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
@@ -513,7 +513,7 @@ function montrerProfil(id) {
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingThree">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                type de relation
+                Type de relation
                 </button>
               </h2>
               <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
@@ -523,7 +523,7 @@ function montrerProfil(id) {
             
             
                 <div class="mySlides">
-                    <span class="msgFormEnreg">Quelle type de relation recherche-tu ?</span> <br><br>
+                    <span class="msgFormEnreg">Quelle type de relation recherchez-vous ?</span> <br><br>
                     <div class="form-check mb-3">
                         <input type="radio" class="form-check-input" id="serieux" value="serieux" name="relation">
                         <label class="form-check-label" for="serieux">Relation sérieuse</label>
@@ -545,6 +545,51 @@ function montrerProfil(id) {
                 </div>
               </div>
             </div>
+
+
+            <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Préférence
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+          
+          
+          
+          
+              <div class="mySlides">
+               
+
+                <div class="form-check mb-3">
+                    <input type="radio" class="form-check-input" id="radioP-1" value="1" name="sexLooking">
+                    <label class="form-check-label" for="femme">femme</label>
+                </div>
+
+                <div class="form-check mb-3">
+                    <input type="radio" class="form-check-input" id="radioP-2" value="2" name="sexLooking">
+                    <label class="form-check-label" for="homme">homme</label>
+                </div>
+
+                <div class="form-check mb-3">
+                    <input type="radio" class="form-check-input" id="radioP-3" value="3" name="sexLooking">
+                    <label class="form-check-label" for="homme">non-Binaire</label>
+                </div>
+
+                <div class="form-check mb-3">
+                    <input type="radio" class="form-check-input" id="radioP-null" value="0" name="sexLooking">
+                    <label class="form-check-label" for="tous">tous</label>
+                </div>
+                  
+              </div>
+          
+              </div>
+            </div>
+          </div>
+
+
+
                 <div class="col-12">
                     <button class="btn btn-primary" type="submit" >Enregistrer</button>
                 </div>
@@ -569,6 +614,7 @@ function montrerProfil(id) {
             console.log("object: ");
             console.log(data);
             document.getElementById("radio-" + data.gender).checked = true;
+            document.getElementById("radioP-" + data.sexLooking).checked = true;
             document.getElementById(data.typeRelation).checked = true;
         },
     });
