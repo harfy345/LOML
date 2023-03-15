@@ -541,6 +541,15 @@ body::-webkit-scrollbar {
  }
  
 body::-webkit-scrollbar-thumb {   
-   background: #e3b6c7;
-   height: 100px;   
+   background: #e3b6c7;  
 }
+
+div::-webkit-scrollbar {
+    width: 15px; 
+          
+ }
+
+ div::-webkit-scrollbar-thumb {   
+    background: #00000063;
+ }
+ 

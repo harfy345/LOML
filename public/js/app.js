@@ -1269,6 +1269,23 @@ function montrerProfilClose(id, idUser, name, age, height, gender, type, picture
 
 function montrerProfilOpen(id, idUser, name, age, height, gender, type, picture, bio) {
 
+    var nomType;
+
+    switch(type) {
+        case "rien":
+            nomType = "rien de sérieux";
+            break;
+        case "coup":
+            nomType = "un coup d'un soir";
+            break;
+        case "friend":
+            nomType = "un(e) ami(e) avec bénéfices"
+            break;
+        case "serieux":
+            nomType = "une relation sérieuse";
+            break;
+      }
+
     var card = `
     <div id="profil-open">
     <div
@@ -1388,7 +1405,7 @@ function montrerProfilOpen(id, idUser, name, age, height, gender, type, picture,
     </h6>
     <p style="color: rgb(255, 255, 255, 0.7)">
     Je recherche
-    ${type}
+    ${nomType}
     </p>
     </div>
     <div class="card-body">
@@ -1480,15 +1497,21 @@ function profilMatch(id) {
             var nomGender;
             var nomType;
 
-            if (type == 'coup') {
-                nomType = "Un coup d'un soir"
-            } else if (type == 'rien') {
-                nomType = 'Rien de serieux';
-            } else if (type == 'friend') {
-                nomType = 'Un Sex Friend';
-            } else if (type == 'serieux') {
-                nomType = 'Une relation serieuse';
+            switch(type) {
+                case "rien":
+                    nomType = "rien de sérieux";
+                    break;
+                case "coup":
+                    nomType = "un coup d'un soir";
+                    break;
+                case "friend":
+                    nomType = "un(e) ami(e) avec bénéfices"
+                    break;
+                case "serieux":
+                    nomType = "une relation sérieuse";
+                    break;
             }
+
             console.log(nomType);
 
             if (gender == 1) {
