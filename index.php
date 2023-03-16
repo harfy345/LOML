@@ -11,19 +11,11 @@ if (isset($_SESSION['username'])) {
 }
 $_SESSION['active_page'] = 'home';
 $pagetitre = "index";
+
 require_once("./public/util/header.php");
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body class="gb-index">
 
 
 <div class="d-flex justify-content-center my-auto w-100 h-100 div-inside-inscrire menu-index-animation"> 
@@ -42,9 +34,7 @@ require_once("./public/util/header.php");
       </section>
 </div>
    
-  
-</body>
-</html>
+
 
 
 <!-- Afficher le toast de la connection-->
