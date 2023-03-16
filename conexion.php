@@ -71,11 +71,10 @@ require_once("./public/util/header.php");
   </div>
 </div>
 </div>
-
+<link rel="stylesheet" href="./public/css/conexion.css">
 <?php
 
 require_once("./public/util/footer.php");
 
 ?>
 
-<link rel="stylesheet" href="./public/css/conexion.css">
