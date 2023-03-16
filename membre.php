@@ -46,10 +46,10 @@ if (!$profil) {
 
 
 <div  style="display: flex;">
-  <div  style="flex: 2; ">
+  <div  style="flex: 2;">
                         
         <!--Main Navigation-->
-        <div style="w-25">
+        <div >
             <!-- Sidebar -->
             <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
                 <div class="position-sticky">
