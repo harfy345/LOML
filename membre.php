@@ -11,7 +11,7 @@ if (!isset($_SESSION['username'])) {
 $_SESSION['active_page'] = 'membre';
 $pagetitre = "index";
 
-require_once ("./server/apis/membre.php");
+require_once("./server/apis/membre.php");
 include "./public/util/header.php";
 
 $membreapi = new MembreAPI();
@@ -21,8 +21,8 @@ $profilActive = $membreapi->verifierUserActive($_SESSION['id']);
 $matches = $membreapi->getAllMatchesPourUser($_SESSION['id']);
 $membreapi->disconnect();
 
-if ($profilActive -> active == 0) {
-    $msg="Vous avez été bani";
+if ($profilActive->active == 0) {
+    $msg = "Vous avez été bani";
     header("location:./conexion.php?msg=$msg");
 }
 
@@ -45,11 +45,11 @@ if (!$profil) {
 </div>
 
 
-<div  style="display: flex;">
-  <div  style="flex: 2;">
-                        
+<div style="display: flex;">
+    <div style="flex: 2;">
+
         <!--Main Navigation-->
-        <div >
+        <div>
             <!-- Sidebar -->
             <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
                 <div class="position-sticky">
@@ -58,131 +58,156 @@ if (!$profil) {
 
 
                         <div class="accordion accordion-flush" id="accordionFlushExample">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingOne">
-                                    <button onclick="montrerProfil(<?php echo($_SESSION['id']) ?>);" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                        Compte
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body"></div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingTwo">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                        Conversations
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">
-                                <?php
-
-                                    $membreapi->connect();
-
-                                    $convos = $membreapi->getAllConvosPourUser($_SESSION['id']);
-
-                                    $membreapi->disconnect();
+                            <?php
+                            if ($profil) {
+                            ?>
 
 
-                                    while ($row = mysqli_fetch_array($convos)) {
-                                        
-                                        if($row['idUser1'] == $_SESSION['id']) {
-                                            
-                                        ?>
-
-                                        <button onclick="montrerMessage(<?php echo($row['idConversation'])?>, <?php echo($_SESSION['id'])?>, <?php echo($row['idUser2'])?>, '<?php echo($row['firstName2'])?>', '<?php echo($row['picture2'])?>'); updateViewed(<?php echo $row['idUser1']; ?>,<?php echo $row['idUser2']; ?>);"
-                                         type="button" class="btn btn-secondary btn-lg btn-block"><?php echo $row['firstName2']; ?></button>
-
-                                    
-                                        <?php
-                                        } else {
-                                        ?>
-                                        <button onclick="montrerMessage(<?php echo($row['idConversation'])?>, <?php echo($_SESSION['id'])?>, <?php echo($row['idUser1'])?>, '<?php echo($row['firstName1'])?>', '<?php echo($row['picture1'])?>'); updateViewed(<?php echo $row['idUser1']; ?>,<?php echo $row['idUser2']; ?>);"
-                                         type="button" class="btn btn-secondary btn-lg btn-block"><?php echo $row['firstName1']; ?></button>
-
-                                    <?php
-                                    } } 
-                                    
-                                      ?>
-
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingOne">
+                                        <button onclick="montrerProfil(<?php echo ($_SESSION['id']) ?>);" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                            Compte
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body"></div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingThree">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                                        Matches
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body">
-                                    <script>
-                                    
-                                    const matchesToShow = [];
-                                    </script>
-                                    <?php
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                            Conversations
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
+                                            <?php
 
-                                    while ($row = mysqli_fetch_array($matches)) {
-                                       
-                                       
-                                        if($row['idUser1'] == $_SESSION['id']) {
-                                        ?>
-                                        
-                                        <?php if($row['viewed'] == 0){
+                                            $membreapi->connect();
+
+                                            $convos = $membreapi->getAllConvosPourUser($_SESSION['id']);
+
+                                            $membreapi->disconnect();
+
+
+                                            while ($row = mysqli_fetch_array($convos)) {
+
+                                                if ($row['idUser1'] == $_SESSION['id']) {
+
                                             ?>
-                                             <script>
-                                           
-                                                matchesToShow.push({firstName: '<?php echo $row['firstName2']; ?>'});
-                                               
-                                            </script>
-                                        <?php
-                                            }
+
+                                                    <button onclick="montrerMessage(<?php echo ($row['idConversation']) ?>, <?php echo ($_SESSION['id']) ?>, <?php echo ($row['idUser2']) ?>, '<?php echo ($row['firstName2']) ?>', '<?php echo ($row['picture2']) ?>'); updateViewed(<?php echo $row['idUser1']; ?>,<?php echo $row['idUser2']; ?>);" type="button" class="btn btn-secondary btn-lg btn-block"><?php echo $row['firstName2']; ?></button>
+
+
+                                                <?php
+                                                } else {
                                                 ?>
-                                       
+                                                    <button onclick="montrerMessage(<?php echo ($row['idConversation']) ?>, <?php echo ($_SESSION['id']) ?>, <?php echo ($row['idUser1']) ?>, '<?php echo ($row['firstName1']) ?>', '<?php echo ($row['picture1']) ?>'); updateViewed(<?php echo $row['idUser1']; ?>,<?php echo $row['idUser2']; ?>);" type="button" class="btn btn-secondary btn-lg btn-block"><?php echo $row['firstName1']; ?></button>
 
-                                        <button  type="button" onclick="profilMatch(<?php echo($row['idUser2']) ?>); updateViewed(<?php echo $row['idUser2']; ?>,<?php echo $row['idUser1']; ?>);"  class="btn btn-secondary btn-lg btn-block"><?php echo $row['firstName2']; ?></button>
-                                        <button type="button" class="btn-close" aria-label="Close" onclick=unmatch()></button>
-                                    
-                                        <?php
-                                        } else {
-                                        ?>
-                                     
-                                        
-                                         <?php if($row['viewed'] == 0){
+                                            <?php
+                                                }
+                                            }
+
                                             ?>
-                                            
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                            Matches
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                        <div class="accordion-body">
                                             <script>
-                                    
-                                                matchesToShow.push({firstName: '<?php echo $row['firstName1']; ?>'});
-                                               
+                                                const matchesToShow = [];
                                             </script>
-                                        <?php
-                                            }
+                                            <?php
+
+                                            while ($row = mysqli_fetch_array($matches)) {
+
+
+                                                if ($row['idUser1'] == $_SESSION['id']) {
+                                            ?>
+
+                                                    <?php if ($row['viewed'] == 0) {
+                                                    ?>
+                                                        <script>
+                                                            matchesToShow.push({
+                                                                firstName: '<?php echo $row['firstName2']; ?>'
+                                                            });
+                                                        </script>
+                                                    <?php
+                                                    }
+                                                    ?>
+
+
+                                                    <button type="button" onclick="profilMatch(<?php echo ($row['idUser2']) ?>); updateViewed(<?php echo $row['idUser2']; ?>,<?php echo $row['idUser1']; ?>);" class="btn btn-secondary btn-lg btn-block"><?php echo $row['firstName2']; ?></button>
+                                                    <button type="button" class="btn-close" aria-label="Close" onclick=unmatch()></button>
+
+                                                <?php
+                                                } else {
                                                 ?>
-                                       
-                                       <button type="button" onclick="profilMatch(<?php echo $row['idUser1']; ?>); updateViewed(<?php echo $row['idUser1']; ?>,<?php echo $row['idUser2']; ?>);" class="btn btn-secondary btn-lg btn-block"><?php echo $row['firstName1']; ?></button>
-                                       <button type="button" class="btn-close" aria-label="Close" onclick=unmatch()></button>
 
 
-                                    <?php
-                                    } } 
-                                      ?>
+                                                    <?php if ($row['viewed'] == 0) {
+                                                    ?>
 
-                                    <script>
-                                        if (matchesToShow.length === 0) {
-                                            console.log("Le tableau est vide !");
-                                        }
-                                        else{
-                                          
-                                            afficherMatches(matchesToShow);
-                                        }
-                                   
-                                    </script>
+                                                        <script>
+                                                            matchesToShow.push({
+                                                                firstName: '<?php echo $row['firstName1']; ?>'
+                                                            });
+                                                        </script>
+                                                    <?php
+                                                    }
+                                                    ?>
 
+                                                    <button type="button" onclick="profilMatch(<?php echo $row['idUser1']; ?>); updateViewed(<?php echo $row['idUser1']; ?>,<?php echo $row['idUser2']; ?>);" class="btn btn-secondary btn-lg btn-block"><?php echo $row['firstName1']; ?></button>
+                                                    <button type="button" class="btn-close" aria-label="Close" onclick=unmatch()></button>
+
+
+                                            <?php
+                                                }
+                                            }
+                                            ?>
+
+                                            <script>
+                                                if (matchesToShow.length === 0) {
+                                                    console.log("Le tableau est vide !");
+                                                } else {
+
+                                                    afficherMatches(matchesToShow);
+                                                }
+                                            </script>
+
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-headingFive">
+                                        <button onclick="getAllProfileNotSeen(<?php echo ($_SESSION['id']) ?>);" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                                            Rencontres
+                                        </button>
+                                        <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+                                            <div class="accordion-body"></div>
+                                        </div>
+                                    </h2>
+                                </div>
+                            <?php
+                            } else {
+                                ?>
+                                
+                                <button onclick="popupProfileMembre()">créer profil</button>
+                                <?php
+                            }
+                            ?>
+
+
+
+
                             <?php
                             if ($_SESSION['isAdmin']) {
                             ?>
@@ -203,60 +228,53 @@ if (!$profil) {
                             <?php
                             }
                             ?>
-
-                        <div class="accordion-item">
-                        <h2 class="accordion-header" id="flush-headingFive">
-                            <button onclick="getAllProfileNotSeen(<?php echo($_SESSION['id']) ?>);" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
-                                Rencontres
-                            </button>
-                            <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body"></div>
-                                </div>
-                        </h2>
-                        </div>
-
                             <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingSix">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseThree">
-                                            Abonnement
-                                        </button>
-                                    </h2>
-                                    <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body">
-                                            
+                                <h2 class="accordion-header" id="flush-headingSix">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseThree">
+                                        Abonnement
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">
+
                                         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                                        <input type="hidden" name="cmd" value="_xclick-subscriptions">
-                                        <input type="hidden" name="business" value="totof2724@hotmail.com">
-                                        <input type="hidden" name="lc" value="CA">
-                                        <input type="hidden" name="item_name" value="Premium">
-                                        <input type="hidden" name="no_note" value="1">
-                                        <input type="hidden" name="src" value="1">
-                                        <input type="hidden" name="currency_code" value="CAD">
-                                        <input type="hidden" name="bn" value="PP-SubscriptionsBF:btn_subscribeCC_LG.gif:NonHostedGuest">
-                                        <table>
-                                        <tr><td><input type="hidden" name="on0" value=""></td></tr><tr><td><select name="os0">
-                                            <option value="Premium">Premium : $25.00 CAD - mensuel</option>
-                                            <option value="Boost">Boost : $36.00 CAD - mensuel</option>
-                                        </select> </td></tr>
-                                        </table>
-                                        <input type="hidden" name="option_select0" value="Premium">
-                                        <input type="hidden" name="option_amount0" value="25.00">
-                                        <input type="hidden" name="option_period0" value="M">
-                                        <input type="hidden" name="option_frequency0" value="1">
-                                        <input type="hidden" name="option_select1" value="Boost">
-                                        <input type="hidden" name="option_amount1" value="36.00">
-                                        <input type="hidden" name="option_period1" value="M">
-                                        <input type="hidden" name="option_frequency1" value="1">
-                                        <input type="hidden" name="option_index" value="0">
-                                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - la solution de paiement en ligne la plus simple et la plus sécurisée !">
-                                        <img alt="" border="0" src="https://www.paypalobjects.com/fr_XC/i/scr/pixel.gif" width="1" height="1">
+                                            <input type="hidden" name="cmd" value="_xclick-subscriptions">
+                                            <input type="hidden" name="business" value="totof2724@hotmail.com">
+                                            <input type="hidden" name="lc" value="CA">
+                                            <input type="hidden" name="item_name" value="Premium">
+                                            <input type="hidden" name="no_note" value="1">
+                                            <input type="hidden" name="src" value="1">
+                                            <input type="hidden" name="currency_code" value="CAD">
+                                            <input type="hidden" name="bn" value="PP-SubscriptionsBF:btn_subscribeCC_LG.gif:NonHostedGuest">
+                                            <table>
+                                                <tr>
+                                                    <td><input type="hidden" name="on0" value=""></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><select name="os0">
+                                                            <option value="Premium">Premium : $25.00 CAD - mensuel</option>
+                                                            <option value="Boost">Boost : $36.00 CAD - mensuel</option>
+                                                        </select> </td>
+                                                </tr>
+                                            </table>
+                                            <input type="hidden" name="option_select0" value="Premium">
+                                            <input type="hidden" name="option_amount0" value="25.00">
+                                            <input type="hidden" name="option_period0" value="M">
+                                            <input type="hidden" name="option_frequency0" value="1">
+                                            <input type="hidden" name="option_select1" value="Boost">
+                                            <input type="hidden" name="option_amount1" value="36.00">
+                                            <input type="hidden" name="option_period1" value="M">
+                                            <input type="hidden" name="option_frequency1" value="1">
+                                            <input type="hidden" name="option_index" value="0">
+                                            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - la solution de paiement en ligne la plus simple et la plus sécurisée !">
+                                            <img alt="" border="0" src="https://www.paypalobjects.com/fr_XC/i/scr/pixel.gif" width="1" height="1">
                                         </form>
 
 
 
-                                        </div>
                                     </div>
                                 </div>
+                            </div>
 
 
 
@@ -269,16 +287,16 @@ if (!$profil) {
 
         </div>
         <!--Main Navigation-->
-  </div>
+    </div>
 
 
-  <div  style="flex: 7;">
+    <div style="flex: 7;">
 
-    <div id="contenuDeDroite" class="container ">
+        <div id="contenuDeDroite" class="container ">
+
+        </div>
 
     </div>
-  
-  </div>
 </div>
 
 
