@@ -66,8 +66,8 @@ $membreapi->disconnect();
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>NOM</th>
                         <th>PRENOM</th>
+                        <th>NOM</th>
                         <th>ADMIN</th>
                         <th>COURRIEL</th>
                         <th>MOT DE PASSE</th>
