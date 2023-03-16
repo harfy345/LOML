@@ -87,11 +87,7 @@ class MembreAPI
 	
 
 	//Passer le id de convo
-		
-
-	// SELECT m.* , u1.firstName as user1Name , u2.firstName as user2Name
-    //     FROM matchs m INNER JOIN users u1 on m.idUser1 = u1.idUser join users u2 on m.idUser2 = u2.idUser
-
+	
 	public function getAllMatchesPourUser($id)
 	{
 		$requete = "SELECT m.* , u1.firstName as firstName1 , u2.firstName as firstName2

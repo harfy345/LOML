@@ -39,27 +39,11 @@ echo "<a href='../../passwordRecovery.php?id=$encryption'>click</a>";
     
 }
 
-// $headers =  'MIME-Version: 1.0' . "\r\n"; 
-// $headers .= 'From: Your name <info@address.com>' . "\r\n";
-// $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n"; 
-// $headers = "From: localhost" . "\r\n" .
-// "CC: hakam.almotlk345@gmail.com";
-// mail('hakam.almotlk345@gmail.com', 'My Subject', $encryption , $headers);
-
-
-
 ?>
 
 
 <?php
-require '../../mail/vendor/autoload.php'; // If you're using Composer (recommended)
-// Comment out the above line if not using Composer
-// require("<PATH TO>/sendgrid-php.php");
-// If not using Composer, uncomment the above line and
-// download sendgrid-php.zip from the latest release here,
-// replacing <PATH TO> with the path to the sendgrid-php.php file,
-// which is included in the download:
-// https://github.com/sendgrid/sendgrid-php/releases
+require '../../mail/vendor/autoload.php';
 require_once("../../mail/config.php");
 
 

@@ -6,15 +6,6 @@
     $pass = $_POST['pass'];
     $pass2= $_POST['pass2'];
 
-/*    if(EmailExist()){
-        //insertMEmbre();
-    } else {
-        // afficher un message pour dire que le email est deja utilise 
-        // redirect to sign in 
-    }
-    
- */
-
  //******************************************************/
 
  // mettre le code dans des methodes server/api/membre

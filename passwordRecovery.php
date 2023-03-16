@@ -25,7 +25,6 @@ $decryption_key = "W3docs";
 $id = openssl_decrypt($encryption, $ciphering, $decryption_key, $options, $decryption_iv);
 
 // Displaying the decrypted string
-//echo "Decrypted String: " . $id;
 ?><link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -47,8 +46,8 @@ $id = openssl_decrypt($encryption, $ciphering, $decryption_key, $options, $decry
 </br>
 <button type="button" id="btnEdit" class="col-xs-12 btn btn-primary btn-load btn-lg"  onclick="editPass(<?php echo ($id)?>);">Changer le mot de passe</button>
 
-</div><!--/col-sm-6-->
-</div><!--/row-->
+</div>
+</div>
 </div>
 <?php
 
