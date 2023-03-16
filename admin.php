@@ -77,9 +77,6 @@ $membreapi->disconnect();
                         <th>Désactiver</th>
                     </tr>
                 </thead>
-
-
-
                 <tbody>
                     <?php
 
